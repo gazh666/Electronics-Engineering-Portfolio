@@ -1,0 +1,20 @@
+net_name,net_class,min_width_mm,clearance_mm,preferred_layers,current_a,design_rationale,source
+SENSE_P,analog_kelvin,0.25,0.25,"F.Cu",0.01,分流电阻 Kelvin 采样；不承载负载电流；从焊盘内侧单独引出,SLUSE86A p.62 Layout Guidelines
+SENSE_N,analog_kelvin,0.25,0.25,"F.Cu",0.01,同上；与 SENSE_P 等长并行并靠近 AFE 引脚,SLUSE86A p.62
+CELL_0_POS,cell_sense,0.25,0.25,"F.Cu",0.0001,单体采样；47 Ω + 0.22 µF 靠近引脚,SLUSE86A p.7 / p.62
+CELL_0_NEG,cell_sense,0.25,0.25,"F.Cu",0.0001,VC0 经 R/C 到 VSS,SLUSE86A Table 8-3
+CELL_1_POS,cell_sense,0.25,0.25,"F.Cu",0.0001,单体采样,SLUSE86A p.7
+CELL_2_POS,cell_sense,0.25,0.25,"F.Cu",0.0001,顶部单体采样；与 BAT_POS 同电位但单独走线,SLUSE86A p.7
+CELL_2_NEG,cell_sense,0.25,0.25,"F.Cu",0.0001,VC4A/VC4B 短接后进入采样,SLUSE86A p.3
+NTC_INPUT,analog_slow,0.2,0.2,"F.Cu",0.0001,NTC 分压；远离功率回路,SLUSE86A p.4
+I2C_SCL,digital,0.2,0.2,"F.Cu",0.001,400 kHz；2.2 kΩ 上拉；总线电容受限,SLUSE86A p.4
+I2C_SDA,digital,0.2,0.2,"F.Cu",0.001,同上,SLUSE86A p.4
+CHG_GATE,gate_drive,0.4,0.3,"F.Cu",0.0001,高侧 CHG NFET 栅极；回路面积最小化,SLUSE86A p.4 / p.62
+DSG_GATE,gate_drive,0.4,0.3,"F.Cu",0.0001,高侧 DSG NFET 栅极,SLUSE86A p.4
+CP1_NODE,charge_pump,0.4,0.3,"F.Cu",0.01,电荷泵电容节点；短且远离采样,SLUSE86A p.4
+BAT_POS,power,2.0,0.3,"F.Cu,In2.Cu",2.5,主功率正极；四层并联铜皮,本设计任务书 2.5 A 研究电流
+PACK_POS,power,2.0,0.3,"F.Cu,In2.Cu",2.5,组端输出正极,本设计任务书
+PACK_NEG,power,2.0,0.3,"F.Cu,In2.Cu",2.5,组端输出负极与分流电阻功率路径,本设计任务书
+GND,ground,0.5,0.25,"In1.Cu",2.5,主参考地平面；模拟地与功率地单点连接,SLUSE86A p.62
+REG1_3V3,power_small,0.4,0.25,"F.Cu",0.045,REG1 3.3 V 输出；最大 45 mA,SLUSE86A 6.12
+REG18,power_small,0.3,0.25,"F.Cu",0.001,内部 1.8 V；仅去耦，不对外供电,SLUSE86A 6.10

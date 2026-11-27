@@ -1,0 +1,48 @@
+version: "1.0"
+
+# 第九阶段工程限值（运行前冻结，运行后不得根据结果放宽）。
+# 来源：PowerLab configs/performance_limits.yaml、parallel transient limits、
+#       BatteryLab configs/protection_config.yaml、本阶段预先登记的带宽目标。
+frozen_at: "2026-11-26"
+policy: "结果产生后禁止修改本文件中的限值"
+
+nominal:
+  output_voltage_mean_v: {min: 4.9, max: 5.1}
+  steady_state_error_v: {max: 0.1}
+  output_ripple_vpp: {max: 0.05}
+  inductor_peak_current_a: {max: 3.5}
+  converter_input_voltage_v: {min: 8.5, max: 13.0}
+
+dynamic:
+  load_step_deviation_v: {max: 0.3}
+  line_step_deviation_v: {max: 0.5}
+  phase_margin_deg: {min: 45.0}
+  settling_tolerance_v: 0.1
+  settling_hold_s: 5.0e-4
+  settling_max_gap_s: 1.0e-4
+
+protection:
+  discharge_allowed_after_uv_trip: {max: 0}
+  current_suppression_ratio: {max: 0.05}
+  output_decay_voltage_v: {max: 4.5}
+  latching_required: true
+  automatic_restart_allowed: false
+
+energy:
+  steady_state_residual_percent: {max: 1.0}
+  require_independent_loss_model: true
+
+battery:
+  cell_undervoltage_trip_v: 2.80
+  cell_overvoltage_trip_v: 4.25
+  discharge_overcurrent_trip_a: 4.00
+  temperature_trip_c: 65.0
+
+system:
+  minimum_battery_terminal_voltage_v: 6.0
+  minimum_converter_input_voltage_v: 8.5
+
+notes:
+  - "0.3 V 负载阶跃与 0.5 V 线阶跃沿用 PowerLab 原有实际限值，未放宽。"
+  - "45° 相位裕量为预先登记目标，不是由本阶段结果反推。"
+  - "任何未取得有效证据的指标判 NOT_VERIFIED，不默认 PASS。"

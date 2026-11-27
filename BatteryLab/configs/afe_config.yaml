@@ -1,0 +1,64 @@
+version: "1.0"
+
+# 数据来源标记：本文件全部为教学设计与仿真参考，不是 BQ76922 官方芯片规格，
+# 也不是任何商业产品认证要求。
+source_type: educational_assumption
+
+battery_pack:
+  series_cells: 3
+  nominal_pack_voltage_v: 11.1
+  reference_cell_capacity_ah: 2.0280827046460144
+  cell_model: INR18650-20R
+  parameter_source: identified_parameters_stage3
+
+cell_voltage:
+  measurement_min_v: 2.5
+  measurement_max_v: 4.25
+  # 教学基准单体电压（Task 6）
+  reference_cell_voltages_v: [3.6, 3.8, 4.0]
+  input_filter_resistance_ohm: 47.0
+  differential_capacitance_f: 0.00000022
+
+differential_amplifier:
+  supply_voltage_v: 5.0
+  reference_voltage_v: 0.2
+  r1_ohm: 100000.0
+  r2_ohm: 50000.0
+  r3_ohm: 100000.0
+  r4_ohm: 50000.0
+  nominal_gain: 0.5
+  opamp_model: ideal
+  # 教学非理想运放参数（仅用于教学模型，不代表任何真实商业运放）
+  teaching_open_loop_gain: 1000000.0
+  teaching_output_low_v: 0.05
+  teaching_output_high_v: 4.95
+  teaching_input_offset_v: 0.0
+  teaching_gain_bandwidth_hz: 1000000.0
+
+current_sensing:
+  minimum_current_a: -2.5
+  maximum_current_a: 2.5
+  shunt_resistance_ohm: 0.01
+  amplifier_gain: 50.0
+  zero_current_reference_v: 1.65
+  amplifier_supply_voltage_v: 5.0
+  amplifier_output_low_v: 0.1
+  amplifier_output_high_v: 4.9
+  output_filter_resistance_ohm: 1000.0
+  output_filter_capacitance_f: 0.0000001
+
+adc:
+  reference_voltage_v: 3.3
+  resolution_bits: 12
+  architecture: sar_behavioral
+  encoding: midpoint_reconstruction
+
+temperature_sensing:
+  reference_resistance_ohm: 10000.0
+  reference_temperature_c: 25.0
+  beta_k: 3950.0
+  pullup_resistance_ohm: 10000.0
+  excitation_voltage_v: 3.3
+  minimum_temperature_c: 0.0
+  maximum_temperature_c: 60.0
+  internal_reference_used_for_ratio: true

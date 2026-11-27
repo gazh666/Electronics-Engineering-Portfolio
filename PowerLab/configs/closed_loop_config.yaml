@@ -1,0 +1,23 @@
+version: "1.0"
+specification_type: project_assumption
+name: closed_loop_nominal
+model_variant: E
+# 开环对照使用固定占空比；0.4448 由平均模型在中性负载下离线校准到 5.0 V，
+# 不是闭环实时搜索的结果。
+open_loop_duty_cycle: 0.4448
+
+# 功率级参数复用第四阶段配置，避免重复定义器件。
+power_stage_config: configs/nonideal_buck_config.yaml
+controller_config: configs/controller_config.yaml
+disturbance_config: configs/disturbance_cases.yaml
+
+simulation:
+  end_time_s: 0.012
+  # 25 ns 已通过 50 ns/25 ns 收敛对比：100 ns 会在 SW 变体上产生
+  # 由采样量化引起的虚假稳态极限环。
+  step_time_s: 2.5e-8
+  max_step_time_s: 2.5e-8
+  temperature_c: 25.0
+
+load: nominal
+line: nominal

@@ -1,0 +1,110 @@
+﻿version: "1.0"
+
+# 教学验证目标，不是商业芯片 Datasheet 规格。
+specification_type: project_assumption
+
+profiles:
+  baseline_open_loop:
+    note: "固定占空比开环基线；5 V 仅作为设计参考，不作为强制 PASS 条件"
+    output_voltage_ripple_vpp:
+      enabled: true
+      max: 0.05
+      required: true
+      unit: "V"
+    switching_frequency_hz:
+      enabled: true
+      min: 99000.0
+      max: 101000.0
+      required: true
+      unit: "Hz"
+    pwm_duty_absolute_error:
+      enabled: true
+      max: 0.005
+      required: true
+      unit: "1"
+    efficiency_system_percent:
+      enabled: true
+      min: 85.0
+      max: 100.0
+      required: true
+      unit: "%"
+    output_voltage_target:
+      enabled: false
+      min: 4.9
+      max: 5.1
+      required: false
+      unit: "V"
+    power_residual_ratio:
+      enabled: true
+      max: 0.05
+      required: true
+      unit: "1"
+
+  target_5v_design:
+    note: "目标 5 V 工况；必须保留实际 FAIL 结论，不得事后修改限值"
+    output_voltage_mean_v:
+      enabled: true
+      min: 4.9
+      max: 5.1
+      required: true
+      unit: "V"
+    output_voltage_ripple_vpp:
+      enabled: true
+      max: 0.05
+      required: true
+      unit: "V"
+    efficiency_system_percent:
+      enabled: true
+      min: 85.0
+      max: 100.0
+      required: true
+      unit: "%"
+
+  light_load_open_loop:
+    note: "轻载开环：输出会高于 5 V，不套用 5 V 限值"
+    output_voltage_ripple_vpp:
+      enabled: true
+      max: 0.05
+      required: true
+      unit: "V"
+    efficiency_system_percent:
+      enabled: true
+      min: 70.0
+      max: 100.0
+      required: true
+      unit: "%"
+    power_residual_ratio:
+      enabled: true
+      max: 0.05
+      required: true
+      unit: "1"
+
+  data_quality:
+    note: "数据质量与数值一致性检查"
+    power_residual_ratio:
+      enabled: true
+      max: 0.05
+      required: true
+      unit: "1"
+    energy_balance_residual_ratio:
+      enabled: true
+      max: 0.05
+      required: true
+      unit: "1"
+    output_voltage_ripple_vpp:
+      enabled: true
+      min: 0.0
+      required: true
+      unit: "V"
+
+  numerical_analysis:
+    note: "频谱与开关边沿的数值分辨率要求"
+    spectrum_frequency_resolution_hz:
+      enabled: true
+      max: 10000.0
+      required: true
+      unit: "Hz"
+    switching_edge_resolution_ok:
+      enabled: false
+      required: false
+      unit: "1"

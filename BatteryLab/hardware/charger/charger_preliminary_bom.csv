@@ -1,0 +1,13 @@
+ref,value,description,package,rating,status,note
+U1,BQ24610,同步降压电池充电控制器,24-pin VQFN,28 V,datasheet_specification,主控制器
+Q1,NFET 30 V / 8 A,高边开关,SOT-23 或 PowerPAK,30 V / 8 A,preliminary,由 BQ24610 HIDRV 驱动
+Q2,NFET 30 V / 8 A,低边同步整流,SOT-23 或 PowerPAK,30 V / 8 A,preliminary,由 LODRV 驱动
+Q3,PFET -30 V,输入 ACFET,PowerPAK,-30 V,preliminary,输入掉电隔离
+L1,10 µH / 3 A,功率电感,屏蔽,SAT ≥ 4 A,preliminary,600 kHz 下的参考量级；本项目 SPICE 教学模型为 100 µH / 100 kHz
+CIN,10 µF × 2,输入陶瓷电容,1206,25 V,preliminary,靠近 VCC 与高边漏极
+COUT,22 µF × 2,输出陶瓷电容,1206,25 V,preliminary,与 SPICE 的 220 µF 电解不同
+RSR,10 mΩ,电池电流检测电阻,2512,1 W,preliminary,SRP/SRN
+RAC,10 mΩ,输入电流检测电阻,2512,1 W,preliminary,ACP/ACN
+R1/R2,按 12.15 V 分压,VFB 反馈分压,0603,50 V,preliminary,需按内部参考电压计算
+RNTC,10 kΩ NTC,电池温度检测,0603,-,preliminary,TS 引脚
+D1,肖特基 30 V,自举/辅助,0603,30 V,preliminary,按数据手册参考电路

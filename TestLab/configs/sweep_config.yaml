@@ -1,0 +1,48 @@
+# 多工况扫描配置
+#
+# 所有扫描都通过 InstrumentManager + 现有 SCPI 驱动设置并回读仪器，
+# 不绕过通信层直接生成硬编码结果。
+load_sweep:
+  vin: 12.0
+  input_current_limit: 2.0
+  currents:
+    - 0.0
+    - 0.25
+    - 0.5
+    - 0.75
+    - 1.0
+    - 1.25
+    - 1.5
+    - 1.75
+    - 2.0
+    - 2.25
+    - 2.5
+
+line_sweep:
+  load_current: 1.0
+  input_current_limit: 2.0
+  input_voltages:
+    - 8.0
+    - 9.0
+    - 10.0
+    - 11.0
+    - 12.0
+    - 13.0
+    - 14.0
+    - 15.0
+    - 16.0
+    - 17.0
+
+matrix_sweep:
+  input_current_limit: 2.0
+  input_voltages:
+    - 9.0
+    - 12.0
+    - 16.0
+  load_currents:
+    - 0.0
+    - 0.5
+    - 1.0
+    - 1.5
+    - 2.0
+    - 2.5

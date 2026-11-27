@@ -1,0 +1,74 @@
+project:
+  name: BatteryLab_BMS_V1
+  revision: "1.0"
+  status: engineering_design_only
+  disclaimer: "Engineering Prototype Design — Not Hardware Validated"
+
+battery:
+  series_cells: 3
+  parallel_cells: 1
+  chemistry: lithium_ion
+  nominal_pack_voltage_v: 11.1
+  reference_pack_upper_voltage_v: 12.6
+  cell_reference_model: INR18650-20R
+  cell_reference_capacity_ah: 2.0280827046460144
+  # 12.6 V 只是 3×4.2 V 的参考上限，不是本包允许的充电条件。
+  pack_upper_voltage_is_charge_permission: false
+
+design:
+  continuous_current_research_a: 2.5
+  shunt_initial_candidate_ohm: 0.01
+  pcb_layer_count: 4
+  nominal_copper_thickness_um: 35
+  target_board_width_mm: 70
+  target_board_height_mm: 50
+  board_geometry_is_target_not_verified: true
+
+functions:
+  cell_voltage_measurement: true
+  pack_current_measurement: true
+  external_ntc: true
+  charge_discharge_protection: true
+  passive_balancing: true
+  host_communication: true
+  test_points: true
+
+afe:
+  device: BQ76922
+  datasheet: SLUSE86A
+  datasheet_revision: "APRIL 2022 — REVISED APRIL 2024"
+  package: RSN 32-pin QFN 4mm x 4mm
+  cell_channel_plan:
+    cell1: {positive_pin: 8, negative_pin: 9}
+    cell2: {positive_pin: 7, negative_pin: 8}
+    cell3: {positive_pin: 2, negative_pin: 3}
+  unused_channel_termination:
+    vc3a_vc3b_pins: [5, 6]
+    action: "short to VC2 net, per SLUSE86A Table 8-3"
+  cell_input_filter:
+    series_resistance_ohm: 47.0
+    differential_capacitance_f: 2.2e-7
+    datasheet_recommended_resistance_ohm: "20–100"
+    datasheet_recommended_capacitance_uf: "0.1–0.22–1"
+
+protection:
+  configuration_source: stage5_verified_config
+  production_thresholds_verified: false
+  cell_overvoltage_trip_v: 4.25
+  cell_undervoltage_trip_v: 2.80
+  discharge_overcurrent_trip_a: 4.00
+  short_circuit_trip_a: 8.00
+  note: "阈值沿用第五阶段教学设计，未写入 BQ76922 OTP/寄存器，未经芯片实测"
+
+balance:
+  method: internal_chip_balancing
+  external_resistor_ohm: 100.0
+  external_resistor_is_chip_balancing: false
+  note: "第五阶段 100 Ω 外部支路不等于 BQ76922 内部均衡；本设计选择内部均衡并保留外部扩流评估"
+
+metadata:
+  fabricated: false
+  assembled: false
+  hardware_validated: false
+  production_released: false
+  kicad_available_at_design_time: false

@@ -1,0 +1,19 @@
+version: "1.0"
+
+# 第九阶段三项目真实路径（2026-11-26 本机实测存在）。
+# 仅用于只读访问；TestLab / PowerLab 不修改。
+projects:
+  testlab:
+    root: "TestLab"
+    conda_env: kaifa
+    read_only_source: true
+    entry_hint: "engine/result_judge.py"
+  powerlab:
+    root: "PowerLab"
+    conda_env: kaifa_power
+    read_only_source: true
+    entry_hint: "circuits/closed_loop_buck.py"
+  batterylab:
+    root: "BatteryLab"
+    conda_env: kaifa_battery
+    read_only_source: false

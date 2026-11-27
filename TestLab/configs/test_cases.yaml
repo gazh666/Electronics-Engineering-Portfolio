@@ -1,0 +1,175 @@
+# TestLab 自动化测试用例（阶段七结构化配置）
+#
+# DUT：12 V 输入 / 5 V 输出 DC-DC 电源行为模型（models/virtual_dut.py）。
+#
+# 字段说明：
+#   id/name/category     用例编号、名称、分类（normal/boundary/protection/control）
+#   vin                  电源设定电压，单位 V（经 SCPI 下发并回读校验）
+#   input_current_limit  电源限流设定，单位 A（经 SCPI 下发并回读校验）
+#   load_current         电子负载 CC 电流设定，单位 A（经 SCPI 下发并回读校验）
+#   expected_state       期望 DUT 状态（models.virtual_dut.DUTState）
+#   output_enabled       电源输出开关，默认 true
+#   load_enabled         负载输入开关，默认 true
+#   enabled              false 时只记 SKIP，不访问仪器
+#   limits               工程限值，键为指标名，值为 {min, max}
+#
+# 数据来源：
+#   设定值 = pyvisa-sim SCPI；vout/iout/pin/pout/state = behavioral_model 计算值。
+#   全部为仿真结果，不代表真实硬件测量。
+#
+# 限值说明：4.9-5.1 V 与效率 85-100% 是项目假设，不是厂商数据手册指标。
+
+version: "1.0"
+specification_type: "component_performance_verification"
+notes:
+  - "所有数据来自 PyVISA-sim 虚拟仪器与 VirtualDUT 行为模型，属仿真结果。"
+  - "保护状态在预期范围内属于 PASS，不应整体判 FAIL。"
+
+test_cases:
+  # ------------------------------------------------------------------
+  # 常规工况
+  # ------------------------------------------------------------------
+  - id: TC001
+    name: 标称输入电压测试
+    category: normal
+    vin: 12.0
+    input_current_limit: 3.0
+    load_current: 1.0
+    expected_state: NORMAL
+    limits:
+      vout: { min: 4.9, max: 5.1 }
+      efficiency_percent: { min: 85.0, max: 100.0 }
+
+  - id: TC002
+    name: 空载测试
+    category: normal
+    vin: 12.0
+    input_current_limit: 3.0
+    load_current: 0.0
+    load_enabled: false
+    expected_state: NORMAL
+    limits:
+      vout: { min: 4.9, max: 5.1 }
+      # 空载效率不可定义，故不配置 efficiency_percent 检查
+
+  - id: TC003
+    name: 轻载测试
+    category: normal
+    vin: 12.0
+    input_current_limit: 3.0
+    load_current: 0.5
+    expected_state: NORMAL
+    limits:
+      vout: { min: 4.9, max: 5.1 }
+      efficiency_percent: { min: 80.0, max: 100.0 }
+
+  - id: TC004
+    name: 满载测试
+    category: normal
+    vin: 12.0
+    input_current_limit: 3.0
+    load_current: 2.0
+    expected_state: NORMAL
+    limits:
+      vout: { min: 4.9, max: 5.1 }
+      pout: { min: 9.5, max: 10.2 }
+      efficiency_percent: { min: 80.0, max: 100.0 }
+
+  # ------------------------------------------------------------------
+  # 边界输入电压（模型允许 9-16 V）
+  # ------------------------------------------------------------------
+  - id: TC005
+    name: 最低输入电压测试
+    category: boundary
+    vin: 9.0
+    input_current_limit: 3.0
+    load_current: 1.0
+    expected_state: NORMAL
+    limits:
+      vin: { min: 8.9, max: 9.1 }
+      vout: { min: 4.9, max: 5.1 }
+
+  - id: TC006
+    name: 最高输入电压测试
+    category: boundary
+    vin: 16.0
+    input_current_limit: 3.0
+    load_current: 1.0
+    expected_state: NORMAL
+    limits:
+      vin: { min: 15.9, max: 16.1 }
+      vout: { min: 4.9, max: 5.1 }
+
+  # ------------------------------------------------------------------
+  # 保护工况（简化模型：保护时输出全部为 0）
+  # ------------------------------------------------------------------
+  - id: TC007
+    name: 模拟欠压保护测试
+    category: protection
+    vin: 8.0
+    input_current_limit: 3.0
+    load_current: 1.0
+    expected_state: UNDERVOLTAGE
+    limits:
+      vout: { min: 0.0, max: 0.0 }
+      iout: { min: 0.0, max: 0.0 }
+
+  - id: TC008
+    name: 模拟过压保护测试
+    category: protection
+    vin: 17.0
+    input_current_limit: 3.0
+    load_current: 1.0
+    expected_state: OVERVOLTAGE
+    limits:
+      vout: { min: 0.0, max: 0.0 }
+      pout: { min: 0.0, max: 0.0 }
+
+  - id: TC009
+    name: 模拟过流保护测试
+    category: protection
+    vin: 12.0
+    input_current_limit: 3.0
+    load_current: 2.5
+    expected_state: OVERCURRENT
+    limits:
+      vout: { min: 0.0, max: 0.0 }
+      iin: { min: 0.0, max: 0.0 }
+
+  - id: TC010
+    name: 模拟输入限流保护测试
+    category: protection
+    vin: 12.0
+    input_current_limit: 0.1
+    load_current: 1.0
+    expected_state: INPUT_CURRENT_LIMIT
+    limits:
+      # 输入限流属于输入侧保护，Vin 仍然存在，只有输出被关闭
+      vout: { min: 0.0, max: 0.0 }
+      vin: { min: 11.9, max: 12.1 }
+
+  # ------------------------------------------------------------------
+  # 控制类工况
+  # ------------------------------------------------------------------
+  - id: TC011
+    name: 输出关闭测试
+    category: control
+    vin: 12.0
+    input_current_limit: 3.0
+    load_current: 1.0
+    output_enabled: false
+    expected_state: OUTPUT_OFF
+    limits:
+      vout: { min: 0.0, max: 0.0 }
+
+  - id: TC012
+    name: 负载关闭测试
+    category: control
+    vin: 12.0
+    input_current_limit: 3.0
+    load_current: 1.0
+    load_enabled: false
+    expected_state: NORMAL
+    limits:
+      vout: { min: 4.9, max: 5.1 }
+      iout: { min: 0.0, max: 0.0 }

@@ -1,0 +1,18 @@
+component_id,manufacturer,mpn,category,package,footprint,datasheet_url,document_revision,page_reference,parameter_source,verification_status
+AFE-001,Texas Instruments,BQ76922,3S-5S 电池监测与保护 AFE,RSN 32-pin QFN 4x4 mm,TI_RSN_32_4x4mm,https://www.ti.com/lit/ds/symlink/bq76922.pdf,SLUSE86A (2022-04, rev 2024-04),p.1/p.3-4/p.62,official_datasheet,VERIFIED_DATASHEET
+CHG-001,Texas Instruments,BQ24610,1-6 节同步 Buck 充电控制器,RGE 24-pin VQFN 4x4 mm,TI_RGE_24_4x4mm,https://www.ti.com/lit/ds/symlink/bq24610.pdf,SLUS892D (2009-12, rev 2019-12),p.1/p.4/p.17/p.29-31,official_datasheet,VERIFIED_DATASHEET
+FET-001,Texas Instruments,CSD18532Q5B,N 沟道功率 MOSFET,Son 5x6 mm,TI_SON_5x6mm,https://www.ti.com/lit/ds/symlink/csd18532q5b.pdf,SLPS322E (2012-11, rev 2026-07),p.1/p.3,official_datasheet,VERIFIED_DATASHEET
+FET-002,Texas Instruments,CSD18540Q5B,N 沟道功率 MOSFET,Son 5x6 mm,TI_SON_5x6mm,https://www.ti.com/lit/ds/symlink/csd18540q5b.pdf,SLPS488B (2014-06, rev 2017-04),p.1/p.3,official_datasheet,VERIFIED_DATASHEET
+FET-003,Texas Instruments,CSD17578Q5A,N 沟道功率 MOSFET,Son 5x6 mm,TI_SON_5x6mm,https://www.ti.com/lit/ds/symlink/csd17578q5a.pdf,SLPS526 (2015-03),p.1/p.3,official_datasheet,VERIFIED_DATASHEET
+FET-004,Texas Instruments,CSD17581Q5A,N 沟道功率 MOSFET,Son 5x6 mm,TI_SON_5x6mm,https://www.ti.com/lit/ds/symlink/csd17581q5a.pdf,SLPS630 (2016-09),p.1/p.3,official_datasheet,VERIFIED_DATASHEET
+SHN-001,Vishay Dale,WSL2512R0010FEA,1 mΩ 电流检测电阻,2512,Resistor_SMD_2512,https://www.vishay.com/docs/30100/wsl.pdf,Document 30100 (rev 2026-11-20),p.1-2,official_datasheet,VERIFIED_DATASHEET
+SHN-002,Vishay Dale,WSL2512R0020FEA,2 mΩ 电流检测电阻,2512,Resistor_SMD_2512,https://www.vishay.com/docs/30100/wsl.pdf,Document 30100 (rev 2026-11-20),p.1-2,official_datasheet,VERIFIED_DATASHEET
+SHN-003,Vishay Dale,WSL2010R0050FEA,5 mΩ 电流检测电阻,2010,Resistor_SMD_2010,https://www.vishay.com/docs/30100/wsl.pdf,Document 30100 (rev 2026-11-20),p.1-2,official_datasheet,VERIFIED_DATASHEET
+SHN-004,Vishay Dale,WSL2010R0100FEA,10 mΩ 电流检测电阻,2010,Resistor_SMD_2010,https://www.vishay.com/docs/30100/wsl.pdf,Document 30100 (rev 2026-11-20),p.1-2,official_datasheet,VERIFIED_DATASHEET
+IND-001,Bourns,SRN6045-150M,15 µH 功率电感,6.0x6.0x4.5 mm,Inductor_Bourns_SRN6045,https://www.bourns.com/docs/Product-Datasheets/SRN6045.pdf,SRN6045 rev 01/20,p.1,official_datasheet,VERIFIED_DATASHEET
+IND-002,Bourns,SRN6045-220M,22 µH 功率电感,6.0x6.0x4.5 mm,Inductor_Bourns_SRN6045,https://www.bourns.com/docs/Product-Datasheets/SRN6045.pdf,SRN6045 rev 01/20,p.1,official_datasheet,VERIFIED_DATASHEET
+IND-003,Vishay Dale,IHLP2525CZ-6R8,6.8 µH 屏蔽功率电感,2525,IHLP2525,https://www.vishay.com/doc?34250,datasheet not retrieved,TBD,ti_reference_bom_only,NOT_VERIFIED
+NTC-001,TBD,TBD,10 kΩ B3950 NTC 温度传感器,TBD,TBD,TBD,TBD,TBD,not_retrieved,TBD
+CAP-001,TBD,TBD,4.7 µF 25 V X7R MLCC,1206,C_1206,TBD,TBD,TBD,not_retrieved,TBD
+CAP-002,TBD,TBD,10 µF 25 V X7R MLCC,1206,C_1206,TBD,TBD,TBD,not_retrieved,TBD
+CON-001,TBD,TBD,3S 电芯线束连接器,TBD,TBD,TBD,TBD,TBD,not_retrieved,TBD

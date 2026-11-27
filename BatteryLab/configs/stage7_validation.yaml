@@ -1,0 +1,64 @@
+version: "1.0"
+
+source_type: educational_design
+
+# 本文件在正式运行前登记，运行期间不得修改任何限值。
+registered_before_run: true
+registration_date: "2026-11-26"
+
+# 教学目标，不是行业认证规范。
+targets:
+  math_correctness:
+    constant_current_soc_absolute_error: 1.0e-8
+    ocv_roundtrip_soc_error: 1.0e-6
+    rc_state_relative_error: 1.0e-9
+    capacity_integration_error_percent: 0.1
+    balancing_current_relation_error_ah: 1.0e-12
+
+  soc_estimation:
+    rmse_pp_max: 3.0
+    maximum_absolute_error_pp_max: 5.0
+    coverage_fraction_min: 0.99
+    applicable_temperature_c: 25.0
+    scope: >
+      限值只适用于具有可信 SOC 参考的 25℃ 动态工况；无静置条件的工况不承诺
+      OCV 校正收敛。
+
+  convergence:
+    tolerance_pp: 2.0
+    hold_time_s: 60.0
+    maximum_gap_s: 2.0
+    initial_error_pp: [-10.0, 10.0]
+    window_note: 观察窗口在运行前登记为完整动态段。
+
+  capacity_soh:
+    synthetic_math_error_percent_max: 0.1
+    real_vs_recorded_percent_max: 1.0
+    require_complete_protocol: true
+    no_independent_soh_claim_without_reference: true
+
+  data_quality:
+    invalid_sample_must_have_status: true
+    no_integration_across_unknown_current: true
+    no_hidden_soc_clipping: true
+    no_validation_tuning: true
+    no_internal_true_state_access: true
+    no_zero_fill_for_unknown: true
+
+budget:
+  total_runtime_minutes: 45
+  max_spice_solves: 20
+  max_estimation_scans: 120
+  reuse_valid_results: true
+  note: 同一份有效实验结果可被多个报告复用，但不重复计入 SPICE 求解次数。
+
+validation_cases:
+  independent_profiles: [us06_50, us06_80, bjdst_50, bjdst_80]
+  historical_only_profiles: [fuds_50, fuds_80]
+  development_profiles: [dst_50, dst_80]
+
+reporting:
+  soc_error_unit: percentage_point
+  unavailable_value: null
+  keep_failures: true
+  not_verified_when_no_data: true

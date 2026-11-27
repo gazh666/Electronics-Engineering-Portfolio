@@ -1,0 +1,41 @@
+version: "1.0"
+
+# 第五阶段性能分析参数。所有字段都被 performance_models.load_analysis_config 读取，
+# 缺失字段直接报错，不使用隐式默认值。
+
+analysis:
+  steady_state:
+    minimum_cycles: 20
+    preferred_cycles: 50
+
+  ripple:
+    calculate_vpp: true
+    calculate_ac_rms: true
+    calculate_per_cycle: true
+
+  switching:
+    low_threshold_ratio: 0.1
+    high_threshold_ratio: 0.9
+    minimum_edge_samples: 10
+
+  spectrum:
+    enabled: true
+    window: hann
+    preferred_cycles: 100
+    samples_per_cycle: 200
+    maximum_harmonic_order: 10
+    maximum_samples: 1000000
+    remove_dc: true
+    harmonic_tolerance_ratio: 0.02
+    minimum_harmonic_snr: 3.0
+
+  quality:
+    require_steady_state: true
+    reject_nonfinite_data: true
+    allow_extrapolation: false
+    preserve_raw_waveforms: true
+    maximum_power_residual_ratio: 0.05
+
+metadata:
+  specification_type: project_assumption
+  data_source_policy: "spice_simulation / spice_derived / analytical_theory / project_assumption"

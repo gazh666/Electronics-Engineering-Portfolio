@@ -1,0 +1,29 @@
+parameter,min,typ,max,unit,conditions,document_version,section,page,design_impact,source_type
+单体电压测量精度（25℃）,-5,,5,mV,2 V < VVC(x)-VVC(x-1) < 5 V; TA=25℃; 板级失调校准后,SLUSE86A (2022-04; rev 2024-04),6.3 Electrical Characteristics,7,决定 3S 单体采集的真实芯片精度目标; 不能与教学 12 位 ADC 混用,datasheet_specification
+单体电压测量精度（0-60℃）,-10,,10,mV,同上; TA=0-60℃,SLUSE86A,6.3,7,常温区目标 ±10 mV,datasheet_specification
+单体电压测量精度（-40-85℃）,-15,,15,mV,同上; TA=-40-85℃,SLUSE86A,6.3,7,全温区目标 ±15 mV,datasheet_specification
+组端电压测量精度,-0.5,,0.5,V,0 < VVC5-VVSS ≤ 27.5 V; TA=-40-85℃,SLUSE86A,6.3,7,仅用于组端监测; 不能替代单体精度,datasheet_specification
+PACK 引脚测量精度,-0.5,,0.5,V,0 < VPACK-VVSS ≤ 27.5 V; TA=-40-85℃,SLUSE86A,6.3,7,负载检测与包电压辅助,datasheet_specification
+LD 引脚测量精度,-0.5,,0.5,V,0 < VLD-VVSS ≤ 27.5 V; TA=-40-85℃,SLUSE86A,6.3,7,负载检测辅助,datasheet_specification
+单体输入外部串联电阻,20,100,100,Ω,推荐值; 系统设计可优化,SLUSE86A,6.3,7,本设计取 47 Ω,datasheet_specification
+单体输入外部电容,0.1,0.22,1,µF,推荐值; 系统设计可优化,SLUSE86A,6.3,7,本设计取 0.22 µF,datasheet_specification
+工作温度范围,-40,,85,℃,器件工作,SLUSE86A,6.3,7,电芯与 NTC 量程需覆盖,datasheet_specification
+BAT 供电范围,4.7,,27.5,V,推荐工作条件,SLUSE86A,6.3,7,3S 组端 7.5-12.75 V 合规,datasheet_specification
+正常模式供电电流,,252,,µA,REG1=3.3 V 空载; FASTADC=0; 无通信,SLUSE86A,6.5,8,影响待机功耗预算,datasheet_specification
+SLEEP 模式电流,,38,,µA,无包电流; REG1 OFF; 无通信,SLUSE86A,6.5,8,静态功耗,datasheet_specification
+SHUTDOWN 模式电流,1,3.1,,µA,仅 TS2 唤醒电路供电,SLUSE86A,6.5,8,运输/存储功耗,datasheet_specification
+REG18 输出电压,1.6,1.8,2.0,V,IREG18=1 mA,SLUSE86A,6.10,10,内部 1.8 V; 只放去耦电容,datasheet_specification
+REG18 外部电容,1.8,2.2,22,µF,REG18 到 VSS,SLUSE86A,6.10,10,本设计取 2.2 µF,datasheet_specification
+REG1 3.3 V 档输出电压,3.0,3.36,3.6,V,VREGIN ≥ 4.1 V; IREG1=0-45 mA,SLUSE86A,6.12,11,I2C 上拉与外部负载供电,datasheet_specification
+REG1 最大输出电流,,,45,mA,3.3 V 档,SLUSE86A,6.12,11,外部负载预算上限,datasheet_specification
+库仑计输入范围,-0.2,,0.2,V,VSRP-VSRN,SLUSE86A,6.14,11,10 mΩ 分流对应 ±20 A 理论量程,datasheet_specification
+库仑计失调误差,-1,,1,LSB,16-bit; 未校准; full power mode,SLUSE86A,6.14,11,需板级零点校准,datasheet_specification
+库仑计增益,130290,131621,132952,LSB/V,16-bit; full power mode,SLUSE86A,6.14,12,电流标定依据,datasheet_specification
+库仑计积分非线性,-5.2,,22.3,LSB,16-bit best fit,SLUSE86A,6.14,11,电流线性度,datasheet_specification
+库仑计 1 LSB 电压,,7.6,,µV,CC1 filter; VREF2≈1.24 V; 1 LSB=VREF2/(5*2^15),SLUSE86A,6.14,12,分流电阻选型依据,datasheet_specification
+单体 ADC LSB,,185,,µV,16-bit; 1 LSB=5*VREF1/2^15≈5*1.215/32768,SLUSE86A,6.18,14,分辨率不等于精度,datasheet_specification
+电压 ADC 码值稳定度,13.5,15,,bits,单次转换; FASTADC=0,SLUSE86A,6.18,13-14,有效位数,datasheet_specification
+电压 ADC 转换时间,,2.93,,ms,单次; FASTADC=0,SLUSE86A,6.18,14,采样周期与同步性,datasheet_specification
+内部均衡电阻,15,28,46,Ω,VVC(n)-VVC(n-1)=1.5 V; VBAT≥4.7 V,SLUSE86A,6.19,14,均衡电流与热设计,datasheet_specification
+I2C 速率,,,400,kHz,400 kHz 模式,SLUSE86A,6.26-6.27,17-18,主机通信,datasheet_specification
+结到环境热阻,,33.2,,℃/W,RSN QFN-32,SLUSE86A,6.4,8,均衡/保护功耗热预算,datasheet_specification

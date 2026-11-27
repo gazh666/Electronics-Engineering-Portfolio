@@ -1,0 +1,34 @@
+version: "1.0"
+
+# 所有参数均为教学假设，不是真实电芯参数辨识结果。
+parameter_source: educational_assumption
+
+cell:
+  nominal_capacity_ah: 2.0
+  initial_soc: 0.6
+  initial_polarization_v: 0.0
+  reference_temperature_c: 25.0
+  charge_coulombic_efficiency: 1.0
+  discharge_coulombic_efficiency: 1.0
+  reference_lower_voltage_v: 3.0
+  reference_upper_voltage_v: 4.2
+  constant_ocv_v: 3.8
+
+rint:
+  r0_ohm: 0.03
+
+first_order_rc:
+  r0_ohm: 0.03
+  r1_ohm: 0.02
+  c1_f: 1000.0
+
+second_order_rc:
+  r0_ohm: 0.03
+  r1_ohm: 0.02
+  c1_f: 1000.0
+  r2_ohm: 0.015
+  c2_f: 4000.0
+
+simulation:
+  output_step_s: 0.1
+  duration_s: 300.0

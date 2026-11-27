@@ -1,0 +1,50 @@
+version: "1.0"
+
+# 第五阶段轻量验证工况。overrides 直接对应 NonidealBuckConfig 的 dataclasses.replace 字段，
+# 或者以下专用键：
+#   inductor_dcr_ohm / capacitor_esr_ohm / load_resistance_ohm / input_voltage_v / duty_cycle
+
+cases:
+  - id: PERF001
+    name: SW Buck baseline
+    model: switch_buck
+    variant: A
+    analysis: full_performance
+
+  - id: PERF002
+    name: Nonideal MOSFET Buck
+    model: nonideal_buck
+    variant: E
+    analysis: full_performance
+
+  - id: PERF003
+    name: Light load characteristics
+    model: nonideal_buck
+    variant: E
+    overrides:
+      load_resistance_ohm: 50.0
+    analysis: full_performance
+
+  - id: PERF004
+    name: High ESR comparison
+    model: nonideal_buck
+    variant: E
+    overrides:
+      capacitor_esr_ohm: 0.1
+    analysis: full_performance
+
+  - id: PERF005
+    name: Low input voltage
+    model: nonideal_buck
+    variant: E
+    overrides:
+      input_voltage_v: 9.0
+    analysis: full_performance
+
+  - id: PERF006
+    name: High input voltage
+    model: nonideal_buck
+    variant: E
+    overrides:
+      input_voltage_v: 16.0
+    analysis: full_performance

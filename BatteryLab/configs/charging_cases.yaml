@@ -1,0 +1,105 @@
+version: "1.0"
+
+# 20 个充电工况。每条明确标注仿真层次，不同层次结果不得混为开关级验证。
+# method 取值：analytical_theory / averaged_simulation / spice_simulation /
+#              behavioral_charging_simulation / ecm_charge_envelope / software_test
+cases:
+  - id: C01
+    name: 正常 1A 恒流
+    method: spice_simulation
+    description: 18 V 输入，电池局部等效电压 11.4 V，电流环给定 1 A。
+    parameters: {vocv_v: 11.4, current_reference_a: 1.0, duration_s: 0.008}
+  - id: C02
+    name: 正常恒压调节
+    method: spice_simulation
+    description: 电池局部等效电压 12.10 V，恒压目标 12.15 V，观察自然电流衰减。
+    parameters: {vocv_v: 12.10, current_reference_a: 1.0, duration_s: 0.008}
+  - id: C03
+    name: CC-CV 模式切换
+    method: spice_simulation
+    description: 电池局部等效电压 11.95 V，1 A 时端压约 12.18 V，超过恒压目标后电流自然下降并进入 CV。
+    parameters: {vocv_v: 11.95, current_reference_a: 1.0, duration_s: 0.012}
+  - id: C04
+    name: 输入电压 18V 降至 16V
+    method: spice_simulation
+    description: 稳态 CC 中输入电压阶跃下降，观察占空比与电流恢复。
+    parameters: {vocv_v: 11.4, vin_initial_v: 18.0, vin_final_v: 16.0, step_time_s: 0.004, duration_s: 0.010}
+  - id: C05
+    name: 输入电压 16V 恢复至 18V
+    method: spice_simulation
+    parameters: {vocv_v: 11.4, vin_initial_v: 16.0, vin_final_v: 18.0, step_time_s: 0.004, duration_s: 0.010}
+  - id: C06
+    name: 输入电压 18V 升至 20V
+    method: spice_simulation
+    parameters: {vocv_v: 11.4, vin_initial_v: 18.0, vin_final_v: 20.0, step_time_s: 0.004, duration_s: 0.010}
+  - id: C07
+    name: 输入供电不足或断开
+    method: spice_simulation
+    description: 输入在 4 ms 跌到 0 V，研究输出电流衰减与反向电流。
+    parameters: {vocv_v: 11.4, vin_initial_v: 18.0, vin_final_v: 0.0, step_time_s: 0.004, duration_s: 0.010}
+  - id: C08
+    name: 充电电流指令 0.5A 变为 1A
+    method: spice_simulation
+    parameters: {vocv_v: 11.4, iset_initial_a: 0.5, iset_final_a: 1.0, step_time_s: 0.004, duration_s: 0.010}
+  - id: C09
+    name: 充电电流指令 1A 变为 0.5A
+    method: spice_simulation
+    parameters: {vocv_v: 11.4, iset_initial_a: 1.0, iset_final_a: 0.5, step_time_s: 0.004, duration_s: 0.010}
+  - id: C10
+    name: 充电过程中 BMS 禁止充电
+    method: spice_simulation
+    description: 使能信号在 4 ms 拉低，验证 PWM 停止与实际电感电流衰减。
+    parameters: {vocv_v: 11.4, enable_initial: 1, enable_final: 0, step_time_s: 0.004, duration_s: 0.010}
+  - id: C11
+    name: 单体过压但组端电压未达 CV
+    method: ecm_charge_envelope
+    description: >-
+      三节严重不一致（SOC 0.55/0.55/0.95），且本工况故意关闭恒压调节（故障注入），
+      以验证"组端电压仍低于 12.15 V 时最高节先到 4.25 V"时保护是否立即撤销充电许可。
+      真实恒压调节下同等不一致度不会触发过压，这一负结果记录在 docs/61。
+    parameters: {initial_socs: [0.55, 0.55, 0.95], current_limit_a: 1.0, voltage_regulation_enabled: false}
+  - id: C12
+    name: 温度异常
+    method: software_test
+    description: 通过第五阶段保护控制器注入 50 ℃，验证充电许可被撤销。
+    parameters: {temperature_c: 50.0}
+  - id: C13
+    name: 关键测量失效
+    method: software_test
+    description: 测量无效时不得进入正常充电状态。
+    parameters: {}
+  - id: C14
+    name: 充电终止条件满足
+    method: behavioral_charging_simulation
+    parameters: {termination_current_a: 0.1, hold_s: 60.0, initial_socs: [0.3, 0.3, 0.3]}
+  - id: C15
+    name: 终止电流短暂满足后恢复
+    method: software_test
+    description: 终止计时器必须复位，不得误判 COMPLETE。
+    parameters: {}
+  - id: C16
+    name: 达到最大充电时间
+    method: ecm_charge_envelope
+    description: >-
+      以 0.2 A 慢充使配置的 14400 s 上限成为约束，验证 TIMEOUT 终止路径；
+      上限本身不变，改变的是工况电流。
+    parameters: {maximum_charge_time_s: 14400.0, current_limit_a: 0.2, initial_socs: [0.3, 0.3, 0.3]}
+  - id: C17
+    name: 保护锁存后尝试重新启动
+    method: software_test
+    description: COMPLETE/FAULT 状态不能自动恢复充电。
+    parameters: {}
+  - id: C18
+    name: 电池不一致性
+    method: ecm_charge_envelope
+    parameters: {initial_socs: [0.3, 0.4, 0.5], capacity_ah: [1.95, 2.028, 2.10]}
+  - id: C19
+    name: CV 末期低电流 DCM
+    method: spice_simulation
+    description: 电池局部等效电压 12.13 V，稳态电流很低，判断是否进入 DCM。
+    parameters: {vocv_v: 12.13, current_reference_a: 1.0, duration_s: 0.008}
+  - id: C20
+    name: 电池向充电器反向供电风险
+    method: spice_simulation
+    description: 输入掉电且 PWM 关闭后，检查是否存在经体二极管的反向电流。
+    parameters: {vocv_v: 11.4, vin_initial_v: 18.0, vin_final_v: 0.0, enable_initial: 1, enable_final: 0, step_time_s: 0.004, duration_s: 0.010}

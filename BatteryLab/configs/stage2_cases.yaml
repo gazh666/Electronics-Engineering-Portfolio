@@ -1,0 +1,87 @@
+version: "1.0"
+
+# 第二阶段实验工况定义。所有电流、时间均为教学工况。
+data_source: custom_ecm_simulation
+
+pulse_benchmark:
+  name: pulse_2a_60s
+  description: 固定OCV 3.8V，0-10s静置，10-70s 2A放电，70-190s静置
+  constant_ocv_v: 3.8
+  initial_soc: 0.6
+  initial_polarization_v: 0.0
+  output_step_s: 0.1
+  segments:
+    - {duration_s: 10.0, current_a: 0.0, label: rest_initial}
+    - {duration_s: 60.0, current_a: 2.0, label: discharge_pulse}
+    - {duration_s: 120.0, current_a: 0.0, label: rest_recovery}
+
+dynamic_cases:
+  A_1a_constant:
+    description: 1A 恒流放电 600s
+    segments:
+      - {duration_s: 10.0, current_a: 0.0, label: rest_initial}
+      - {duration_s: 600.0, current_a: 1.0, label: discharge_1a}
+  B_2a_constant:
+    description: 2A 恒流放电 600s
+    segments:
+      - {duration_s: 10.0, current_a: 0.0, label: rest_initial}
+      - {duration_s: 600.0, current_a: 2.0, label: discharge_2a}
+  C_2a_pulse:
+    description: 2A 脉冲 60s 后静置 120s
+    segments:
+      - {duration_s: 10.0, current_a: 0.0, label: rest_initial}
+      - {duration_s: 60.0, current_a: 2.0, label: discharge_pulse}
+      - {duration_s: 120.0, current_a: 0.0, label: rest_recovery}
+  D_piecewise_discharge:
+    description: 0.5A/1A/2A 分段动态放电
+    segments:
+      - {duration_s: 10.0, current_a: 0.0, label: rest_initial}
+      - {duration_s: 120.0, current_a: 0.5, label: discharge_0p5a}
+      - {duration_s: 120.0, current_a: 1.0, label: discharge_1a}
+      - {duration_s: 120.0, current_a: 2.0, label: discharge_2a}
+      - {duration_s: 60.0, current_a: 0.0, label: rest_recovery}
+  E_charge_pulse:
+    description: -1.5A 充电脉冲 60s 后静置
+    segments:
+      - {duration_s: 10.0, current_a: 0.0, label: rest_initial}
+      - {duration_s: 60.0, current_a: -1.5, label: charge_pulse}
+      - {duration_s: 120.0, current_a: 0.0, label: rest_recovery}
+  F_direction_switch:
+    description: 2A 放电 60s 后 -1A 充电 60s，再静置
+    segments:
+      - {duration_s: 10.0, current_a: 0.0, label: rest_initial}
+      - {duration_s: 60.0, current_a: 2.0, label: discharge_2a}
+      - {duration_s: 60.0, current_a: -1.0, label: charge_1a}
+      - {duration_s: 120.0, current_a: 0.0, label: rest_recovery}
+
+power_delivery:
+  downstream_output_power_w: 10.0
+  assumed_efficiency: 0.9
+  constant_resistance_ohm: 5.7
+  output_step_s: 0.1
+  max_duration_s: 1800.0
+  constant_ocv_v: 3.8
+  initial_soc: 0.6
+  notes:
+    - 恒功率负载按 Ppack = 10 / 0.9 计算，90% 为独立教学假设。
+    - 未调用 PowerLab 真实 Buck 开关模型。
+
+calce_replay:
+  dataset_glob: results/calce/run_*/processed/calce_inr18650_20r_sp2_25c_dst.csv.gz
+  max_gap_s: 15.0
+  max_points: 3000
+  initial_soc: 0.6
+  notes:
+    - 使用教学初始SOC与未辨识参数，误差只能标记 UNCALIBRATED_BASELINE。
+    - 第三阶段按独立实验/完整工况划分训练与验证集。
+
+acceptance:
+  rint_absolute_error_v: 1.0e-6
+  rc_state_absolute_error_v: 1.0e-6
+  soc_absolute_error: 1.0e-8
+  series_voltage_absolute_error_v: 1.0e-6
+  python_spice_max_voltage_error_v: 1.0e-3
+  energy_balance_relative_residual: 1.0e-3
+  energy_balance_absolute_residual_j: 1.0e-6
+  # 0.1 s 输出网格线性插值区 + 1 ms PWL 转换区，比较时必须排除阶跃附近窗口。
+  step_exclusion_window_s: 0.15

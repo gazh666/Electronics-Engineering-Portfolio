@@ -1,0 +1,3 @@
+﻿reference,device,package,pitch_mm,pad_width_mm,pad_length_mm,pad_gap_nominal_mm,drc_reported_gap_mm,project_rule_mm,local_rule_mm,ipc_class,fab_capability_mm,status
+U1,BQ76922,RSN WQFN-32 4x4 EP2.8,0.4,0.2,0.78,0.2,0.1828,0.2,0.15,IPC-7351B 细间距,0.15（常规）/0.10（精细）,LOCAL_RULE_APPLIED
+U2,BQ24610,RGE VQFN-24 4x4 EP2.7,0.5,0.25,0.82,0.25,>=0.25,0.2,0.15,IPC-7351B,0.15（常规）,NO_VIOLATION_LOCAL_RULE_RESERVED

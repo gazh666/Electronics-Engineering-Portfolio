@@ -1,0 +1,181 @@
+# TestLab 虚拟仪器定义（PyVISA-sim 后端，已按 0.7.1 实际格式验证）
+# 说明：
+# 1. 本文件只描述仪器侧 SCPI 行为，不包含被测件（DUT）物理模型。
+# 2. 使用 USB INSTR 资源，序列号 PS001/DMM001/LOAD001 用于角色匹配。
+# 3. 命令不带前导冒号（VOLT / VOLT?），与脚本和驱动保持一致。
+
+spec: "1.1"
+
+devices:
+  # -------------------- 程控直流电源 --------------------
+  virtual_power_supply:
+    eom:
+      USB INSTR:
+        q: "\n"
+        r: "\n"
+    error:
+      response:
+        command_error: "ERROR"
+        query_error: "ERROR"
+      error_queue:
+        - q: "SYST:ERR?"
+          default: '0,"No error"'
+          command_error: '1,"Command error"'
+    dialogues:
+      - q: "*IDN?"
+        r: "TestLab,VirtualPowerSupply,PS001,1.0.0"
+      - q: "*RST"
+      - q: "*CLS"
+    properties:
+      voltage:
+        default: 0.0
+        getter:
+          q: "VOLT?"
+          r: "{:.3f}"
+        setter:
+          q: "VOLT {:.3f}"
+          e: "ERROR"
+        specs:
+          type: float
+          min: 0
+          max: 30
+      current:
+        default: 1.0
+        getter:
+          q: "CURR?"
+          r: "{:.3f}"
+        setter:
+          q: "CURR {:.3f}"
+          e: "ERROR"
+        specs:
+          type: float
+          min: 0
+          max: 5
+      output:
+        default: 0
+        getter:
+          q: "OUTP?"
+          r: "{:d}"
+        setter:
+          q: "OUTP {:d}"
+          e: "ERROR"
+        specs:
+          valid: [0, 1]
+          type: int
+
+  # -------------------- 数字万用表 --------------------
+  # 注意：只读属性（仅 getter）必须提供 specs，否则默认值按字符串保存，
+  # 无法用 "{:.4f}" 格式化（已用安装版本实测确认）。
+  virtual_multimeter:
+    eom:
+      USB INSTR:
+        q: "\n"
+        r: "\n"
+    error:
+      response:
+        command_error: "ERROR"
+        query_error: "ERROR"
+    dialogues:
+      - q: "*IDN?"
+        r: "TestLab,VirtualMultimeter,DMM001,1.0.0"
+      - q: "*RST"
+      - q: "*CLS"
+      - q: "CONF:VOLT:DC"
+      - q: "CONF:CURR:DC"
+      # 无响应查询：用于模拟通信超时
+      - q: "SLOW?"
+      # 异常响应：用于验证驱动能否识别仪器错误回包
+      - q: "BAD?"
+        r: "ERROR"
+    properties:
+      voltage:
+        default: 5.0
+        getter:
+          q: "MEAS:VOLT?"
+          r: "{:.4f}"
+        specs:
+          type: float
+          min: 0
+          max: 30
+      current:
+        default: 0.5
+        getter:
+          q: "MEAS:CURR?"
+          r: "{:.4f}"
+        specs:
+          type: float
+          min: 0
+          max: 5
+      resistance:
+        # 只读属性：固定模拟读数，不随电源/负载设置变化；必须有 specs
+        default: 4.98
+        getter:
+          q: "MEAS:RES?"
+          r: "{:.4f}"
+        specs:
+          type: float
+          min: 0
+          max: 1000000
+
+  # -------------------- 直流电子负载 --------------------
+  virtual_electronic_load:
+    eom:
+      USB INSTR:
+        q: "\n"
+        r: "\n"
+    error:
+      response:
+        command_error: "ERROR"
+        query_error: "ERROR"
+      error_queue:
+        - q: "SYST:ERR?"
+          default: '0,"No error"'
+          command_error: '1,"Command error"'
+    dialogues:
+      - q: "*IDN?"
+        r: "TestLab,VirtualElectronicLoad,LOAD001,1.0.0"
+      - q: "*RST"
+      - q: "*CLS"
+    properties:
+      mode:
+        default: CC
+        getter:
+          q: "MODE?"
+          r: "{:s}"
+        setter:
+          q: "MODE {:s}"
+          e: "ERROR"
+        specs:
+          type: str
+          valid: ["CC", "CV", "CR", "CP"]
+      current:
+        default: 0.0
+        getter:
+          q: "CURR?"
+          r: "{:.3f}"
+        setter:
+          q: "CURR {:.3f}"
+          e: "ERROR"
+        specs:
+          type: float
+          min: 0
+          max: 5
+      input:
+        default: 0
+        getter:
+          q: "INP?"
+          r: "{:d}"
+        setter:
+          q: "INP {:d}"
+          e: "ERROR"
+        specs:
+          valid: [0, 1]
+          type: int
+
+resources:
+  USB::0x1111::0x2222::PS001::INSTR:
+    device: virtual_power_supply
+  USB::0x1111::0x2222::DMM001::INSTR:
+    device: virtual_multimeter
+  USB::0x1111::0x2222::LOAD001::INSTR:
+    device: virtual_electronic_load

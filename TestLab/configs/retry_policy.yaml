@@ -1,0 +1,35 @@
+# TestLab 有限重试策略（阶段八）
+#
+# max_attempts 是总尝试次数（包含第一次），最大 10，禁止无限重试。
+# 只对“白名单只读查询 + 可恢复通信超时”重试；写入默认不重试。
+# 断开、非法数据、未知异常、清理失败一律不自动重试。
+#
+# 真实仪器超时后通信缓冲区可能处于不确定状态。本策略只适用于当前
+# PyVISA-sim 模拟后端，不代表实体仪器的完整通信恢复方案。
+
+version: "1.0"
+
+retry:
+  enabled: true
+
+  max_attempts: 3
+
+  initial_delay_seconds: 0.1
+  backoff_multiplier: 2.0
+  max_delay_seconds: 1.0
+
+  retryable_categories:
+    - TRANSIENT_COMMUNICATION
+
+  allowed_query_commands:
+    - "*IDN?"
+    - "VOLT?"
+    - "CURR?"
+    - "OUTP?"
+    - "INP?"
+    - "MODE?"
+
+  retry_writes: false
+  retry_invalid_data: false
+  retry_failed_test: false
+  retry_shutdown_failure: false

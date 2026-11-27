@@ -1,0 +1,31 @@
+version: "1.0"
+
+application:
+  name: PowerLab
+  subtitle: Power Electronics Simulation Platform
+  language: zh-CN
+  mode: simulation_only
+
+server:
+  address: 127.0.0.1
+  port: 8502
+
+visualization:
+  default_plot_points: 5000
+  maximum_plot_points: 30000
+  default_table_rows: 100
+  maximum_table_rows: 1000
+  waveform_preview_enabled: true
+  preserve_original_data: true
+
+history:
+  default_page_size: 20
+  maximum_page_size: 100
+
+jobs:
+  maximum_concurrent_jobs: 1
+  progress_refresh_seconds: 1.0
+  allow_extended_experiments: false
+
+metadata:
+  hardware_validation_available: false

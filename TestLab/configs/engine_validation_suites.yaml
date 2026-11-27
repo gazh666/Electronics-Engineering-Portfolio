@@ -1,0 +1,18 @@
+# 引擎自校验方案（配套 configs/engine_validation_cases.yaml）
+#
+# 故意包含 FAIL / SKIP / ERROR，不得用于正式验收。
+# 关闭 stop_on_fail，确保四类分支都会被执行到。
+
+version: "1.0"
+specification_type: "engine_self_validation"
+
+test_suites:
+  - id: SUITE-EV
+    name: 引擎自校验方案
+    cases:
+      - EV001
+      - EV002
+      - EV003
+      - EV004
+    stop_on_fail: false
+    stop_on_error: false

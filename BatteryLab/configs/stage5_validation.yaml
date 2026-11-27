@@ -1,0 +1,50 @@
+version: "1.0"
+
+# 第五阶段工程限值。正式实验开始前登记，得到结果后不放宽。
+# 这些是教学工程目标，不是商业保护 IC 的认证指标。
+source_type: educational_assumption
+preregistered: true
+
+protection_thresholds:
+  overvoltage_trip_accuracy_v: 0.005        # SPICE 实测阈值 vs 配置 5 mV
+  undervoltage_trip_accuracy_v: 0.005
+  overvoltage_hysteresis_accuracy_v: 0.010  # 迟滞宽度误差 10 mV
+  undervoltage_hysteresis_accuracy_v: 0.010
+  confirmation_delay_relative_error: 0.10   # 确认延时相对误差 10%
+  comparator_propagation_delay_relative_error: 0.20
+
+switch_blocking:
+  reverse_leakage_max_a: 0.000001           # 双向阻断漏电 1 µA
+  blocked_current_max_a: 0.001              # 断开方向残余电流 1 mA
+  on_state_drop_at_1a_v: 0.060              # 1 A 导通压降 60 mV
+  on_state_resistance_error_relative: 0.10  # 导通电阻 vs 目标 ±10%
+  body_diode_required: true
+
+balancing:
+  balance_current_relative_error: 0.02
+  balance_power_max_w: 0.25
+  balance_resistor_temperature_rise_max_c: 45.0
+  delta_reduction_fraction_of_ideal: 0.80
+  balancing_must_not_run_when_discharging: true
+
+state_machine:
+  fault_latch_required: true
+  automatic_restart_forbidden: true
+  recovery_requires_request: true
+  recovery_requires_all_clear_hold_s: 5.0
+  measurement_invalid_disables_both_fets: true
+  charge_and_discharge_permission_independent: true
+
+safety:
+  stage4_limits_must_not_be_relaxed: true
+  charge_target_must_respect_cell_overvoltage: true
+  estimated_not_verified_statuses: true
+
+spice_budget:
+  maximum_real_solves: 40
+  maximum_case_duration_s: 5.0
+
+notes:
+  - "阈值来源必须可追溯到电芯模型有效域与第四阶段采集范围。"
+  - "未通过项保留 FAIL，不修改限值换 PASS。"
+  - "SPICE 求解次数单独统计，数学仿真不能冒充 SPICE。"

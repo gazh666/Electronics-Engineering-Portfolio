@@ -1,0 +1,51 @@
+version: "1.0"
+
+source_type: educational_design
+
+# 冻结模型来自第三阶段辨识（CALCE SP2 25℃ INR18650-20R 一阶 RC）。
+frozen_model_id: calce_sp2_25c_inr18650_20r_first_order_v1
+
+model:
+  order: 1
+  note: >
+    参数由 identification.parameter_store.load_frozen_model 读取，不在本阶段重新辨识。
+    R0 / R1 / tau1 / 容量必须与冻结文件一致，避免"边估计边改模型"。
+
+rc_branches:
+  - resistance_source: r1_ohm
+    time_constant_source: tau1_s
+
+observer:
+  correction_time_constant_s: 120.0
+  minimum_ocv_slope_v_per_soc: 0.2
+  maximum_correction_rate_soc_per_s: 0.001
+  maximum_residual_v: 0.35
+  current_step_threshold_a: 0.5
+  initial_polarization_v: 0.0
+  initial_polarization_note: >
+    假设实验开始前电池已充分静置，Vp=0；若实际不是静置起始，必须用可追溯方法
+    重新初始化极化状态，并在结果中标注。
+
+ocv_table:
+  interpolation: piecewise_linear
+  monotonic_envelope: true
+  minimum_slope_v_per_soc: 0.2
+  low_observability_status: LOW_OBSERVABILITY
+  no_extrapolation: true
+
+comparison:
+  common_time_window: true
+  common_initial_soc: true
+  common_capacity: true
+  methods:
+    - coulomb_counting
+    - raw_voltage_ocv
+    - rest_ocv_corrected
+    - ecm_observer
+
+metadata:
+  kalman_filter_used: false
+  observer_is_ekf: false
+  observer_note: >
+    本观测器是固定时间常数的非线性电压残差反馈，不含协方差预测与卡尔曼增益，
+    不得描述为 EKF 或最优状态估计器。

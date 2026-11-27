@@ -1,0 +1,102 @@
+# PowerLab 第四阶段：非理想 MOSFET Buck 参数（全部 SI 单位）
+# specification_type: project_assumption
+# 说明：NMOS_EDU 为 Level 1 教学模型；DFREE_NONIDEAL 为低储存电荷教学二极管模型。
+#       二者都不是经过验证的商业器件模型，也不代表真实硬件测量结果。
+version: "1.0"
+
+circuit:
+  name: Nonideal MOSFET Buck
+  topology: asynchronous_buck
+  control_mode: open_loop_pwm
+  model_variant: E
+
+  input_voltage_v: 12.0
+  target_output_voltage_v: 5.0
+  rated_output_current_a: 2.0
+
+  switching_frequency_hz: 100000.0
+  duty_cycle: 0.4166666666666667
+
+  inductance_h: 0.000047
+  inductor_dcr_ohm: 0.05
+
+  capacitance_f: 0.0001
+  capacitor_esr_ohm: 0.03
+
+  load_resistance_ohm: 2.5
+
+mosfet:
+  model_name: NMOS_EDU
+  model_type: NMOS
+  level: 1
+
+  threshold_voltage_v: 3.0
+
+  kp_a_per_v2: 0.01
+
+  channel_length_m: 0.000001
+  channel_width_m: 0.001
+
+  channel_length_modulation_per_v: 0.001
+
+  drain_resistance_ohm: 0.005
+  source_resistance_ohm: 0.002
+
+  external_cgs_f: 0.000000001
+  external_cgd_f: 0.0000000002
+  external_cds_f: 0.0000000003
+
+  model_source: educational_assumption
+  model_version: "1.0"
+
+gate_driver:
+  drive_voltage_v: 10.0
+  low_voltage_v: 0.0
+
+  gate_resistance_ohm: 10.0
+  gate_source_pulldown_ohm: 100000.0
+
+  rise_time_s: 0.00000002
+  fall_time_s: 0.00000002
+  delay_s: 0.00001
+
+  driver_type: ideal_floating_source
+
+diode:
+  model_name: DFREE_NONIDEAL
+
+  saturation_current_a: 0.000001
+  ideality_factor: 1.0
+
+  series_resistance_ohm: 0.015
+
+  junction_capacitance_f: 0.0000000002
+
+  junction_potential_v: 0.7
+  grading_coefficient: 0.5
+
+  transit_time_s: 0.0
+
+  model_source: educational_assumption
+  model_version: "1.0"
+
+simulation:
+  temperature_c: 25.0
+  nominal_temperature_c: 25.0
+
+  step_time_s: 0.00000005
+  max_step_time_s: 0.000000025
+  end_time_s: 0.005
+
+steady_state:
+  minimum_cycles: 20
+  comparison_cycles: 10
+  relative_mean_tolerance: 0.001
+  ripple_relative_tolerance: 0.05
+  absolute_voltage_tolerance_v: 0.001
+  absolute_current_tolerance_a: 0.001
+  absolute_ripple_tolerance_v: 0.0005
+
+metadata:
+  specification_type: project_assumption
+  data_source: spice_simulation

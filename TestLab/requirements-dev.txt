@@ -1,0 +1,7 @@
+# 开发与质量工具（已在 kaifa / Python 3.11.18 环境验证）
+# 安装：& "C:\\Users\\<user>\.conda\envs\kaifa\python.exe" -m pip install -r requirements-dev.txt
+-r requirements.txt
+
+pytest-cov==7.1.0
+coverage==7.17.5
+ruff==0.17.6

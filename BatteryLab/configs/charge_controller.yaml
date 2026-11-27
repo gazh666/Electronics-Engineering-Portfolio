@@ -1,0 +1,43 @@
+# 第六阶段控制器初始整定参数（教学初始猜测，不保证稳定）。
+# 正式参数由局部线性模型筛选 + 平均模型 + 少量真实 SPICE 复验后冻结。
+source_type: educational_initial_guess
+
+voltage_loop:
+  kp_a_per_v: 2.0
+  ki_a_per_vs: 2000.0
+  anti_windup_per_s: 50.0
+
+current_loop:
+  kp_duty_per_a: 0.025
+  ki_duty_per_as: 50.0
+  anti_windup_per_s: 1000.0
+
+limits:
+  current_min_a: 0.0
+  current_max_a: 1.0
+  duty_min: 0.0
+  duty_max: 0.9
+
+sampling:
+  control_period_s: 0.00001
+
+# Task 25 建议的搜索网格（先内环后外环，不无条件执行全部组合的开关级 SPICE）。
+tuning_grid:
+  current_kp: [0.0125, 0.025, 0.05]
+  current_ki: [25.0, 50.0, 100.0]
+  voltage_kp: [1.0, 2.0, 4.0]
+  voltage_ki: [500.0, 1000.0, 2000.0, 4000.0]
+
+# 预先登记的工程目标（先登记后运行，结果不达标保留 FAIL）。
+engineering_targets:
+  cc_mean_error_a: 0.020
+  cc_mae_a: 0.020
+  cc_startup_overshoot_fraction: 0.10
+  cv_mean_error_v: 0.020
+  cv_mae_v: 0.020
+  cc_cv_voltage_overshoot_v: 0.050
+  power_stage_efficiency_min_percent: 85.0
+  power_conservation_residual_fraction: 0.01
+  phase_margin_deg: 45.0
+  gain_margin_db: 6.0
+  loop_bandwidth_separation_ratio: 5.0

@@ -1,0 +1,27 @@
+{
+    "scan_date":  "2026-11-27",
+    "total_files":  2591,
+    "total_size_mb":  20.25,
+    "nested_git_dirs":  1,
+    "env_or_key_files":  0,
+    "database_files":  0,
+    "files_over_5mb":  0,
+    "secret_pattern_hits":  0,
+    "email_hits":  0,
+    "local_absolute_path_hits_after_sanitize":  1329,
+    "freerouting_workdir":  "仓库外本地目录，未随仓库分发；内含本机路径但已排除",
+    "excluded_from_publication":  [
+                                      "results/",
+                                      "*.log",
+                                      "storage/",
+                                      "deliverables/",
+                                      "*.db",
+                                      "*.sqlite",
+                                      "__pycache__/",
+                                      ".pytest_cache/",
+                                      ".ruff_cache/",
+                                      "*.kicad_prl"
+                                  ],
+    "action_taken":  "已批量把本机绝对路径替换为仓库相对路径，用户名替换为 \u003cuser\u003e",
+    "verdict":  "REVIEW_REQUIRED"
+}

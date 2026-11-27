@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Environments
+.venv/
+venv/
+env/
+*.egg
+
+# Data / results (regenerate locally)
+results/
+storage/
+deliverables/
+*.db
+*.sqlite
+*.sqlite3
+*.duckdb
+*.parquet
+
+# Logs / temp
+*.log
+*.tmp
+*.bak
+~*.lck
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# KiCad local backups
+*-backups/
+*.kicad_prl
+*.kicad_sch-bak
+_autosave-*

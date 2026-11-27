@@ -1,0 +1,5 @@
+part_number,manufacturer,inductance_uh,tolerance_percent,dcr_ohm_max,isat_a,irms_a,ripple_at_18v_12v15_a,ripple_ratio,peak_current_a,lc_resonance_khz_with_9u4f,selection_status,datasheet_reference
+SRN6045-100M,Bourns,10,20,0.0586,3.0,2.5,0.658,0.658,1.329,16.4,CANDIDATE_RIPPLE_TOO_HIGH,SRN6045 p.1
+SRN6045-150M,Bourns,15,20,0.0958,2.3,1.9,0.439,0.439,1.219,13.4,CANDIDATE,SRN6045 p.1
+SRN6045-220M,Bourns,22,20,0.142,1.9,1.5,0.299,0.299,1.150,11.1,SELECTED,SRN6045 p.1
+IHLP2525CZ-6R8,Vishay Dale,6.8,TBD,TBD,5.5,TBD,0.968,0.968,1.484,19.9,REFERENCE_ONLY_NOT_VERIFIED,BQ24610 SLUS892D Table 5

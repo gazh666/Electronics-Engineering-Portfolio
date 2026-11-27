@@ -1,0 +1,43 @@
+version: "1.0"
+
+# 第九阶段候选系统工况（30 类，来源规格 Task 27）。
+# 说明：本文件是计划清单，不代表已经执行；实际执行状态以 results 运行记录为准。
+# model_type 取值：
+#   spice_coupled_simulation      同网表电池 ECM + Buck + 闭环反馈
+#   behavioral_protection_simulation  第五阶段保护控制器行为级联动
+#   averaged_dynamic_coupled_simulation  平均模型双向动态
+#   verified_power_map_ecm       长期 ECM + 已验证功率映射
+#   testlab_interface            真实 TestLab 判定模块
+#   cross_project_regression     三项目文件与接口回归
+
+cases:
+  - {id: SYS001, name: nominal_discharge, model_type: spice_coupled_simulation, checks: [output_voltage_mean, output_voltage_ripple, steady_state_error]}
+  - {id: SYS002, name: load_step_1a_to_2a, model_type: spice_coupled_simulation, checks: [output_voltage_droop, settling_time, inductor_peak_current]}
+  - {id: SYS003, name: cell_undervoltage_protection, model_type: behavioral_protection_simulation, checks: [discharge_allowed_after_fault, latched_fault_count]}
+  - {id: SYS004, name: load_step_2a_to_1a, model_type: spice_coupled_simulation, checks: [output_voltage_overshoot]}
+  - {id: SYS005, name: load_step_0p5a_to_2a, model_type: spice_coupled_simulation, checks: [output_voltage_droop, battery_peak_current]}
+  - {id: SYS006, name: input_voltage_step, model_type: spice_coupled_simulation, checks: [input_voltage_droop, output_voltage_deviation]}
+  - {id: SYS007, name: battery_resistance_increase, model_type: averaged_dynamic_coupled_simulation, checks: [battery_voltage_droop]}
+  - {id: SYS008, name: startup_without_soft_start, model_type: spice_coupled_simulation, checks: [output_overshoot]}
+  - {id: SYS009, name: startup_with_soft_start, model_type: spice_coupled_simulation, checks: [output_overshoot]}
+  - {id: SYS010, name: optimized_lc_closed_loop_revalidation, model_type: cross_project_regression, checks: [output_voltage_ripple, efficiency_percent]}
+  - {id: SYS011, name: low_soc_runtime, model_type: verified_power_map_ecm, checks: [runtime_s]}
+  - {id: SYS012, name: high_soc_runtime, model_type: verified_power_map_ecm, checks: [runtime_s]}
+  - {id: SYS013, name: light_load_runtime, model_type: verified_power_map_ecm, checks: [runtime_s]}
+  - {id: SYS014, name: rated_load_runtime, model_type: verified_power_map_ecm, checks: [runtime_s]}
+  - {id: SYS015, name: cell_soc_mismatch, model_type: verified_power_map_ecm, checks: [runtime_s, first_limited_cell]}
+  - {id: SYS016, name: cell_capacity_mismatch, model_type: verified_power_map_ecm, checks: [runtime_s, unused_charge_ah]}
+  - {id: SYS017, name: capacity_fade, model_type: verified_power_map_ecm, checks: [runtime_s]}
+  - {id: SYS018, name: resistance_growth, model_type: verified_power_map_ecm, checks: [runtime_s, battery_voltage_droop]}
+  - {id: SYS019, name: cell_overvoltage, model_type: behavioral_protection_simulation, checks: [charge_allowed_after_fault]}
+  - {id: SYS020, name: overcurrent_protection, model_type: behavioral_protection_simulation, checks: [discharge_allowed_after_fault]}
+  - {id: SYS021, name: temperature_protection, model_type: behavioral_protection_simulation, checks: [discharge_allowed_after_fault]}
+  - {id: SYS022, name: invalid_measurement, model_type: behavioral_protection_simulation, checks: [discharge_allowed_after_fault]}
+  - {id: SYS023, name: multi_fault, model_type: behavioral_protection_simulation, checks: [latched_fault_count]}
+  - {id: SYS024, name: protection_latch_and_reset, model_type: behavioral_protection_simulation, checks: [discharge_allowed_after_fault]}
+  - {id: SYS025, name: output_decay_after_protection, model_type: spice_coupled_simulation, checks: [output_voltage_decay_time]}
+  - {id: SYS026, name: charging_monitor, model_type: verified_power_map_ecm, checks: [charge_allowed]}
+  - {id: SYS027, name: soc_estimation_linkage, model_type: averaged_dynamic_coupled_simulation, checks: [soc_error]}
+  - {id: SYS028, name: power_and_energy_conservation, model_type: spice_coupled_simulation, checks: [energy_residual_percent]}
+  - {id: SYS029, name: testlab_limit_judgement, model_type: testlab_interface, checks: [testlab_status]}
+  - {id: SYS030, name: three_project_regression, model_type: cross_project_regression, checks: [source_unchanged]}

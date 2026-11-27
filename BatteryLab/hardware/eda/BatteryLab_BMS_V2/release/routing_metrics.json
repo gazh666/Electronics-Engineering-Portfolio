@@ -1,0 +1,393 @@
+{
+  "file": "BatteryLab\\hardware\\eda\\BatteryLab_BMS_V2\\BatteryLab_BMS_V2.kicad_pcb",
+  "footprint_count": 34,
+  "copper_layer_count": 4,
+  "track_segment_count": 304,
+  "via_count": 46,
+  "total_track_length_mm": 1236.118,
+  "board_width_mm": 100.1,
+  "board_height_mm": 72.1,
+  "zone_count": 3,
+  "zone_filled_count": 3,
+  "zone_layers": [
+    "B.Cu",
+    "F.Cu",
+    "In1.Cu"
+  ],
+  "segments_per_layer": {
+    "F.Cu": 233,
+    "In1.Cu": 48,
+    "In2.Cu": 23
+  },
+  "net_track_length_mm": {
+    "BAT_AFE": 10.475,
+    "BAT_POS": 64.035,
+    "C0P": 24.168,
+    "C1P": 35.299,
+    "CELL_0_NEG": 52.286,
+    "CELL_0_POS": 40.646,
+    "CELL_1_POS": 24.449,
+    "CELL_2_NEG": 23.913,
+    "CELL_2_POS": 27.849,
+    "CHG_GATE": 17.82,
+    "CP1_NODE": 49.198,
+    "DSG_GATE": 21.034,
+    "GND": 363.694,
+    "I2C_SCL": 74.473,
+    "I2C_SDA": 48.411,
+    "MID_NODE": 19.71,
+    "NTC_INPUT": 55.111,
+    "PACK_NEG": 34.37,
+    "PACK_POS": 19.13,
+    "REG18": 42.022,
+    "REG1_3V3": 91.072,
+    "REGIN": 0.4,
+    "SENSE_N": 55.136,
+    "SENSE_P": 41.415
+  },
+  "net_segment_count": {
+    "BAT_AFE": 3,
+    "BAT_POS": 39,
+    "C0P": 4,
+    "C1P": 6,
+    "CELL_0_NEG": 10,
+    "CELL_0_POS": 9,
+    "CELL_1_POS": 8,
+    "CELL_2_NEG": 7,
+    "CELL_2_POS": 8,
+    "CHG_GATE": 7,
+    "CP1_NODE": 10,
+    "DSG_GATE": 9,
+    "GND": 63,
+    "I2C_SCL": 5,
+    "I2C_SDA": 6,
+    "MID_NODE": 42,
+    "NTC_INPUT": 8,
+    "PACK_NEG": 4,
+    "PACK_POS": 10,
+    "REG18": 12,
+    "REG1_3V3": 16,
+    "REGIN": 1,
+    "SENSE_N": 8,
+    "SENSE_P": 9
+  },
+  "net_via_count": {
+    "C0P": 1,
+    "CELL_2_NEG": 2,
+    "CELL_2_POS": 2,
+    "CHG_GATE": 2,
+    "CP1_NODE": 2,
+    "DSG_GATE": 2,
+    "GND": 25,
+    "I2C_SCL": 1,
+    "NTC_INPUT": 2,
+    "PACK_NEG": 1,
+    "REG1_3V3": 2,
+    "SENSE_N": 2,
+    "SENSE_P": 2
+  },
+  "footprints": [
+    {
+      "reference": "C101",
+      "value": "0.22uF",
+      "layer": "F.Cu",
+      "x_mm": 25.0,
+      "y_mm": 30.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "C102",
+      "value": "0.22uF",
+      "layer": "F.Cu",
+      "x_mm": 25.0,
+      "y_mm": 36.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "C103",
+      "value": "0.22uF",
+      "layer": "F.Cu",
+      "x_mm": 25.0,
+      "y_mm": 48.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "C104",
+      "value": "2.2uF",
+      "layer": "F.Cu",
+      "x_mm": 32.0,
+      "y_mm": 44.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "C105",
+      "value": "2.2uF",
+      "layer": "F.Cu",
+      "x_mm": 32.0,
+      "y_mm": 50.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "H1",
+      "value": "MountingHole_3.2mm_M3",
+      "layer": "F.Cu",
+      "x_mm": 5.0,
+      "y_mm": 5.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "H2",
+      "value": "MountingHole_3.2mm_M3",
+      "layer": "F.Cu",
+      "x_mm": 95.0,
+      "y_mm": 5.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "H3",
+      "value": "MountingHole_3.2mm_M3",
+      "layer": "F.Cu",
+      "x_mm": 5.0,
+      "y_mm": 67.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "H4",
+      "value": "MountingHole_3.2mm_M3",
+      "layer": "F.Cu",
+      "x_mm": 95.0,
+      "y_mm": 67.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "J1",
+      "value": "3S CELL",
+      "layer": "F.Cu",
+      "x_mm": 9.0,
+      "y_mm": 12.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "J2",
+      "value": "PACK",
+      "layer": "F.Cu",
+      "x_mm": 50.0,
+      "y_mm": 13.0,
+      "rotation_deg": 90.0
+    },
+    {
+      "reference": "J3",
+      "value": "I2C",
+      "layer": "F.Cu",
+      "x_mm": 84.0,
+      "y_mm": 34.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "J4",
+      "value": "NTC",
+      "layer": "F.Cu",
+      "x_mm": 84.0,
+      "y_mm": 50.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "Q1",
+      "value": "CSD18540Q5B",
+      "layer": "F.Cu",
+      "x_mm": 25.0,
+      "y_mm": 20.0,
+      "rotation_deg": 180.0
+    },
+    {
+      "reference": "Q2",
+      "value": "CSD18540Q5B",
+      "layer": "F.Cu",
+      "x_mm": 39.0,
+      "y_mm": 20.0,
+      "rotation_deg": 180.0
+    },
+    {
+      "reference": "R101",
+      "value": "47R",
+      "layer": "F.Cu",
+      "x_mm": 17.0,
+      "y_mm": 30.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "R102",
+      "value": "47R",
+      "layer": "F.Cu",
+      "x_mm": 17.0,
+      "y_mm": 36.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "R103",
+      "value": "47R",
+      "layer": "F.Cu",
+      "x_mm": 17.0,
+      "y_mm": 42.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "R104",
+      "value": "47R",
+      "layer": "F.Cu",
+      "x_mm": 17.0,
+      "y_mm": 48.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "R105",
+      "value": "47R",
+      "layer": "F.Cu",
+      "x_mm": 17.0,
+      "y_mm": 54.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "R106",
+      "value": "0R",
+      "layer": "F.Cu",
+      "x_mm": 25.0,
+      "y_mm": 42.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "R107",
+      "value": "0R",
+      "layer": "F.Cu",
+      "x_mm": 25.0,
+      "y_mm": 54.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "R108",
+      "value": "100R",
+      "layer": "F.Cu",
+      "x_mm": 31.0,
+      "y_mm": 26.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "R109",
+      "value": "2.2k",
+      "layer": "F.Cu",
+      "x_mm": 58.0,
+      "y_mm": 28.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "R110",
+      "value": "2.2k",
+      "layer": "F.Cu",
+      "x_mm": 58.0,
+      "y_mm": 34.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "R112",
+      "value": "10k",
+      "layer": "F.Cu",
+      "x_mm": 44.0,
+      "y_mm": 50.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "R113",
+      "value": "100R",
+      "layer": "F.Cu",
+      "x_mm": 48.0,
+      "y_mm": 30.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "R114",
+      "value": "100R",
+      "layer": "F.Cu",
+      "x_mm": 48.0,
+      "y_mm": 42.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "RS1",
+      "value": "0.01R",
+      "layer": "F.Cu",
+      "x_mm": 58.0,
+      "y_mm": 13.0,
+      "rotation_deg": 180.0
+    },
+    {
+      "reference": "TP1",
+      "value": "SENSE_P",
+      "layer": "F.Cu",
+      "x_mm": 66.0,
+      "y_mm": 13.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "TP2",
+      "value": "SENSE_N",
+      "layer": "F.Cu",
+      "x_mm": 66.0,
+      "y_mm": 21.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "TP3",
+      "value": "REG1_3V3",
+      "layer": "F.Cu",
+      "x_mm": 76.0,
+      "y_mm": 48.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "TP4",
+      "value": "CP1_NODE",
+      "layer": "F.Cu",
+      "x_mm": 76.0,
+      "y_mm": 54.0,
+      "rotation_deg": 0.0
+    },
+    {
+      "reference": "U1",
+      "value": "BQ76922",
+      "layer": "F.Cu",
+      "x_mm": 38.0,
+      "y_mm": 36.0,
+      "rotation_deg": 0.0
+    }
+  ],
+  "project": "BatteryLab_BMS_V2",
+  "erc": {
+    "total": 59,
+    "by_severity": {
+      "warning": 59
+    },
+    "by_type": {
+      "warning:endpoint_off_grid": 51,
+      "warning:isolated_pin_label": 5,
+      "warning:lib_symbol_issues": 3
+    }
+  },
+  "drc": {
+    "by_severity": {
+      "warning": 1
+    },
+    "by_type": {
+      "warning:lib_footprint_mismatch": 1
+    },
+    "unconnected_items": 0,
+    "schematic_parity": 4
+  },
+  "unconnected_net_count": 0,
+  "pin_audit": {
+    "total": 33,
+    "match": 30,
+    "ok_unconnected": 3,
+    "mismatch": 0
+  },
+  "disclaimer": "ENGINEERING DESIGN PROTOTYPE / NOT HARDWARE VALIDATED / NOT APPROVED FOR MANUFACTURING"
+}

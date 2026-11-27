@@ -1,0 +1,56 @@
+# 引擎自校验用例（不进入默认回归方案）
+#
+# 目的：用真实仪器与真实模型验证四种判定分支：
+#   EV001 预期状态与实际不符      -> FAIL
+#   EV002 电压限值故意收紧        -> FAIL
+#   EV003 enabled: false          -> SKIP（且不得访问仪器）
+#   EV004 配置要求检查空载效率    -> ERROR（指标不可用，不得判 PASS）
+#
+# 这些用例故意失败，禁止加入 configs/test_suites.yaml 的默认方案。
+
+version: "1.0"
+specification_type: "engine_self_validation"
+
+test_cases:
+  - id: EV001
+    name: 引擎自校验-预期状态不符
+    category: engine
+    vin: 12.0
+    input_current_limit: 3.0
+    load_current: 1.0
+    expected_state: OVERCURRENT
+    limits:
+      vout: { min: 4.9, max: 5.1 }
+
+  - id: EV002
+    name: 引擎自校验-电压限值收紧
+    category: engine
+    vin: 12.0
+    input_current_limit: 3.0
+    load_current: 1.0
+    expected_state: NORMAL
+    limits:
+      vout: { min: 5.5, max: 5.6 }
+
+  - id: EV003
+    name: 引擎自校验-未启用用例
+    category: engine
+    vin: 12.0
+    input_current_limit: 3.0
+    load_current: 1.0
+    enabled: false
+    expected_state: NORMAL
+    limits:
+      vout: { min: 4.9, max: 5.1 }
+
+  - id: EV004
+    name: 引擎自校验-空载效率不可用
+    category: engine
+    vin: 12.0
+    input_current_limit: 3.0
+    load_current: 0.0
+    load_enabled: false
+    expected_state: NORMAL
+    limits:
+      vout: { min: 4.9, max: 5.1 }
+      efficiency_percent: { min: 85.0, max: 100.0 }

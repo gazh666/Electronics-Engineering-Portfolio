@@ -1,0 +1,10 @@
+name: testlab
+
+# 复现用环境定义。本地实际开发环境为 conda 的 kaifa（Python 3.11.18），
+# 本文件用于在独立环境或 CI 中验证依赖可复现性，不用于重建或删除 kaifa。
+
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - -r requirements-dev.txt

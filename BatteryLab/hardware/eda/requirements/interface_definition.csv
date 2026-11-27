@@ -1,0 +1,19 @@
+connector,connector_type,pin,signal,direction,electrical_level,protection,notes
+J1,3S cell harness (4-pin),1,CELL_0_NEG,power,0 V reference,none,底部电芯负端与分流电阻电池侧
+J1,3S cell harness (4-pin),2,CELL_0_POS / CELL_1_NEG,power,3.0-4.25 V,none,第 1 节正端
+J1,3S cell harness (4-pin),3,CELL_1_POS / CELL_2_NEG,power,6.0-8.5 V,none,第 2 节正端
+J1,3S cell harness (4-pin),4,CELL_2_POS / BAT_POS,power,9.0-12.75 V,none,顶部电芯正端
+J2,pack output (2-pin),1,PACK_POS,power,9.0-12.75 V,fuse footprint reserved,高侧保护后的组端正极
+J2,pack output (2-pin),2,PACK_NEG,power,0 V reference,shunt 0.01 ohm,经分流电阻回流
+J3,I2C host (4-pin),1,GND,power,0 V,none,主机参考地
+J3,I2C host (4-pin),2,REG1_3V3,power,3.3 V,none,上拉电源
+J3,I2C host (4-pin),3,I2C_SCL,digital,3.3 V CMOS,2.2 kohm pull-up,400 kHz
+J3,I2C host (4-pin),4,I2C_SDA,digital,3.3 V CMOS,2.2 kohm pull-up,400 kHz
+J4,NTC (2-pin),1,NTC_INPUT,analog,0-1.8 V,RC filter,103AT 类 10 kohm NTC
+J4,NTC (2-pin),2,GND,power,0 V,none,NTC 回流
+J5,charger input (2-pin),1,ADAPTER_P,power,17-19 V,reverse blocking PFET,18 V 标称适配器
+J5,charger input (2-pin),2,ADAPTER_N,power,0 V,differential filter,适配器回流
+TP1,test point,1,SENSE_P,analog,plus/minus 200 mV,none,分流电阻 Kelvin 正端
+TP2,test point,1,SENSE_N,analog,plus/minus 200 mV,none,分流电阻 Kelvin 负端
+TP3,test point,1,REG1_3V3,power,3.3 V,none,REG1 输出检查
+TP4,test point,1,CP1_NODE,power,VBAT 附近,none,电荷泵工作检查

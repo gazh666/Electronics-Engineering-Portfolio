@@ -1,0 +1,121 @@
+# TestLab 可靠性实验预期（阶段八）
+#
+# 这些预期在运行前固定，运行后不得根据实际结果修改。
+# 业务状态（PASS/FAIL/ERROR）与可靠性实验结论分开管理：
+#   例如 F002 的业务结果是 ERROR，但“系统正确识别持续超时并停止”属于
+#   可靠性实验通过，不能把业务 ERROR 改写为 PASS。
+#
+# expected_cleanup_status：
+#   VERIFIED_OFF  已关闭并回读确认
+#   NOT_VERIFIED  无法确认（会话断开或被注入关闭失败）
+#   NOT_APPLICABLE 无适用清理对象
+
+version: "1.0"
+simulation_only: true
+
+notes:
+  - "F003 断开后无法再回读输出状态，只能记录 NOT_VERIFIED。"
+  - "F009 注入关闭失败，且必须强制停止后续任务。"
+  - "F007/F008 使用效率保持的一致性测量偏移，预期为业务 FAIL。"
+  - "可靠性实验通过率不等于产品良率。"
+
+experiments:
+  - scenario_id: NONE
+    name: 正常无故障
+    expected_status: PASS
+    expected_retry_count: 0
+    expected_recovered: false
+    expected_retry_exhausted: false
+    expected_cleanup_status: VERIFIED_OFF
+    expect_fault_injected: false
+    expect_forced_stop: false
+
+  - scenario_id: F001
+    name: 单次查询超时
+    expected_status: PASS
+    expected_retry_count: 1
+    expected_recovered: true
+    expected_retry_exhausted: false
+    expected_cleanup_status: VERIFIED_OFF
+    expect_fault_injected: true
+    expect_forced_stop: false
+
+  - scenario_id: F002
+    name: 持续查询超时
+    expected_status: ERROR
+    expected_retry_count: 2
+    expected_recovered: false
+    expected_retry_exhausted: true
+    expected_cleanup_status: VERIFIED_OFF
+    expect_fault_injected: true
+    expect_forced_stop: false
+
+  - scenario_id: F003
+    name: 仪器通信断开
+    expected_status: ERROR
+    expected_retry_count: 0
+    expected_recovered: false
+    expected_retry_exhausted: false
+    expected_cleanup_status: NOT_VERIFIED
+    expect_fault_injected: true
+    expect_forced_stop: false
+
+  - scenario_id: F004
+    name: 非法仪器响应
+    expected_status: ERROR
+    expected_retry_count: 0
+    expected_recovered: false
+    expected_retry_exhausted: false
+    expected_cleanup_status: VERIFIED_OFF
+    expect_fault_injected: true
+    expect_forced_stop: false
+
+  - scenario_id: F005
+    name: 模型测量 NaN
+    expected_status: ERROR
+    expected_retry_count: 0
+    expected_recovered: false
+    expected_retry_exhausted: false
+    expected_cleanup_status: VERIFIED_OFF
+    expect_fault_injected: true
+    expect_forced_stop: false
+
+  - scenario_id: F006
+    name: 模型测量 Infinity
+    expected_status: ERROR
+    expected_retry_count: 0
+    expected_recovered: false
+    expected_retry_exhausted: false
+    expected_cleanup_status: VERIFIED_OFF
+    expect_fault_injected: true
+    expect_forced_stop: false
+
+  - scenario_id: F007
+    name: 输出电压偏低
+    expected_status: FAIL
+    expected_retry_count: 0
+    expected_recovered: false
+    expected_retry_exhausted: false
+    expected_cleanup_status: VERIFIED_OFF
+    expect_fault_injected: true
+    expect_forced_stop: false
+
+  - scenario_id: F008
+    name: 输出电流偏移
+    expected_status: FAIL
+    expected_retry_count: 0
+    expected_recovered: false
+    expected_retry_exhausted: false
+    expected_cleanup_status: VERIFIED_OFF
+    expect_fault_injected: true
+    expect_forced_stop: false
+
+  - scenario_id: F009
+    name: 输出关闭故障
+    expected_status: ERROR
+    expected_retry_count: 0
+    expected_recovered: false
+    expected_retry_exhausted: false
+    expected_cleanup_status: NOT_VERIFIED
+    expect_fault_injected: true
+    expect_forced_stop: true

@@ -1,0 +1,53 @@
+version: "1.0"
+
+source_type: educational_design
+
+cell:
+  model: INR18650-20R
+  cell_id: SP2
+  temperature_c: 25.0
+
+capacity_soh:
+  reference_capacity_ah: 2.0280827046460144
+  reference_source: identified_model_capacity
+  reference_note: >
+    基准容量为第三阶段由 SP2 初始容量实验辨识得到的完整放电容量，
+    同一电芯、同一温度、同一倍率口径。不同样品容量差异不视为老化。
+  allow_above_100_percent: true
+  clamp_to_100: false
+  smoothing:
+    enabled: false
+    note: 仅描述性平滑，原始容量与原始 SOH 必须同时保存。
+
+cycle_analysis:
+  maximum_gap_s: 30.0
+  minimum_discharge_current_a: 0.2
+  minimum_duration_s: 600.0
+  require_complete_protocol: true
+  reference_line_percent: 80.0
+  reference_line_note: >
+    80% 容量保持率仅作教学老化参考线，不是统一报废阈值，也不用于外推剩余寿命。
+
+resistance_health:
+  metric: dcir
+  method_note: >
+    只比较同一电芯、相近 SOC/温度/电流方向/脉冲幅值/取样窗口的点；
+    瞬时欧姆内阻、DCIR、ECM R0、EIS 阻抗互不替代。
+  comparability:
+    maximum_soc_difference: 0.05
+    maximum_temperature_difference_c: 2.0
+    maximum_amplitude_relative_difference: 0.10
+    maximum_window_relative_difference: 0.10
+
+aging_data:
+  real_aging_available: false
+  status: NOT_VERIFIED
+  reason: >
+    data/raw 仅含 CALCE INR18650-20R 的 25℃ 初始容量、低电流 OCV 与 DST/FUDS/US06/BJDST
+    动态工况，没有连续循环老化数据；NASA 老化数据未下载。
+  synthetic_validation_allowed: true
+  synthetic_label: synthetic_truth
+
+integration:
+  capacity_update_smoothing_weight: 0.2
+  update_at_session_start_only: true

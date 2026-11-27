@@ -1,0 +1,21 @@
+# BatteryLab V2 四层叠层（工程研究方案，未做阻抗与热仿真）
+board:
+  width_mm: 100.0
+  height_mm: 72.0
+  layers: 4
+  copper_um: 35
+  material: FR-4
+  finish: HASL
+  disclaimer: "ENGINEERING DESIGN PROTOTYPE / NOT HARDWARE VALIDATED / NOT APPROVED FOR MANUFACTURING"
+stackup:
+  - {layer: F.Cu, role: "器件与主功率通路", copper_um: 35}
+  - {layer: dielectric, role: "0.2 mm 半固化片（名义值）", thickness_mm: 0.2}
+  - {layer: In1.Cu, role: "完整 GND 参考平面", copper_um: 35}
+  - {layer: dielectric, role: "1.0 mm 芯板（名义值）", thickness_mm: 1.0}
+  - {layer: In2.Cu, role: "电源分配与辅助信号", copper_um: 35}
+  - {layer: dielectric, role: "0.2 mm 半固化片（名义值）", thickness_mm: 0.2}
+  - {layer: B.Cu, role: "辅助信号 / GND", copper_um: 35}
+reference_plane: In1.Cu (GND)
+notes:
+  - "层叠厚度为设计名义值，未与板厂核对，未做阻抗计算。"
+  - "未做热、EMI、浪涌与安规仿真。"

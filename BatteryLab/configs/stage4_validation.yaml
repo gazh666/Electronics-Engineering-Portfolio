@@ -1,0 +1,37 @@
+version: "1.0"
+
+# 第四阶段工程限值（Task 34）。在正式实验前固定。
+# 这些是教学设计目标，不是 BQ76922 官方芯片精度规格，也不是产品认证要求。
+source_type: educational_assumption
+preregistered: true
+
+ideal_consistency:
+  divider_and_diff_amp_theory_vs_spice_v: 0.0001   # 0.1 mV
+  bidirectional_current_theory_vs_spice_v: 0.0001 # 0.1 mV
+  rc_cutoff_frequency_relative_error: 0.02        # 2%
+  adc_quantization_error_lsb: 0.5
+  adc_quantization_error_numeric_v: 0.000001
+
+non_ideal_measurement:
+  temperature_c: 25.0
+  cell_voltage_max_error_v: 0.010    # 10 mV
+  current_max_error_a: 0.020         # 20 mA
+  ntc_max_temperature_error_c: 1.0   # 1 ℃
+  adc_saturation_forbidden_in_normal_range: true
+  invalid_measurement_must_have_status: true
+
+reported_conditions:
+  - nominal
+  - pre_calibration
+  - post_calibration
+  - tolerance
+  - out_of_range
+
+spice_budget:
+  maximum_real_solves: 120
+  tolerance_math_samples: 1000
+
+notes:
+  - "限值在得到结果之前固定，不因结果不达标而降低。"
+  - "不要求全部 PASS；未达标项保留 FAIL 并分析真实误差来源。"
+  - "ADC 量化步距不等于实际采集精度。"

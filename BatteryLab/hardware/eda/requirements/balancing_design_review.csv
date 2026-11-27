@@ -1,0 +1,8 @@
+option,item,requirement,official_basis,decision,status,note
+internal,均衡开关,使用 BQ76922 内部均衡 FET 与 VC 引脚,SLUSE86A p.4 pin2-9 描述与 6.19 内部均衡电阻,采用,ACCEPTED_WITH_LIMITS,"内部均衡电阻 15-46 Ω，均衡电流由芯片自身限制"
+internal,均衡电流,单节均衡电流 = Vcell / (R_internal + R_external_filter),SLUSE86A p.14 内部均衡电阻 15/28/46 Ω,采用,ACCEPTED_WITH_LIMITS,"47 Ω 外部滤波电阻会串入均衡路径，必须计入"
+internal,同时均衡通道,官方应用建议限制同时均衡节数以避免过热,SLUSE86A p.14 与 Thermal Information,限制,MANUAL_REVIEW,"本设计仅允许单节同时均衡，具体上限需寄存器配置确认"
+internal,芯片耗散,均衡时芯片内部功耗必须低于封装允许值,SLUSE86A p.8 RθJA 33.2 C/W,采用,MANUAL_REVIEW,"缺少实际板级热阻，仅能做一阶估算"
+internal,均衡期间采样,均衡电流会在输入滤波电阻上产生压降，影响采样,SLUSE86A p.14 与 Usage of VC Pins,规避,MANUAL_REVIEW,"均衡期间采样需软件标记，硬件无法完全消除"
+external,外部扩流,若需要更大均衡电流，采用外部 PNP/NMOS 扩流,SLUSE86A 应用说明未提供通用扩流电路,不采用,NOT_APPLICABLE,"缺少官方逐引脚扩流参考时不得自行补齐"
+external,外部 100 Ω 支路,第五阶段 100 Ω 电阻 + MOSFET 独立支路,第五阶段教学拓扑,不采用,REJECTED,"不能把教学外部支路直接接到任意 VC 引脚"

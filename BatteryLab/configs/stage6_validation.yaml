@@ -1,0 +1,37 @@
+version: "1.0"
+
+# 第六阶段资源预算与预先登记验收限值。
+# 限值在正式运行前登记；结果不达标保留 FAIL，禁止事后放宽。
+simulation_budget:
+  maximum_spice_solves: 80
+  maximum_case_duration_seconds: 180
+  maximum_total_runtime_minutes: 45
+  maximum_average_model_runs: 120
+
+profiles:
+  smoke:
+    maximum_spice_solves: 6
+  standard:
+    maximum_spice_solves: 80
+  extended:
+    enabled: false
+
+preregistered_limits:
+  # 实测值 vs 限值（单位见字段名）
+  cc_mean_error_a: 0.020
+  cc_period_average_error_a: 0.020
+  cc_startup_overshoot_fraction: 0.10
+  cv_mean_error_v: 0.020
+  cv_period_average_error_v: 0.020
+  cc_cv_voltage_overshoot_v: 0.050
+  power_stage_efficiency_min_percent: 85.0
+  power_conservation_residual_fraction: 0.01
+  phase_margin_deg: 45.0
+  gain_margin_db: 6.0
+  bandwidth_separation_ratio: 5.0
+  soc_consistency_tolerance_ah: 0.005
+  intrinsic_solver_consistency_ppm: 100.0
+
+metadata:
+  registered_before_runs: true
+  note: "教学工程目标，不是商业产品规范。"

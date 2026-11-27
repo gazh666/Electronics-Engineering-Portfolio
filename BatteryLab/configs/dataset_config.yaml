@@ -1,0 +1,46 @@
+version: "1.0"
+
+provider: CALCE
+provider_full_name: Center for Advanced Life Cycle Engineering, University of Maryland
+entry_page: https://calce.umd.edu/battery-data
+cell_model: INR18650-20R
+rated_capacity_ah: 2.0
+reference_temperature_c: 25
+
+download:
+  budget_mb: 500
+  timeout_s: 60
+  chunk_size_bytes: 1048576
+  user_agent: "BatteryLab-Stage1/1.0 (educational research; contact: local user)"
+  raw_dir: data/raw
+  manifest_dir: data/manifests
+
+target_tests:
+  - test_type: initial_capacity
+    description: Initial Capacity Data
+    priority: 1
+  - test_type: low_current_ocv
+    description: Low Current OCV
+    priority: 2
+  - test_type: incremental_ocv
+    description: Incremental Current OCV
+    priority: 3
+  - test_type: dst
+    description: Dynamic Stress Test
+    priority: 4
+  - test_type: fuds
+    description: Federal Urban Driving Schedule
+    priority: 5
+  - test_type: us06
+    description: US06 Supplemental Federal Test Procedure
+    priority: 6
+  - test_type: bjdst
+    description: Beijing Dynamic Stress Test
+    priority: 7
+
+quality:
+  voltage_min_v: 1.5
+  voltage_max_v: 5.0
+  current_abs_max_a: 20.0
+  require_monotonic_time_within_segment: true
+  keep_raw_data: true

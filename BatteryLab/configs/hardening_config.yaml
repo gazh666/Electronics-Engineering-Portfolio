@@ -1,0 +1,137 @@
+version: "1.0"
+
+# BatteryLab 最终补强统一配置。
+# 这里只登记目标、判据与预算，不登记任何"结果值"。
+parameter_source: educational_assumption
+
+afe:
+  voltage_worst_case_target_mv: 10.0
+  current_worst_case_target_ma: 20.0
+  monte_carlo_samples: 1000
+  baseline_seed: 42
+  independent_validation_seed: 2026
+  temperature_min_c: 0.0
+  temperature_max_c: 60.0
+
+  # 候选设计只改变真实器件参数（容差、失调、温漂、参考源），不改预算公式。
+  candidates:
+    A_original_1pct:
+      label: "原有 1% 电阻 + 原采集电路"
+      resistor_tolerance_percent: 1.0
+      ratio_matching_percent: 1.0
+      opamp_offset_max_v: 1.0e-4
+      opamp_offset_drift_v_per_c: 5.0e-6
+      adc_reference_tolerance_percent: 0.1
+      adc_gain_error_fraction: 0.001
+      adc_offset_max_v: 5.0e-4
+      shunt_tolerance_percent: 0.5
+      shunt_tcr_ppm_per_c: 50.0
+      amplifier_gain_tolerance_percent: 0.2
+      amplifier_offset_max_v: 2.5e-5
+      zero_reference_error_v: 1.65e-3
+      topology: discrete_four_resistor
+    B_precision_0p1:
+      label: "0.1% 精密电阻 + 低失调运放"
+      resistor_tolerance_percent: 0.1
+      ratio_matching_percent: 0.1
+      opamp_offset_max_v: 1.0e-5
+      opamp_offset_drift_v_per_c: 0.5e-6
+      adc_reference_tolerance_percent: 0.05
+      adc_gain_error_fraction: 0.0005
+      adc_offset_max_v: 2.5e-4
+      shunt_tolerance_percent: 0.1
+      shunt_tcr_ppm_per_c: 25.0
+      amplifier_gain_tolerance_percent: 0.1
+      amplifier_offset_max_v: 1.0e-5
+      zero_reference_error_v: 3.3e-4
+      topology: discrete_four_resistor
+    C_matched_network_0p01:
+      label: "0.01% 比例匹配电阻网络 + 比率式参考"
+      resistor_tolerance_percent: 0.01
+      ratio_matching_percent: 0.005
+      opamp_offset_max_v: 1.0e-5
+      opamp_offset_drift_v_per_c: 0.2e-6
+      adc_reference_tolerance_percent: 0.02
+      adc_gain_error_fraction: 0.0002
+      adc_offset_max_v: 1.0e-4
+      shunt_tolerance_percent: 0.1
+      shunt_tcr_ppm_per_c: 25.0
+      amplifier_gain_tolerance_percent: 0.05
+      amplifier_offset_max_v: 1.0e-5
+      zero_reference_error_v: 1.0e-4
+      topology: ratio_matched_network
+    D_network_low_offset_composite:
+      label: "匹配网络 + 低失调放大器 + 优化参考源 + 两点校准剩余误差"
+      resistor_tolerance_percent: 0.01
+      ratio_matching_percent: 0.005
+      opamp_offset_max_v: 5.0e-6
+      opamp_offset_drift_v_per_c: 0.1e-6
+      adc_reference_tolerance_percent: 0.01
+      adc_gain_error_fraction: 0.0001
+      adc_offset_max_v: 5.0e-5
+      shunt_tolerance_percent: 0.05
+      shunt_tcr_ppm_per_c: 10.0
+      amplifier_gain_tolerance_percent: 0.05
+      amplifier_offset_max_v: 5.0e-6
+      zero_reference_error_v: 5.0e-5
+      topology: ratio_matched_network_plus_calibration
+
+protection:
+  require_actual_spice_current_path: true
+  reject_behavioral_current_clamp: true
+  require_event_sequence: true
+  require_timestep_convergence: true
+  # 预先登记的判据（不得为了更快响应而修改）。
+  current_suppression_ratio: 0.05
+  current_hold_time_s: 5.0e-6
+  maximum_sample_gap_s: 2.0e-6
+  convergence_steps_s: [2.0e-8, 5.0e-8, 1.0e-7]
+  fault_time_s: 2.0e-4
+  end_time_s: 4.0e-4
+  discharge_overcurrent_trip_a: 4.0
+
+charging:
+  require_soft_start_comparison: true
+  require_pi_comparison: true
+  require_anti_windup_comparison: true
+  soft_start_candidates_s: [0.0, 0.001, 0.002, 0.005, 0.010]
+  # 开关级仿真窗口与评价窗口（与第六阶段 C01/C03 保持一致）。
+  cc_duration_s: 0.008
+  cv_duration_s: 0.012
+  cc_evaluation_window_s: [0.006, 0.008]
+  pi_grid_multipliers: [0.5, 0.8, 1.0, 1.2, 1.5]
+  spice_validation_candidates: 3
+
+ecm:
+  prohibit_validation_data_leakage: true
+  report_low_soc_error_separately: true
+  preserve_original_failures: true
+  soc_bands:
+    - [0.0, 0.05]
+    - [0.05, 0.10]
+    - [0.10, 0.20]
+    - [0.20, 0.50]
+    - [0.50, 1.01]
+
+system:
+  prohibit_unverified_extrapolation: true
+  require_closed_loop_candidate_validation: true
+  end_time_s: 0.010
+  step_s: 5.0e-8
+  load_step_fraction: 0.5
+
+eda:
+  bms_schematic_required: true
+  bms_pcb_required: true
+  charger_schematic_required: true
+  charger_pcb_optional: true
+
+budget:
+  maximum_new_spice_solves: 150
+  maximum_average_model_runs: 100
+  maximum_single_spice_seconds: 180
+
+release:
+  preserve_history: true
+  hardware_validated: false
+  production_released: false

@@ -1,0 +1,5 @@
+resistance_ohm,candidate_mpn,manufacturer,package,rated_power_w,tcr_ppm_per_c,tolerance_percent,voltage_drop_at_2p5a_mv,power_at_2p5a_mw,power_utilization_percent,sense_full_scale_current_a,current_lsb_ma,meets_bq76922_tc_le_50ppm,selection_status,datasheet_reference
+0.001,WSL2512R0010FEA,Vishay Dale,2512,1.0,275,1.0,2.5,6.25,0.63,200.0,7.568,false,REJECTED_RESOLUTION_AND_TC,WSL Doc 30100 p.2
+0.002,WSL2512R0020FEA,Vishay Dale,2512,1.0,275,1.0,5.0,12.5,1.25,100.0,3.784,false,REJECTED_TC,WSL Doc 30100 p.2
+0.005,WSL2010R0050FEA,Vishay Dale,2010,0.5,110,1.0,12.5,31.25,6.25,40.0,1.514,false,CANDIDATE,WSL Doc 30100 p.2
+0.010,WSL2010R0100FEA,Vishay Dale,2010,0.5,75,1.0,25.0,62.5,12.50,20.0,0.757,false,SELECTED_WITH_TC_DEVIATION,WSL Doc 30100 p.2

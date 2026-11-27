@@ -1,0 +1,29 @@
+version: "1.0"
+
+# NTC 温度采集教学配置。B 值模型不代表已完成某一商业 NTC 型号选型。
+source_type: educational_assumption
+
+ntc:
+  part_number: TBD
+  nominal_resistance_ohm: 10000.0
+  nominal_temperature_c: 25.0
+  beta_k: 3950.0
+  r25_tolerance_percent: 1.0
+  beta_tolerance_percent: 1.0
+
+divider:
+  topology: ntc_to_ground_fixed_pullup
+  pullup_resistance_ohm: 10000.0
+  pullup_tolerance_percent: 0.1
+  excitation_voltage_v: 3.3
+  adc_reference_voltage_v: 3.3
+  ratiometric: true
+
+temperature_range:
+  minimum_c: 0.0
+  maximum_c: 60.0
+  experiment_temperatures_c: [0, 10, 20, 25, 30, 40, 50, 60]
+
+self_heating:
+  dissipation_coefficient_mw_per_c: null
+  note: "缺少真实 NTC 耗散系数，不填入任意自热温升。"

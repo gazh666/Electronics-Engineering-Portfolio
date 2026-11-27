@@ -1,0 +1,15 @@
+failure_mode,potential_cause,potential_effect,existing_detection,design_mitigation,validation_method,verification_status,residual_risk
+单体采样开线,线束断裂或焊点开裂,电芯状态判断错误,BQ76922 开线检测 + 软件合理性检查,47 Ω + 0.22 µF 形成可拉偏节点；连接器防呆,注入开路并读取单体电压,NOT_EXECUTED,中
+采集滤波元件失效,电容短路或电阻开路,测量异常或通道漂移,相邻通道交叉校验,使用 X7R 与 1% 电阻；关键通道留测试点,逐个短开路滤波元件,NOT_EXECUTED,中
+Shunt 采样错误,Kelvin 走线错误或焊点虚接,电流与保护判断偏差,BQ76922 库仑计与软件阈值双重判断,Kelvin 独立走线；四端焊盘内侧取样,注入已知电流比对,NOT_EXECUTED,高
+MOSFET 短路失效,过压/过热击穿,保护通路无法切断,DSG/CHG 状态回读 + 组端电压突变检测,60 V 器件降额；栅极下拉；保险丝预留,短路与过流测试（受控电源）,NOT_EXECUTED,高
+MOSFET 开路失效,键合线或焊点失效,无法正常供电,负载端掉电检测,双管背靠背；功率路径测试点,通断与带载测试,NOT_EXECUTED,中
+栅极驱动异常,驱动回路干扰或下拉失效,FET 误动作,CHG/DSG 状态与电流方向比对,10 kΩ 栅源下拉；短回路布局,栅极波形与双脉冲测试,NOT_EXECUTED,中
+NTC 开路,连接器脱落,温度测量不可用,ADC 读数为轨值或超范围,NTC 开路检测；上拉到 REG18,拔掉 NTC 观察读数,NOT_EXECUTED,低
+NTC 短路,NTC 或线束短路,温度读数偏高或偏低,超范围判断,短路保护电阻；软件量程检查,短接 NTC 观察读数,NOT_EXECUTED,低
+均衡开关异常,内部均衡 FET 损坏,非预期电芯放电,均衡期间温度与电压监视,限制单节同时均衡；均衡电流限流,长时间均衡温升测试,NOT_EXECUTED,中
+通信异常,I2C 总线电容过大或上拉错误,主机状态不可用,ALERT 中断 + 超时重试,2.2 kΩ 上拉；总线电容预算,示波器看上升沿,NOT_EXECUTED,低
+充电反馈异常,分压电阻开路或 VFB 漏电,充电调节异常,STAT 状态 + 充电电流监测,0.5% 电阻；VFB 走线远离开关节点,改变负载观察恒压点,NOT_EXECUTED,中
+输入电源异常,适配器过压或反接,充电器停机或回灌,ACOV/UVLO/SLEEP 比较器,反向阻断 PFET；输入 TVS 评估,可调电源扫描输入电压,NOT_EXECUTED,中
+功率器件温升过高,铜皮不足或环境温度高,可靠性下降,一阶热估算 + 后续热像仪,降额设计与散热铜皮,热像仪与热电偶,NOT_EXECUTED,中
+PCB 连接错误,原理图与 PCB 不一致,功能异常或器件损坏,原理图一致性检查（DRC parity）,网表驱动布线；逐网络审计,飞针或 X-Ray,NOT_EXECUTED,中

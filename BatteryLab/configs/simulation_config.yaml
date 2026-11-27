@@ -1,0 +1,31 @@
+version: "1.0"
+
+pybamm:
+  default_model: SPM
+  default_parameter_set: null
+  spm_duration_s: 3600
+  thevenin_duration_s: 1800
+  default_temperature_c: 25
+
+solve:
+  solver: default
+  save_raw_waveform: true
+  output_variables:
+    - "Time [s]"
+    - "Voltage [V]"
+    - "Current [A]"
+    - "SoC"
+
+results:
+  root: results
+  keep_execution_log: true
+  json_nan_policy: null
+
+analysis:
+  integration_method: trapezoid
+  sign_convention: discharge_positive
+  soc_bounds: [0.0, 1.0]
+
+spice:
+  temperature_c: 25
+  nominal_temperature_c: 25

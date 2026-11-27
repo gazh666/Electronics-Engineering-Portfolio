@@ -1,0 +1,55 @@
+# 第八阶段：统一理论验证工况（全部为教学假设，不是厂商规格）
+version: "1.0"
+
+base_config: configs/nonideal_buck_config.yaml
+
+# 每个工况会按“平均非理想模型”离线校准占空比，使实际输出接近 5 V。
+# 校准得到的占空比写入每个工况的配置快照，不隐藏、不事后修改。
+calibration:
+  enabled: true
+  target_output_voltage_v: 5.0
+
+cases:
+  - id: VAL001
+    name: Nominal CCM
+    input_voltage_v: 12.0
+    load_resistance_ohm: 2.5
+    variants: [C, E]
+    expected_mode: CCM
+    notes: 额定工况；SW 与 MOSFET 两种开关模型都执行真实 SPICE。
+
+  - id: VAL002
+    name: Low input
+    input_voltage_v: 9.0
+    load_resistance_ohm: 2.5
+    variants: [C, E]
+    expected_mode: CCM
+    notes: 低输入电压；占空比相对较高。
+
+  - id: VAL003
+    name: High input
+    input_voltage_v: 16.0
+    load_resistance_ohm: 2.5
+    variants: [C, E]
+    expected_mode: CCM
+    notes: 高输入电压；占空比相对较低。
+
+  - id: VAL004
+    name: Medium load
+    input_voltage_v: 12.0
+    load_resistance_ohm: 5.0
+    variants: [C, E]
+    expected_mode: CCM
+    notes: 半载；电感电流纹波占比升高。
+
+  - id: VAL005
+    name: Light load
+    input_voltage_v: 12.0
+    load_resistance_ohm: 50.0
+    variants: [C, E]
+    expected_mode: DCM_OR_BOUNDARY
+    notes: 轻载；理论 CCM 公式可能不适用，必须按实际谷值电流判定。
+
+metadata:
+  specification_type: project_assumption
+  data_source: config_assumption

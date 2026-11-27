@@ -1,0 +1,14 @@
+parameter,value,unit,source,note
+input_voltage_min,5,V,datasheet_specification,BQ24610 输入范围下限
+input_voltage_max,28,V,datasheet_specification,BQ24610 输入范围上限
+series_cell_count_min,1,cells,datasheet_specification,支持 1–6 节
+series_cell_count_max,6,cells,datasheet_specification,支持 1–6 节
+charge_current_max,10,A,datasheet_specification,取决于外部功率器件与散热
+switching_frequency,600,kHz,datasheet_specification,固定开关频率同步降压
+battery_voltage_regulation_accuracy,0.5,%,datasheet_specification,数据手册标称精度量级
+topology,synchronous_buck,,datasheet_specification,集成高/低边驱动
+package,24-pin VQFN (RGE),,datasheet_specification,封装与引脚号需按数据手册复核
+input_current_limit,programmable,,datasheet_specification,ACSET 设定适配器限流
+charge_termination,programmable,,datasheet_specification,终止电流与安全定时由外部设定
+temperature_sensing,external_thermistor,,datasheet_specification,TS 引脚接 NTC
+status_outputs,STAT1/STAT2/PG,,datasheet_specification,充电状态与电源就绪

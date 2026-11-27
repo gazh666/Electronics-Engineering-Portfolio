@@ -1,0 +1,72 @@
+# PowerLab 第四阶段：独立器件测试台配置
+# 说明：模型参数为教学假设值；扫描范围用于特性提取，不代表器件安全工作区。
+version: "1.0"
+
+mosfet:
+  model_name: NMOS_EDU
+  model_type: NMOS
+  level: 1
+
+  threshold_voltage_v: 3.0
+  kp_a_per_v2: 0.01
+
+  channel_length_m: 0.000001
+  channel_width_m: 0.001
+
+  channel_length_modulation_per_v: 0.001
+
+  drain_resistance_ohm: 0.005
+  source_resistance_ohm: 0.002
+
+  external_cgs_f: 0.000000001
+  external_cgd_f: 0.0000000002
+  external_cds_f: 0.0000000003
+
+  model_source: educational_assumption
+  model_version: "1.0"
+
+diode:
+  model_name: DFREE_NONIDEAL
+  saturation_current_a: 0.000001
+  ideality_factor: 1.0
+  series_resistance_ohm: 0.015
+  junction_capacitance_f: 0.0000000002
+  junction_potential_v: 0.7
+  grading_coefficient: 0.5
+  transit_time_s: 0.0
+  model_source: educational_assumption
+  model_version: "1.0"
+
+mosfet_tests:
+  transfer:
+    vds_v: 5.0
+    vgs_start_v: 0.0
+    vgs_stop_v: 10.0
+    vgs_step_v: 0.25
+  output:
+    vgs_values_v: [4.0, 6.0, 8.0, 10.0]
+    vds_start_v: 0.0
+    vds_stop_v: 1.0
+    vds_step_v: 0.02
+  rds_point:
+    vgs_v: 10.0
+    target_current_a: 2.0
+  off_state:
+    vgs_v: 0.0
+    vds_v: 5.0
+
+diode_tests:
+  forward_start_v: 0.0
+  forward_stop_v: 1.2
+  forward_step_v: 0.02
+  reverse_start_v: -5.0
+  reverse_stop_v: 0.0
+  reverse_step_v: 0.5
+  reference_currents_a: [0.5, 1.0, 2.0]
+  transit_time_sensitivity: 0.00000002
+
+gate_driver_tests:
+  resistance_values_ohm: [2.2, 10.0, 22.0]
+
+temperature_tests:
+  temperature_c: [25.0, 50.0, 75.0]

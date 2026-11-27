@@ -1,0 +1,33 @@
+pin_number,pin_name,net,connection,external_component,design_note,datasheet_reference
+1,BAT,PACK_TOP,组端正极经 RC 到 BAT,100 Ω + 1 µF + 0.1 µF,BAT 为器件主供电; 绝对最大 VSS+60 V,SLUSE86A p.3/p.7
+2,VC5,CELL3_POS,顶部电芯正端,47 Ω + 0.22 µF 差分,3S 时第三个电芯正端必须接 VC5,SLUSE86A Table 8-3 p.62
+3,VC4A,CELL3_NEG,顶部电芯负端,47 Ω + 0.22 µF 差分; 与 pin4 PCB 短接,cell3 使用 VC5-VC4A 差分对,SLUSE86A p.3/p.62
+4,VC4B,CELL3_NEG,与 pin3 同网络,PCB 短接,官方要求 pin3 与 pin4 在 PCB 上短接,SLUSE86A p.3
+5,VC3A,CELL2_POS,未用通道,短接到 VC2 (pin7),3S 不使用 cell4; 不得悬空或直接全接地,SLUSE86A p.30/p.62
+6,VC3B,CELL2_POS,与 pin5 同网络,PCB 短接后接 VC2,官方要求 pin5 与 pin6 在 PCB 上短接,SLUSE86A p.3
+7,VC2,CELL2_POS,第二节电芯正端,47 Ω + 0.22 µF 差分,cell2 = VC2-VC1,SLUSE86A p.4/p.62
+8,VC1,CELL1_POS,第一节电芯正端,47 Ω + 0.22 µF 差分,cell1 = VC1-VC0; cell2 的负端,SLUSE86A p.4
+9,VC0,CELL1_NEG,第一节电芯负端,47 Ω + 0.22 µF 到 VSS,官方要求 VC0 经 R/C 接 VSS,SLUSE86A p.4/p.62
+10,VSS,GND,采样地/功率地单点连接,0 Ω 或磁珠,采样地与功率地单点连接,SLUSE86A p.4
+11,SRP,SHUNT_P,分流电阻靠电芯侧,100 Ω + 0.1 µF 差分,充电电流在 SRP 相对 SRN 为正,SLUSE86A p.4/p.11
+12,SRN,SHUNT_N,分流电阻靠负载侧,100 Ω + 0.1 µF 差分,Kelvin 走线,SLUSE86A p.4/p.11
+13,TS1,NTC,10 kΩ NTC 分压,10 kΩ 上拉 + 0.1 µF,NTC 接地、上拉到 REG18/REG1,SLUSE86A p.4/p.29
+14,TS2,TS2_SPARE,保留第二温度点/唤醒,按 Table 8-3 处理,若不用 SHUTDOWN 可悬空或接 VSS,SLUSE86A p.62
+15,REG18,REG18,内部 1.8 V LDO 输出,2.2 µF 到 VSS,仅内部使用; 不对外供电,SLUSE86A 6.10 p.10
+16,ALERT,ALERT,中断到 MCU,10 kΩ 上拉,可复用 HDQ/TS/ADCIN/GPO,SLUSE86A p.4
+17,SCL,SCL,I2C 时钟,2.2 kΩ 上拉到 REG1 3.3 V,400 kHz I2C,SLUSE86A p.4
+18,SDA,SDA,I2C 数据,2.2 kΩ 上拉到 REG1 3.3 V,400 kHz I2C,SLUSE86A p.4
+19,CFETOFF,CFETOFF,保留,按 Table 8-3,本阶段不控制保护 MOSFET,SLUSE86A p.62
+20,DFETOFF,DFETOFF,保留,按 Table 8-3,本阶段不控制保护 MOSFET,SLUSE86A p.62
+21,RST_SHUT,RST_SHUT,复位/关机,10 kΩ 下拉或接 VSS,不用时接 VSS,SLUSE86A p.62
+22,REG1,REG1_3V3,可编程 LDO 输出,2.2 µF 到 VSS,配置 3.3 V; 最大 45 mA,SLUSE86A 6.12 p.11
+23,REGIN,REGIN,LDO 输入,接组端或外部 ≥4.1 V,3.3 V 档要求 REGIN ≥4.1 V,SLUSE86A 6.12 p.11
+24,BREG,BREG,外部预稳压晶体管基极,不用时接 VSS,本设计不用外部预稳压,SLUSE86A p.62
+25,FUSE,FUSE,熔断器驱动,预留,本阶段不实现,SLUSE86A p.4
+26,PDSG,PDSG,预放电 PFET 驱动,预留,本阶段不实现,SLUSE86A p.4
+27,PCHG,PCHG,预充 PFET 驱动,预留,本阶段不实现,SLUSE86A p.4
+28,LD,LD,负载检测,1 MΩ 到 PACK+,预留,SLUSE86A p.4
+29,PACK,PACK,组端电压检测,1 MΩ + 0.1 µF,预留,SLUSE86A p.4
+30,DSG,DSG,放电 NMOS 驱动,预留,第五阶段实现,SLUSE86A p.4
+31,CHG,CHG,充电 NMOS 驱动,预留,第五阶段实现,SLUSE86A p.4
+32,CP1,CP1,电荷泵电容,预留,第五阶段实现,SLUSE86A p.4

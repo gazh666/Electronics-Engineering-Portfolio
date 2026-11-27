@@ -1,0 +1,210 @@
+{
+  "project": "BatteryLab_Charger_V1",
+  "generated_at": "2026-11-27T11:01:26",
+  "kicad_version": "10.0.8",
+  "status": "ENGINEERING_RESEARCH_ONLY — NOT HARDWARE VALIDATED — NOT FOR PRODUCTION",
+  "disclaimer": "本工程为研究性设计草稿。PCB 尚未完成实际布线（见 DRC 未连接项），未经独立硬件设计与制造评审，禁止直接投产或用于真实锂电池接线。",
+  "file_count": 40,
+  "files": [
+    {
+      "path": "board.step",
+      "bytes": 948639,
+      "sha256": "f366c2482e393a59aea6640118cf3f2f149611d5c5fde75fa9a57811bd40ccaf"
+    },
+    {
+      "path": "bom.csv",
+      "bytes": 1345,
+      "sha256": "5bebce60f41641c1f2ddc3a83354a58af616b62cdf139a393c0c4d2fbb780d5f"
+    },
+    {
+      "path": "drc.json",
+      "bytes": 43364,
+      "sha256": "687acde39a2be19eb9ea9d4fa2b1a49dfb6710eb8ce61288909a3c2452f2f9e9"
+    },
+    {
+      "path": "drill/BatteryLab_Charger_V1.drl",
+      "bytes": 391,
+      "sha256": "4dc39982ee12540eb1aa154a508f238e0ad83804d036bd3f18aeedc1024d2382"
+    },
+    {
+      "path": "erc.json",
+      "bytes": 32715,
+      "sha256": "33b14a62d4903db4e1af1a5037d16fdc4a43a500def7a7849530aa2969200877"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-B_Adhesive.gba",
+      "bytes": 480,
+      "sha256": "a1c3c465f78bf40a58664e9091015f874ec1d504683a8ac1a6aa0153fb7f4315"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-B_Courtyard.gbr",
+      "bytes": 453,
+      "sha256": "1caa81e95f7704b11e3a41b919e5b7149880fcc7daf1d6a433f452c3f88eea36"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-B_Cu.gbl",
+      "bytes": 876,
+      "sha256": "6b75cb19db1deece37a4534ec6af0277d32de9148e7d4c824a949a580ba5e0dd"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-B_Fab.gbr",
+      "bytes": 462,
+      "sha256": "a5bc21d856238940fcc3565e444574a7dc688fd4951fd9a99780f3d41114f3b3"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-B_Mask.gbs",
+      "bytes": 697,
+      "sha256": "c697fdbcb4828bdd1b2cd7ba3dc4a4a1900878aaf1e26f15bdaee5b501ff09fd"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-B_Paste.gbp",
+      "bytes": 481,
+      "sha256": "c72953edfd08ec2bafd700bade63980a3639c6409a2a3433a9209bcda839d883"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-B_Silkscreen.gbo",
+      "bytes": 482,
+      "sha256": "23776fae2fb8ac43d57c4e30166a0382e8042e1aec78e86662d97b796982844d"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-Edge_Cuts.gm1",
+      "bytes": 662,
+      "sha256": "503ce255a67d1ebc053c4db363d96fc4c6cec5efb86a0b15f6962cfa55820339"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-F_Adhesive.gta",
+      "bytes": 480,
+      "sha256": "cbabc1e657c38566a5bf6b90f5b093aa1760e249ac3f24eae0c0006017ffd844"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-F_Courtyard.gbr",
+      "bytes": 5927,
+      "sha256": "90e224b7a15211fb63391b1fa796c2f2e8cd85fbb860d704849c465657d04b49"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-F_Cu.gtl",
+      "bytes": 9000,
+      "sha256": "253f78c78dc6b1c07be487575ba04181eebc37429ff68a357b69222740f904d3"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-F_Fab.gbr",
+      "bytes": 134728,
+      "sha256": "c1aad4762d9fd139b94a5594e091b7b93ed172d70ea36eaac6f1ca9643c63eec"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-F_Mask.gts",
+      "bytes": 6052,
+      "sha256": "7eeac8a10f6e4995aae7c5d8558b2fe2f6b2e65d31c37e130d1961ff5e4185b8"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-F_Paste.gtp",
+      "bytes": 5703,
+      "sha256": "cc63d809343df7c852a17922a777a69794e7244b3ccc85ee34e6037b2b5efd0a"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-F_Silkscreen.gto",
+      "bytes": 66800,
+      "sha256": "b8adfee2cfeb4bd44eda9b55063b5e169c9c9e7261609691bfc3d30281b2399d"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-In1_Cu.g1",
+      "bytes": 844,
+      "sha256": "62633f00c84778913a01bc90a94ac5e5807b7829082e73a668c40651208880d1"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-In2_Cu.g2",
+      "bytes": 844,
+      "sha256": "04fc65b24d6b48e167988e82ded9009583ba0016020e929b85d74fbb72496439"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-job.gbrjob",
+      "bytes": 5512,
+      "sha256": "9046ecb2494e35310fa7a22495be0d6c4623aa20e8a559914e0a7048c957b04c"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-Margin.gbr",
+      "bytes": 453,
+      "sha256": "1caa81e95f7704b11e3a41b919e5b7149880fcc7daf1d6a433f452c3f88eea36"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-User_1.gbr",
+      "bytes": 453,
+      "sha256": "1caa81e95f7704b11e3a41b919e5b7149880fcc7daf1d6a433f452c3f88eea36"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-User_2.gbr",
+      "bytes": 453,
+      "sha256": "1caa81e95f7704b11e3a41b919e5b7149880fcc7daf1d6a433f452c3f88eea36"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-User_3.gbr",
+      "bytes": 453,
+      "sha256": "1caa81e95f7704b11e3a41b919e5b7149880fcc7daf1d6a433f452c3f88eea36"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-User_4.gbr",
+      "bytes": 453,
+      "sha256": "1caa81e95f7704b11e3a41b919e5b7149880fcc7daf1d6a433f452c3f88eea36"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-User_Comments.gbr",
+      "bytes": 456,
+      "sha256": "80751647f55db550d8ef63142e147e4f1b10f97b2a71231e47f80f49afce76ef"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-User_Drawings.gbr",
+      "bytes": 463,
+      "sha256": "389cd9cc1cc07207559095e04dd48a8e561ef0c6abafd2b0d9595b361f819126"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-User_Eco1.gbr",
+      "bytes": 453,
+      "sha256": "5bb440fbf0bade3afec66fec406d50a4c8a6e643a863bffce75a255a2161bc04"
+    },
+    {
+      "path": "gerbers/BatteryLab_Charger_V1-User_Eco2.gbr",
+      "bytes": 453,
+      "sha256": "1cc22b66322ed67a84984c6ee9a607b14c882b88288aa1f975adacfadbe82ab1"
+    },
+    {
+      "path": "layout_review.csv",
+      "bytes": 3722,
+      "sha256": "ceb79b8f57ac8ca31c42da65c3c8c607e67c5bdde0d9b26a25d797a7e5a620c9"
+    },
+    {
+      "path": "manual_routing_steps.md",
+      "bytes": 2159,
+      "sha256": "5d639f8de1a53865ffdee724241f9cbd697f878b9391a4989f4eda30fcb7050e"
+    },
+    {
+      "path": "netlist.xml",
+      "bytes": 41876,
+      "sha256": "ac83ada9ad1fc28c26ace1652a09a2db6948be4fe9b601f6afe8e591e819b93f"
+    },
+    {
+      "path": "pcb_bottom.svg",
+      "bytes": 65030,
+      "sha256": "84639683a014297389ca79df9699850d96528495c98d5ffe4a53f20c726c9baa"
+    },
+    {
+      "path": "pcb_top.svg",
+      "bytes": 175408,
+      "sha256": "7e3d6853747784f141674b4579b851b30a59b077c0ddb5c0e31aea69e77fda38"
+    },
+    {
+      "path": "positions.csv",
+      "bytes": 2127,
+      "sha256": "9fe2ab2c3fdffe4b503fa64eed0e1e375895efaaf1f28f3752d023c2e42bb97a"
+    },
+    {
+      "path": "schematic.pdf",
+      "bytes": 134275,
+      "sha256": "a1b9814f17da8ce702b4cbe2a0846854bc8428e16aac2207974fe128560ec1e8"
+    },
+    {
+      "path": "unconnected_nets.csv",
+      "bytes": 614,
+      "sha256": "d055c4f411e27b8048fafd085e83db0713694244b4e96469ddacaea90699a154"
+    }
+  ]
+}

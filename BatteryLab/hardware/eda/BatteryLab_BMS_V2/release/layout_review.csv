@@ -1,0 +1,19 @@
+﻿item,review_note,status
+主功率回路,BAT_POS/MID_NODE/PACK_POS/PACK_NEG 1.0–1.5 mm，路径短且顺序正确,REVIEWED_DESIGN
+Shunt Kelvin 采样,SENSE_P/SENSE_N 由 RS1 焊盘经 100 Ω 进入 AFE，未与功率铜共用,REVIEWED_DESIGN
+电芯采样 RC,47 Ω + 0.22 µF 靠近 U1 引脚，位于功率回路外侧,REVIEWED_DESIGN
+芯片去耦,REG18/REG1_3V3 2.2 µF 贴近 U1 电源脚,REVIEWED_DESIGN
+MOSFET 栅极驱动,DSG/CHG 栅极网络单独走线，回路面积尽量小,REVIEWED_DESIGN
+GND 参考平面,In1.Cu 完整 GND 平面 + F/B 铺铜 + 热焊盘过孔,REVIEWED_DESIGN
+均衡与温度,本版不装外部均衡支路，NTC 接口远离功率回路,PARTIAL
+连接器与测试点,J1/J2/J3/J4 + TP1–TP4 均引出,REVIEWED_DESIGN
+热设计,仅做功耗估算，未做热仿真与实测,NOT_VERIFIED
+EMI / 阻抗 / 安规,未做任何仿真或认证测试,NOT_VERIFIED
+route_length:BAT_POS,64.035 mm,MEASURED_FROM_PCB
+route_length:MID_NODE,19.710 mm,MEASURED_FROM_PCB
+route_length:PACK_POS,19.130 mm,MEASURED_FROM_PCB
+route_length:PACK_NEG,34.370 mm,MEASURED_FROM_PCB
+route_length:SENSE_P,41.415 mm,MEASURED_FROM_PCB
+route_length:SENSE_N,55.136 mm,MEASURED_FROM_PCB
+route_length:DSG_GATE,21.034 mm,MEASURED_FROM_PCB
+route_length:CHG_GATE,17.820 mm,MEASURED_FROM_PCB

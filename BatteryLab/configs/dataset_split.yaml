@@ -1,0 +1,157 @@
+version: "1.0"
+description: >
+  BatteryLab 第三阶段数据划分。所有条目关联 data/manifests/dataset_manifest.json 中的真实
+  CALCE 公开实验文件与 SHA256。数据来源类型统一为 public_experimental_data。
+
+primary_temperature_c: 25
+
+cell_model: INR18650-20R
+chemistry: LiNiMnCo/Graphite
+nominal_capacity_ah: 2.0
+citation: >
+  CALCE Battery Data, Center for Advanced Life Cycle Engineering, University of Maryland,
+  https://calce.umd.edu/battery-data (accessed 2026-11-26).
+
+datasets:
+  capacity_reference:
+    dataset_id: calce_inr18650_20r_sp2_initial_capacity_20151016
+    file_name: SP2_Initial_capacity_10_16_2015.zip
+    sha256: d18f9a958e2dabcaef9999bb42e8043ea5092b5d0c557966d92e4ad675d95c9d
+    cell_id: SP2
+    temperature_c: 25
+    role: capacity_reference
+    note: 与 DST/FUDS/US06/BJDST 同一官方样品 SP2，用于 SOC 参考容量。
+
+  capacity_cross_check:
+    dataset_id: calce_inr18650_20r_sp1_initial_capacity_20151016
+    file_name: SP1_Initial capacity_10_16_2015.zip
+    sha256: f8ba5d743d5a5c2e4da73664490b76744b6a89e4a2e7332fc1a6dd7cd06e311b
+    cell_id: SP1
+    temperature_c: 25
+    role: capacity_cross_check
+    note: 不同样品，仅用于样品间容量差异对照，不并入 SP2 结果。
+
+  ocv_low_current_primary:
+    dataset_id: calce_inr18650_20r_sp1_25c_low_current_ocv_20151105
+    file_name: SP1_25C_LC_OCV_11_5_2015.zip
+    sha256: 18f7acb1cf74ac18d13102122404f800ed6888f262dce6eb0a49423509a7fb44
+    cell_id: SP1
+    temperature_c: 25
+    role: ocv_characterization
+    note: 低电流（约 C/20）连续充放电。电芯为 SP1，与 SP2 动态工况属同型号跨样品。
+
+  ocv_low_current_cross_cell:
+    dataset_id: calce_inr18650_20r_sp3_25c_low_current_ocv_20151116
+    file_name: SP3_25C_LC_OCV_11_16_2015.zip
+    sha256: 0bae869bba13c2d87faa3ae948557c47e5b4be96b93ee45970e571bfc63d58b7
+    cell_id: SP3
+    temperature_c: 25
+    role: ocv_cross_cell_check
+    note: 用于核对同型号不同样品的 OCV-SOC 差异，不参与参数拟合。
+
+  ocv_incremental:
+    dataset_id: calce_inr18650_20r_sp3_25c_incremental_ocv_20151202
+    file_name: SP3_25C_IC_OCV_12_2_2015.zip
+    sha256: 4c658862790ea6cc59d8dae634acd7db87cefd357905cc36e0f622c51da88244
+    cell_id: SP3
+    temperature_c: 25
+    role: ocv_incremental
+    note: 增量 OCV，静置段质量需逐段检查，不通过则标记 NOT_VERIFIED。
+
+  dst_50:
+    dataset_id: calce_inr18650_20r_sp2_25c_dst
+    file_name: SP2_25C_DST.zip
+    sha256: 3d3a90a67574c336eca9d097a5f139aaad70e7fa3106078079da9cd11d1b3661
+    cell_id: SP2
+    temperature_c: 25
+    source_file: 11_05_2015_SP20-2_DST_50SOC.xls
+    role: training
+    note: 50% SOC 起始 DST，用于参数辨识目标函数。
+
+  dst_80:
+    dataset_id: calce_inr18650_20r_sp2_25c_dst
+    file_name: SP2_25C_DST.zip
+    sha256: 3d3a90a67574c336eca9d097a5f139aaad70e7fa3106078079da9cd11d1b3661
+    cell_id: SP2
+    temperature_c: 25
+    source_file: 11_05_2015_SP20-2_DST_80SOC.xls
+    role: development
+    note: 80% SOC 起始 DST，训练数据内部的开发验证段，不参与最终独立结论。
+
+  fuds_50:
+    dataset_id: calce_inr18650_20r_sp2_25c_fuds
+    file_name: SP2_25C_FUDS.zip
+    sha256: e2ce8e4626c4263cb8758c9488cec66d31c04a9d11465c14e668428cead1e053
+    cell_id: SP2
+    temperature_c: 25
+    source_file: 11_09_2015_SP20-2_FUDS_50SOC.xls
+    role: independent_validation
+    note: 最终独立验证集，参数冻结后只运行一次。
+
+  fuds_80:
+    dataset_id: calce_inr18650_20r_sp2_25c_fuds
+    file_name: SP2_25C_FUDS.zip
+    sha256: e2ce8e4626c4263cb8758c9488cec66d31c04a9d11465c14e668428cead1e053
+    cell_id: SP2
+    temperature_c: 25
+    source_file: 11_06_2015_SP20-2_FUDS_80SOC.xls
+    role: independent_validation
+    note: 80% SOC 起始 FUDS，独立验证。
+
+  us06_50:
+    dataset_id: calce_inr18650_20r_sp2_25c_us06
+    file_name: SP2_25C_US06.zip
+    sha256: cedf99281bad6c1f17a879d614f867451cf5994bad0f66d30c56290c1f6bb3fb
+    cell_id: SP2
+    temperature_c: 25
+    source_file: 11_11_2015_SP20-2_US06_50SOC.xls
+    role: extra_validation
+    note: 未参与调参的额外动态工况。
+
+  us06_80:
+    dataset_id: calce_inr18650_20r_sp2_25c_us06
+    file_name: SP2_25C_US06.zip
+    sha256: cedf99281bad6c1f17a879d614f867451cf5994bad0f66d30c56290c1f6bb3fb
+    cell_id: SP2
+    temperature_c: 25
+    source_file: 11_11_2015_SP20-2_US06_80SOC.xls
+    role: extra_validation
+    note: 未参与调参的额外动态工况。
+
+  bjdst_50:
+    dataset_id: calce_inr18650_20r_sp2_25c_bjdst
+    file_name: SP2_25C_BJDST.zip
+    sha256: df372646a75f495186a58c3f549baecf86e70e0478bf55a97e122bab10f5bf21
+    cell_id: SP2
+    temperature_c: 25
+    source_file: 11_13_2015_SP20-2_BJDST_50SOC.xls
+    role: extra_validation
+    note: 未参与调参的额外动态工况。
+
+  bjdst_80:
+    dataset_id: calce_inr18650_20r_sp2_25c_bjdst
+    file_name: SP2_25C_BJDST.zip
+    sha256: df372646a75f495186a58c3f549baecf86e70e0478bf55a97e122bab10f5bf21
+    cell_id: SP2
+    temperature_c: 25
+    source_file: 11_12_2015_SP20-2_BJDST_80SOC.xls
+    role: extra_validation
+    note: 未参与调参的额外动态工况。
+
+temperature_extension:
+  temperatures_c: [0, 45]
+  available: false
+  status: NOT_VERIFIED
+  reason: 已下载的 CALCE 公开数据仅覆盖 25℃ 标称环境温度，未获取 0℃ 与 45℃ 实验文件。
+
+rules:
+  allow_validation_refitting: false
+  allow_random_row_split: false
+  allow_unverified_cell_identity: true
+  cell_identity_note: >
+    OCV 来自 SP1，动态工况与容量来自 SP2，增量 OCV 来自 SP3。三者是同一型号 INR18650-20R
+    的不同官方样品。因此本阶段结论属于“同型号跨样品参考模型”，不是同一颗电芯的完整辨识。
+  initial_soc_method: recorded_capacity_balance
+  initial_soc_note: >
+    动态工况开始前文件内已完成满充并静置，使用文件自身记录的累计放电容量 qd 与 SP2 实测容量计算
+    SOC0 = 1 - qd_start / Q_measured。不使用验证波形反向调整 SOC0。

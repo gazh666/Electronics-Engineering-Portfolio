@@ -1,0 +1,17 @@
+item,requirement,status,note
+PCB 层数,四层研究设计（F.Cu / In1 GND / In2 power / B.Cu）,,BLOCKED,无 PCB 文件
+板框完整性,Edge.Cuts 闭合,,BLOCKED,无 PCB 文件
+功率路径,2.5 A 主回路短且宽,requirements/critical_net_rules.csv power 类,MANUAL_REVIEW,仅给出规则，未布线
+Kelvin 采样,采样引线不承载负载电流,同上 SENSE_P/SENSE_N,BLOCKED,需实际 PCB
+模拟与功率分区,AFE 滤波远离高 di/dt,hardware/afe/circuit_architecture.md §6,MANUAL_REVIEW,仅设计原则
+去耦位置,REG18/REG1/VCC 电容靠近引脚,,BLOCKED,无 PCB
+回流路径,In1 连续地平面,requirements/critical_net_rules.csv GND,BLOCKED,无 PCB
+开关节点,PH 铜皮面积与耦合权衡,,BLOCKED,充电板 PCB 未开始
+热设计,均衡电阻与 MOSFET 散热铜皮,,MANUAL_REVIEW,一阶估算见 docs/83
+测试点,TP1-TP4 关键网络可测,requirements/interface_definition.csv,BLOCKED,无 PCB
+元件方向,连接器与极性件方向正确,,BLOCKED,无 PCB
+安装孔,板边距离与固定孔,,BLOCKED,无 PCB
+丝印,参考编号与 1 脚标识,,BLOCKED,无 PCB
+制造文件,Gerber/钻孔/贴片坐标/STEP,results/eda 导出报告,BLOCKED,本机无 KiCad
+DRC 未连接网络,目标 0,scripts/audit_pcb.py,BLOCKED,无 PCB
+DRC 规则完整性,未关闭任何规则,,BLOCKED,无 DRC 可解析

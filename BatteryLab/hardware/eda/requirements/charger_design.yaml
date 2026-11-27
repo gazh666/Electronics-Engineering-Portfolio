@@ -1,0 +1,61 @@
+project:
+  name: BatteryLab_Charger_V1
+  revision: "1.0"
+  status: engineering_design_only
+  disclaimer: "Engineering Prototype Design — Not Hardware Validated"
+
+battery:
+  series_cells: 3
+  chemistry: lithium_ion
+  nominal_pack_voltage_v: 11.1
+  charge_voltage_target_v: 12.15
+  charge_voltage_target_basis: "3 x 4.05 V，与第五阶段单体保护窗口和第六阶段充电目标协调"
+
+input:
+  adapter_nominal_voltage_v: 18.0
+  adapter_voltage_range_v: [17.0, 19.0]
+  input_current_limit_a: 1.5
+
+charging:
+  fast_charge_current_a: 1.0
+  precharge_current_a: 0.1
+  termination_current_a: 0.1
+  safety_timer_h: 5.0
+  charge_enable_source: external_logic_input
+
+controller:
+  device: BQ24610
+  datasheet: SLUS892D
+  datasheet_revision: "DECEMBER 2009 — REVISED DECEMBER 2019"
+  package: RGE 24-pin VQFN 4mm x 4mm
+  topology: synchronous_buck
+  switching_frequency_khz: 600
+  vfb_regulation_voltage_v: 2.1
+  gate_drive_voltage_v: 6.0
+  internal_compensation_lc_resonance_khz: [12, 17]
+
+power_stage:
+  # 不能沿用第六阶段 100 kHz / 100 µH 教学参数。
+  switching_frequency_hz: 600000
+  inductor_h: 2.2e-5
+  inductor_part: Bourns SRN6045-220M
+  inductor_dcr_ohm: 0.142
+  inductor_isat_a: 1.9
+  inductor_irms_a: 1.5
+  output_capacitance_nominal_f: 9.4e-6
+  output_capacitor_note: "2 x 4.7 µF X7R 25 V；有效电容受直流偏压影响，未取得 DC Bias 曲线"
+  sense_resistance_ohm: 0.01
+  mosfet_top: CSD17578Q5A
+  mosfet_bottom: CSD17581Q5A
+
+protection:
+  input_overvoltage_v: 32
+  battery_overvoltage_percent_above_vreg: 4
+  thermal_shutdown_c: 145
+  reverse_blocking_input_fet: true
+
+metadata:
+  schematic_status: design_intent_only
+  pcb_status: not_started
+  fabricated: false
+  hardware_validated: false

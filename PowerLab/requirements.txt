@@ -1,0 +1,9 @@
+PySpice==1.5
+numpy==1.26.4
+scipy==1.17.1
+matplotlib==3.11.2
+pandas==3.0.6
+PyYAML==6.0.4
+cffi==2.1.1
+ply==3.11
+requests==2.34.2

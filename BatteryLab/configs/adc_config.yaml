@@ -1,0 +1,29 @@
+version: "1.0"
+
+# 通用教学 ADC 行为模型配置。data_source = adc_behavioral_model。
+# 与 BQ76922 内部 16 位 ΔΣ/多路 ADC 属于独立方案，不能混用分辨率或精度规格。
+source_type: educational_assumption
+data_source: adc_behavioral_model
+
+nominal:
+  reference_voltage_v: 3.3
+  resolution_bits: 12
+  input_min_v: 0.0
+  encoding: midpoint_reconstruction
+
+resolution_comparison_bits: [10, 12, 16]
+
+# 非理想项（教学假设，除标注 datasheet 外不得视为实测）
+non_ideal:
+  reference_deviation_v: 0.0005
+  input_offset_v: 0.0005
+  gain_error_fraction: 0.001
+  noise_rms_v: 0.0002
+  inl_lsb: 0.5
+  random_seed: 42
+
+# 采样与混叠实验（Task 20）
+sampling:
+  analog_step_s: 0.0000001
+  frequencies_hz: [1000.0, 10000.0, 100000.0]
+  digital_average_counts: [1, 4, 16]

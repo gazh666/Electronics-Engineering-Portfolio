@@ -1,0 +1,519 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-27T16:08:31",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.8",
+    "schematic_parity": [],
+    "source": "chg_layout.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "短路了两个不同网络的项目 (网络 GND 和 TTC)",
+            "items": [
+                {
+                    "description": "过孔 [GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 37.4,
+                        "y": 46.6
+                    },
+                    "uuid": "6dfdb183-b1fb-4500-b4c2-e7ea6babc37e"
+                },
+                {
+                    "description": "走线 [TTC] (B.Cu), 长度: 2.2978 mm",
+                    "pos": {
+                        "x": 37.7388,
+                        "y": 46.3377
+                    },
+                    "uuid": "f2b5a998-a35f-45b7-9761-91a68cedd3ad"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "短路了两个不同网络的项目 (网络 TTC 和 GND)",
+            "items": [
+                {
+                    "description": "走线 [TTC] (B.Cu), 长度: 10.3302 mm",
+                    "pos": {
+                        "x": 48.069,
+                        "y": 46.3377
+                    },
+                    "uuid": "4cdddb86-6059-488c-b9d7-d2e0a1c03d4b"
+                },
+                {
+                    "description": "过孔 [GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 38.6,
+                        "y": 46.6
+                    },
+                    "uuid": "671f21f0-7602-45bf-a836-af510afadd5b"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Package_SON'",
+            "items": [
+                {
+                    "description": "封装 Q3",
+                    "pos": {
+                        "x": 33.0,
+                        "y": 20.0
+                    },
+                    "uuid": "04e6d4d3-0d6d-44e8-815a-756508a2c784"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R202",
+                    "pos": {
+                        "x": 32.0,
+                        "y": 38.0
+                    },
+                    "uuid": "0cff6f8d-0b9b-4694-95c3-6af9fdbfe7fa"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Package_SON'",
+            "items": [
+                {
+                    "description": "封装 Q4",
+                    "pos": {
+                        "x": 41.0,
+                        "y": 20.0
+                    },
+                    "uuid": "11481517-a37d-446b-9ed2-14eed042d5ee"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R209",
+                    "pos": {
+                        "x": 46.0,
+                        "y": 58.0
+                    },
+                    "uuid": "2b2ed43b-d67b-402d-8ca1-070d83106fdc"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 RS3",
+                    "pos": {
+                        "x": 20.0,
+                        "y": 16.0
+                    },
+                    "uuid": "2f6a27fb-a9fe-41a7-9806-093798f3ad20"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R204",
+                    "pos": {
+                        "x": 28.0,
+                        "y": 46.0
+                    },
+                    "uuid": "36344bdd-bb84-4ea5-b073-50041858f6b9"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'TestPoint'",
+            "items": [
+                {
+                    "description": "封装 TP7",
+                    "pos": {
+                        "x": 90.0,
+                        "y": 58.0
+                    },
+                    "uuid": "3be397d9-2885-4fce-a10e-62723e3f3232"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Diode_SMD'",
+            "items": [
+                {
+                    "description": "封装 D1",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 40.0
+                    },
+                    "uuid": "4274915f-5d2b-421c-972c-53785fb9d5e4"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 RS2",
+                    "pos": {
+                        "x": 60.0,
+                        "y": 20.0
+                    },
+                    "uuid": "43457216-e4f5-4d99-a1a2-93e9ad5de3c9"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'TestPoint'",
+            "items": [
+                {
+                    "description": "封装 TP5",
+                    "pos": {
+                        "x": 78.0,
+                        "y": 58.0
+                    },
+                    "uuid": "48cf4669-3f70-497f-a7c6-97deffc76071"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "封装 C207",
+                    "pos": {
+                        "x": 26.0,
+                        "y": 10.0
+                    },
+                    "uuid": "4a1e94e2-be67-4cc0-8315-e304ae4bf6cf"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "封装 C205",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 26.0
+                    },
+                    "uuid": "4e6f0983-1849-44f8-b971-774e79f40937"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R206",
+                    "pos": {
+                        "x": 28.0,
+                        "y": 52.0
+                    },
+                    "uuid": "54473ad6-7575-4823-8dc2-02ce3bf6a88c"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Connector_PinHeader_2.54mm'",
+            "items": [
+                {
+                    "description": "封装 J5",
+                    "pos": {
+                        "x": 9.0,
+                        "y": 14.0
+                    },
+                    "uuid": "57fd38de-1d30-4d32-8bbe-d1a92390c54e"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R208",
+                    "pos": {
+                        "x": 52.0,
+                        "y": 38.0
+                    },
+                    "uuid": "7e234956-5d8e-40fd-9754-07104f93439f"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "封装 C204",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 40.0
+                    },
+                    "uuid": "97434901-3931-40e2-8cdb-9d4a4179c0ee"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R210",
+                    "pos": {
+                        "x": 52.0,
+                        "y": 58.0
+                    },
+                    "uuid": "9a23bf86-acb6-4fa5-801f-1df592c8fadf"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R205",
+                    "pos": {
+                        "x": 22.0,
+                        "y": 52.0
+                    },
+                    "uuid": "9c7695f6-0743-4cbc-abb8-c74367a31a11"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Package_DFN_QFN'",
+            "items": [
+                {
+                    "description": "封装 U2",
+                    "pos": {
+                        "x": 38.0,
+                        "y": 46.0
+                    },
+                    "uuid": "a6702cf4-65c5-4571-a286-e05fc4328a9f"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'TestPoint'",
+            "items": [
+                {
+                    "description": "封装 TP6",
+                    "pos": {
+                        "x": 84.0,
+                        "y": 58.0
+                    },
+                    "uuid": "a71668c1-b9fb-49d4-a6ac-7e789359b6a8"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "封装 C203",
+                    "pos": {
+                        "x": 68.0,
+                        "y": 46.0
+                    },
+                    "uuid": "ac1d38fc-419a-4653-9f93-126c4db488b5"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Connector_PinHeader_2.54mm'",
+            "items": [
+                {
+                    "description": "封装 J6",
+                    "pos": {
+                        "x": 72.0,
+                        "y": 15.0
+                    },
+                    "uuid": "ca2dade3-2828-4465-beb3-7265079150e9"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "封装 C206",
+                    "pos": {
+                        "x": 72.0,
+                        "y": 26.0
+                    },
+                    "uuid": "d0422507-c7f6-48ad-9fb7-2e95893450fc"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R201",
+                    "pos": {
+                        "x": 26.0,
+                        "y": 38.0
+                    },
+                    "uuid": "df618ec4-0378-4282-9df1-5de8feca5e49"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Inductor_SMD'",
+            "items": [
+                {
+                    "description": "封装 L1",
+                    "pos": {
+                        "x": 51.0,
+                        "y": 20.0
+                    },
+                    "uuid": "e845e234-d067-4622-bff7-6e6deef78f67"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R203",
+                    "pos": {
+                        "x": 22.0,
+                        "y": 46.0
+                    },
+                    "uuid": "e90fff5a-ae09-47f9-a161-e9d8133fc212"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "封装 C202",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 46.0
+                    },
+                    "uuid": "f3d8c364-13aa-4f06-802d-8eff1ba502d7"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R207",
+                    "pos": {
+                        "x": 46.0,
+                        "y": 38.0
+                    },
+                    "uuid": "fc0346cd-c268-47a3-8a41-16cc1dc171af"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "封装 C201",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 46.0
+                    },
+                    "uuid": "fed54548-343d-4a18-8657-97e490921771"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+signal,direction,function,connection_in_this_project,verification_status
+VCC,input,充电器输入电源,18 V 适配器输入（与 SPICE 网表 VIN 对应）,datasheet_specification
+ACP,input,输入电流检测正端,适配器侧检流电阻,datasheet_specification
+ACN,input,输入电流检测负端,适配器侧检流电阻,datasheet_specification
+CMSRC,input,输入高边驱动源极参考,ACFET 源极,datasheet_specification
+ACDRV,output,输入 ACFET 栅极驱动,输入反接/掉电隔离 FET,datasheet_specification
+BTST,input,高边自举电源,自举电容,datasheet_specification
+HIDRV,output,高边 MOSFET 栅极驱动,主开关（对应网表 SMAIN）,datasheet_specification
+PH,input,开关节点,电感与高边源极（对应网表 sw/lx）,datasheet_specification
+LODRV,output,低边 MOSFET 栅极驱动,同步整流管（本项目 SPICE 用二极管替代）,datasheet_specification
+SRP,input,电池电流检测正端,电池侧检流电阻,datasheet_specification
+SRN,input,电池电流检测负端,电池侧检流电阻,datasheet_specification
+BATDRV,output,电池侧隔离 FET 驱动,电池保护/隔离 FET,datasheet_specification
+VFB,input,电池电压反馈,电阻分压设定 12.15 V,datasheet_specification
+ISET1,input,充电电流设定,设定 1 A 恒流,datasheet_specification
+ISET2,input,预充/终止电流设定,终止电流 0.1 A,datasheet_specification
+ACSET,input,输入限流设定,适配器限流,datasheet_specification
+TS,input,电池温度检测,NTC 分压,datasheet_specification
+TTC,input,安全定时设定,最大充电时间,datasheet_specification
+TERM_EN,input,终止使能,使能电压终止,datasheet_specification
+STAT1,output,充电状态指示,充电中/完成,datasheet_specification
+STAT2,output,故障状态指示,故障,datasheet_specification
+PG,output,输入电源就绪,适配器插入检测,datasheet_specification
+REGN,output,内部稳压,去耦电容,datasheet_specification
+GND,power,地,功率地与信号地单点连接,datasheet_specification

@@ -1,0 +1,110 @@
+# TestLab 故障场景（阶段八，仅模拟环境）
+#
+# 重要：
+#   1. 本文件只描述“可以人为注入什么”，普通测试默认不加载任何活动故障。
+#   2. 每次运行只能选择一个场景；F001/F002 都作用于 VOLT?，同时启用会被
+#      FaultInjector 判定为冲突并拒绝启动，避免隐式优先级。
+#   3. trigger_at 从 1 开始计数，occurrences 是最大注入次数，不会无限注入。
+#   4. 这些故障不是真实硬件断线，不能用于真实设备可靠性认证。
+#
+# 字段：
+#   id           场景编号（唯一）
+#   name         名称
+#   fault_type   TIMEOUT / DISCONNECT / INVALID_RESPONSE / NAN_VALUE /
+#                INFINITY_VALUE / VOLTAGE_OFFSET / CURRENT_OFFSET / SHUTDOWN_FAILURE
+#   target       instrument_query / instrument_write / model_measurement / cleanup
+#   operation    SCPI 命令或测量字段（vin/iin/vout/iout）
+#   device       可选目标仪器编号
+#   case_id      可选限定用例编号
+#   trigger_at   第几次匹配开始注入（>=1）
+#   occurrences  最多注入次数（>=1）
+#   offset       仅偏移类故障使用，必须非零
+
+version: "1.0"
+simulation_only: true
+
+notes:
+  - "故障注入默认关闭，只在显式选择场景时启用。"
+  - "F009 只作用于 cleanup 阶段的 OUTP 0，不会命中测试开始时的输出关闭。"
+  - "F007/F008 使用效率保持的一致性测量偏移，用于验证限值判定。"
+  - "F005/F006 使用不一致测量视图，用于验证数据质量检查。"
+
+scenarios:
+  - id: F001
+    name: 单次查询超时
+    fault_type: TIMEOUT
+    target: instrument_query
+    operation: "VOLT?"
+    device: PS001
+    trigger_at: 1
+    occurrences: 1
+
+  - id: F002
+    name: 持续查询超时
+    fault_type: TIMEOUT
+    target: instrument_query
+    operation: "VOLT?"
+    device: PS001
+    trigger_at: 1
+    occurrences: 5
+
+  - id: F003
+    name: 仪器通信断开
+    fault_type: DISCONNECT
+    target: instrument_query
+    operation: "CURR?"
+    device: PS001
+    trigger_at: 1
+    occurrences: 1
+
+  - id: F004
+    name: 非法仪器响应
+    fault_type: INVALID_RESPONSE
+    target: instrument_query
+    operation: "VOLT?"
+    device: PS001
+    trigger_at: 1
+    occurrences: 1
+
+  - id: F005
+    name: 模型测量 NaN
+    fault_type: NAN_VALUE
+    target: model_measurement
+    operation: "vout"
+    trigger_at: 1
+    occurrences: 1
+
+  - id: F006
+    name: 模型测量 Infinity
+    fault_type: INFINITY_VALUE
+    target: model_measurement
+    operation: "iin"
+    trigger_at: 1
+    occurrences: 1
+
+  - id: F007
+    name: 输出电压偏低
+    fault_type: VOLTAGE_OFFSET
+    target: model_measurement
+    operation: "vout"
+    trigger_at: 1
+    occurrences: 1
+    offset: -0.3
+
+  - id: F008
+    name: 输出电流偏移
+    fault_type: CURRENT_OFFSET
+    target: model_measurement
+    operation: "iout"
+    trigger_at: 1
+    occurrences: 1
+    offset: 0.2
+
+  - id: F009
+    name: 输出关闭故障
+    fault_type: SHUTDOWN_FAILURE
+    target: cleanup
+    operation: "OUTP 0"
+    device: PS001
+    trigger_at: 1
+    occurrences: 1

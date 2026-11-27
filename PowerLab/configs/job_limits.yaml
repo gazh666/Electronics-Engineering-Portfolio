@@ -1,0 +1,20 @@
+version: "1.0"
+
+limits:
+  maximum_concurrent_jobs: 1
+  maximum_single_job_seconds: 3600
+  maximum_case_seconds: 300
+  maximum_unique_spice_runs: 120
+  maximum_monte_carlo_samples: 30
+  maximum_plot_points: 30000
+  minimum_free_disk_space_mb: 1024
+  maximum_log_bytes: 2000000
+
+profiles:
+  smoke:
+    maximum_unique_spice_runs: 8
+  standard:
+    maximum_unique_spice_runs: 120
+  extended:
+    enabled: false
+    require_explicit_confirmation: true

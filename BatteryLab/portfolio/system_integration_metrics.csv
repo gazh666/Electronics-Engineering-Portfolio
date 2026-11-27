@@ -1,0 +1,10 @@
+﻿metric,value,minimum,maximum,unit,status,source
+output_voltage_mean_v,4.996826539671714,4.9,5.1,V,PASS,TestLab actual_test_results.json
+output_voltage_ripple_vpp,0.02897828015702686,,0.05,V,PASS,TestLab actual_test_results.json
+inductor_peak_current_a,2.299457030076269,,3.5,A,PASS,TestLab actual_test_results.json
+converter_input_voltage_v,10.592865996053263,8.5,13.0,V,PASS,TestLab actual_test_results.json
+converter_efficiency_percent,93.68282436637053,,,%,PASS,system_energy case_result.json
+energy_residual_percent,0.0028281843250778167,,1.0,%,PASS,system_energy case_result.json
+battery_energy_j,0.03856109912756398,,,J,PASS,system_energy case_result.json
+output_energy_j,0.03594606626243188,,,J,PASS,system_energy case_result.json
+protection_path_loss_j,0.00019004425092581783,,,J,PASS,system_energy case_result.json

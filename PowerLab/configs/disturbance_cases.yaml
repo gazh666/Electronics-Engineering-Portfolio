@@ -1,0 +1,94 @@
+version: "1.0"
+specification_type: project_assumption
+
+# 负载工况。null 表示使用功率级配置中的固定 2.5 ohm 恒阻负载。
+loads:
+  nominal: null
+  nominal_current_2a:
+    load_type: constant_current
+    initial_current_a: 2.0
+    transition_s: 1.0e-5
+    compliance_voltage_v: 1.0
+    steps:
+      - {time_s: 0.005, current_a: 2.0}
+
+  load_step_1a_to_2a:
+    load_type: constant_current
+    initial_current_a: 1.0
+    transition_s: 1.0e-5
+    steps:
+      - {time_s: 0.005, current_a: 2.0}
+
+  load_step_2a_to_1a:
+    load_type: constant_current
+    initial_current_a: 2.0
+    transition_s: 1.0e-5
+    steps:
+      - {time_s: 0.005, current_a: 1.0}
+
+  load_step_0p5a_to_2a:
+    load_type: constant_current
+    initial_current_a: 0.5
+    transition_s: 1.0e-5
+    steps:
+      - {time_s: 0.005, current_a: 2.0}
+
+  load_step_fast_1us:
+    load_type: constant_current
+    initial_current_a: 1.0
+    transition_s: 1.0e-6
+    steps:
+      - {time_s: 0.005, current_a: 2.0}
+
+  load_step_slow_100us:
+    load_type: constant_current
+    initial_current_a: 1.0
+    transition_s: 1.0e-4
+    steps:
+      - {time_s: 0.005, current_a: 2.0}
+
+  load_step_resistive_10_to_2p5:
+    load_type: resistive_step
+    base_resistance_ohm: 10.0
+    target_resistance_ohm: 2.5
+    step_time_s: 0.005
+    release_time_s: 0.009
+    transition_s: 1.0e-5
+    switch_on_resistance_ohm: 0.01
+    initial_connected: false
+
+lines:
+  nominal:
+    name: nominal
+    vin_initial_v: 12.0
+    vin_final_v: 12.0
+    step_time_s: 0.005
+    transition_s: 1.0e-7
+
+  vin_step_down_12_to_9:
+    name: vin_step_down_12_to_9
+    vin_initial_v: 12.0
+    vin_final_v: 9.0
+    step_time_s: 0.005
+    transition_s: 2.0e-5
+
+  vin_step_up_9_to_12:
+    name: vin_step_up_9_to_12
+    vin_initial_v: 9.0
+    vin_final_v: 12.0
+    step_time_s: 0.005
+    transition_s: 2.0e-5
+
+  vin_step_up_12_to_16:
+    name: vin_step_up_12_to_16
+    vin_initial_v: 12.0
+    vin_final_v: 16.0
+    step_time_s: 0.005
+    transition_s: 2.0e-5
+
+  vin_step_down_16_to_12:
+    name: vin_step_down_16_to_12
+    vin_initial_v: 16.0
+    vin_final_v: 12.0
+    step_time_s: 0.005
+    transition_s: 2.0e-5

@@ -1,0 +1,73 @@
+version: "1.0"
+
+system:
+  name: BatteryLab_Power_System
+  hardware_validated: false
+
+battery:
+  series_cells: 3
+  parallel_cells: 1
+  model_source: identified_ecm
+  model_order: first_order_rc
+  parameter_source_file: "results/identification/run_identification_20261126_125603_622eba/identified_parameters.csv"
+  ocv_source_file: "results/ocv/run_ocv_20261126_124813_24e8d1/ocv_soc.csv"
+  # 第三阶段辨识所用 SOC 区间为 0.0106–0.5068；区间外的 SOC 属于参数外推，
+  # 结果必须标记 SOC_OUTSIDE_IDENTIFIED_WINDOW，不能当作已验证工况。
+  identified_soc_min: 0.010636934478615079
+  identified_soc_max: 0.5068366606844055
+  initial_soc: [0.4, 0.4, 0.4]
+  reference_capacity_ah: 2.0280827046460144
+
+discharge_converter:
+  topology: buck
+  output_voltage_target_v: 5.0
+  rated_output_current_a: 2.0
+  switching_frequency_hz: 100000
+  input_voltage_domain_source: verified_power_map
+
+  baseline:
+    inductance_h: 47.0e-6
+    capacitance_f: 100.0e-6
+    inductor_dcr_ohm: 0.05
+    capacitor_esr_ohm: 0.03
+    parameter_source: powerlab_verified_baseline
+
+  optimized_candidate:
+    inductance_h: 68.0e-6
+    capacitance_f: 330.0e-6
+    inductor_dcr_ohm: 0.02
+    capacitor_esr_ohm: 0.005
+    parameter_source: powerlab_stage6_optimization_candidate
+    requires_closed_loop_revalidation: true
+
+  controller:
+    kp: 0.0585
+    ki: 117.66
+    duty_min: 0.02
+    duty_max: 0.90
+    soft_start_s: 0.002
+    source: "PowerLab configs/controller_config.yaml（原控制器）"
+
+charger:
+  enabled_in_discharge_case: false
+  configuration_source: stage6
+
+protection:
+  configuration_source: stage5
+  independent_protection: true
+  path_resistance_ohm: 0.052
+  # 0.052 = 2 × Rds(on) 0.020 + 漏源通路 0.012，来源 configs/protection_config.yaml
+
+simulation:
+  fast_model: spice
+  local_dynamic_model: averaged_ccm
+  long_duration_model: verified_power_map_ecm
+  long_duration_step_s: 1.0
+  spice_max_step_s: 1.0e-7
+  spice_end_time_s: 0.010
+
+metadata:
+  fabricated: false
+  assembled: false
+  hardware_validated: false
+  note: "所有电路参数均为教学/工程假设模型，未做实物验证"

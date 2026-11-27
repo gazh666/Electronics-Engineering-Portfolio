@@ -1,0 +1,45 @@
+version: "1.0"
+
+# 3S1P 电池组教学配置。所有数值为教学假设，不代表真实电芯参数。
+parameter_source: educational_assumption
+topology: 3S1P
+series_cells: 3
+parallel_cells: 1
+
+cell:
+  capacity_ah: 2.0
+  initial_soc: 0.6
+  r0_ohm: 0.03
+  r1_ohm: 0.02
+  c1_f: 1000.0
+  r2_ohm: 0.015
+  c2_f: 4000.0
+  constant_ocv_v: 3.8
+  lower_voltage_v: 3.0
+  upper_voltage_v: 4.2
+
+experiment:
+  load_current_a: 2.0
+  pulse_start_s: 10.0
+  pulse_duration_s: 60.0
+  rest_after_s: 120.0
+  output_step_s: 0.1
+
+# 电芯不一致性实验定义（Task 24）。
+inconsistency:
+  initial_soc:
+    - 0.70
+    - 0.60
+    - 0.50
+  capacity_ah:
+    - 2.0
+    - 1.9
+    - 1.8
+  r0_ohm:
+    - 0.030
+    - 0.040
+    - 0.060
+  combined:
+    soc: [0.70, 0.60, 0.50]
+    capacity_ah: [2.0, 1.9, 1.8]
+    r0_ohm: [0.030, 0.040, 0.060]

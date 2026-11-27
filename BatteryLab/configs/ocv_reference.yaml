@@ -1,0 +1,25 @@
+# 教学用 OCV-SOC 参考曲线。
+# 来源类型：educational_assumption，不是 CALCE 真实 OCV 实验结果。
+source_type: educational_assumption
+
+soc:
+  - 0.0
+  - 0.1
+  - 0.2
+  - 0.4
+  - 0.6
+  - 0.8
+  - 1.0
+
+ocv_v:
+  - 3.00
+  - 3.35
+  - 3.50
+  - 3.70
+  - 3.80
+  - 3.98
+  - 4.20
+
+notes:
+  - 采用分段线性插值，不进行无提示外推。
+  - 第三阶段才使用真实实验数据建立 OCV-SOC 曲线。

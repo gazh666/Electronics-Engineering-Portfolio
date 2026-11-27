@@ -1,0 +1,50 @@
+version: "1.0"
+
+# 第六阶段充电系统统一配置。
+# 所有功率级与充电目标均为教学设计假设，不是任何真实电芯的充电规范，
+# 也不是 BQ24610 的出厂参数。电池 ECM 参数在运行时优先读取第三阶段冻结辨识结果。
+parameter_source: educational_assumption
+
+battery:
+  series_cells: 3
+  parallel_cells: 1
+  # 与第三阶段冻结辨识容量一致（CALCE SP2，公开数据）。
+  reference_capacity_ah: 2.0280827046460144
+  identified_model_id: calce_sp2_25c_inr18650_20r_first_order_v1
+  # 第三阶段参数拟合覆盖的 SOC 区间；区间外属于外推，文档中必须如实标注。
+  identified_soc_min: 0.010636934478615079
+  identified_soc_max: 0.5068366606844055
+
+power_stage:
+  input_voltage_v: 18.0
+  switching_frequency_hz: 100000.0
+  inductance_h: 0.0001
+  capacitance_f: 0.00022
+  inductor_dcr_ohm: 0.05
+  capacitor_esr_ohm: 0.03
+  diode_forward_voltage_estimate_v: 0.5
+  mosfet_rds_on_target_ohm: 0.02
+  path_resistance_ohm: 0.03
+
+charging:
+  constant_current_a: 1.0
+  # 12.15 V = 3 × 4.05 V，低于第五阶段单体过压释放 4.15 V 与触发 4.25 V。
+  constant_voltage_v: 12.15
+  termination_current_a: 0.1
+  termination_hold_time_s: 60.0
+  maximum_charge_time_s: 14400.0
+  # 软启动 1 ms：开关级工况窗口只有 8–12 ms，且输入/电流阶跃设在 4 ms，
+  # 5 ms 软启动会使 CC 指标落在瞬态上。1 ms 仍能把 1 A 冲击限制在 1000 A/s。
+  soft_start_time_s: 0.001
+  precharge_enabled: false
+  automatic_restart_enabled: false
+
+controller:
+  duty_min: 0.0
+  duty_max: 0.9
+  control_period_s: 0.00001
+
+metadata:
+  hardware_validation_available: false
+  production_configuration: false
+  note: "教学仿真配置；不是真实电芯充电规范，不能直接用于真实电池充电。"

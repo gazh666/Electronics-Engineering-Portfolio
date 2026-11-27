@@ -1,0 +1,50 @@
+version: "1.0"
+specification_type: project_assumption
+
+# 教学初始设计目标，不是商业电源规格。FAIL 必须保留，不得事后放宽。
+recovery:
+  tolerance_v: 0.05
+  minimum_hold_cycles: 20
+  analysis_mode: cycle_mean
+
+profiles:
+  nominal_closed_loop:
+    output_voltage_mean_v:
+      min: 4.95
+      max: 5.05
+    output_ripple_vpp:
+      max: 0.05
+
+  load_step_1a_to_2a:
+    maximum_absolute_deviation_v:
+      max: 0.30
+    recovery_time_s:
+      max: 0.010
+    recovery_tolerance_v:
+      value: 0.05
+
+  load_step_generic:
+    maximum_absolute_deviation_v:
+      max: 0.60
+    recovery_time_s:
+      max: 0.012
+
+  line_step:
+    maximum_absolute_deviation_v:
+      max: 0.50
+    recovery_time_s:
+      max: 0.015
+
+  soft_start:
+    startup_overshoot_percent:
+      max: 10.0
+    startup_peak_inductor_current_a:
+      max: 4.0
+    startup_peak_input_current_a:
+      max: 4.0
+
+  average_model_stability:
+    phase_margin_deg:
+      min: 45.0
+    finite_gain_margin_db:
+      min: 6.0

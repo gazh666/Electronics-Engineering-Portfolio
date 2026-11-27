@@ -1,0 +1,6 @@
+candidate_id,role,nominal_capacitance_uf,voltage_rating_v,dielectric,package,esr_ohm_typ,ripple_current_rating_a,dc_bias_curve_available,effective_capacitance_uf,selection_status,note
+CAP-001,charger output,4.7,25,X7R,1206,TBD,TBD,false,NOT_VERIFIED,CANDIDATE,"标称 4.7 µF 在 12 V 直流偏压下会显著下降，缺少 DC Bias 曲线"
+CAP-002,charger output,10,25,X7R,1206,TBD,TBD,false,NOT_VERIFIED,CANDIDATE,"同上；2 只并联需按 DC Bias 后有效值重新评估"
+CAP-003,charger input,10,25,X7R,1206,TBD,TBD,false,NOT_VERIFIED,CANDIDATE,"输入纹波电流按 D=0.5 最坏情况估算，需电容纹波电流额定值"
+CAP-004,AFE decoupling,2.2,16,X7R,0603,TBD,TBD,false,NOT_VERIFIED,CANDIDATE,"REG18 去耦；数据手册推荐 1.8-22 µF"
+CAP-005,AFE cell filter,0.22,16,X7R,0402,TBD,TBD,false,NOT_VERIFIED,CANDIDATE,"单体差分滤波；数据手册推荐 0.1-0.22-1 µF"

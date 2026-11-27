@@ -1,0 +1,25 @@
+# PowerLab 第三阶段 Buck 理论 / SPICE 对照验证限值
+# 这些是项目设定的教学初始限值，不是商业产品规格。
+# 设定理由：
+# - 频率与占空比由同一 PULSE 源驱动，允许 1% / 0.005 的数值分辨率误差；
+# - 理想 CCM 电压未包含开关导通电阻与二极管正向压降，允许 10% 差异；
+# - 电感 / 电容纹波对时间分辨率与寄生参数更敏感，分别允许 15% / 25%；
+# - 50 mV 峰峰对应本项目 4.17% 的 5 V 输出纹波设计目标。
+version: "1.0"
+
+specification_type: project_assumption
+
+checks:
+  frequency_relative_error_max: 0.01
+  duty_absolute_error_max: 0.005
+  ideal_ccm_voltage_relative_error_max: 0.10
+  inductor_ripple_relative_error_max: 0.15
+  capacitor_ripple_relative_error_max: 0.25
+  output_ripple_design_limit_vpp: 0.05
+  volt_second_relative_error_max: 0.15
+  charge_balance_relative_error_max: 0.15
+
+notes:
+  - "CCM 理论在 DCM 工况下不适用，对应检查标记 NOT_APPLICABLE。"
+  - "未达到稳态时纹波与平均值检查标记 NOT_SETTLED，而不是伪造 PASS。"
+  - "如果真实模型差异超限，应分析原因，不能擅自扩大容差。"

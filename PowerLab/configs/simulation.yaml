@@ -1,0 +1,16 @@
+# PowerLab 第一阶段仿真参数
+# 说明：数值均为教学假设，不代表任何真实器件数据手册。
+
+divider:
+  vin_v: 12.0
+  r1_ohm: 1000.0
+  r2_ohm: 1000.0
+
+rc:
+  vin_v: 5.0
+  resistance_ohm: 1000.0
+  capacitance_f: 1.0e-6
+  rise_time_s: 1.0e-6
+  step_time_s: 1.0e-5
+  end_time_s: 6.0e-3
+  checkpoints_tau: [1, 2, 3, 5]

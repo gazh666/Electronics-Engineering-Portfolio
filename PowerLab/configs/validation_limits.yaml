@@ -1,0 +1,47 @@
+# 第八阶段：验证限值（与电源设计性能限值分开配置）
+version: "1.0"
+
+specification_type: project_assumption
+
+# 这些阈值只用于“理想 CCM 基线”的适用工况，不能要求全部非理想模型满足。
+theory_comparison:
+  ideal_ccm_output_voltage:
+    relative_tolerance: 0.02
+  ideal_ccm_inductor_ripple:
+    relative_tolerance: 0.05
+  nonideal_output_voltage:
+    relative_tolerance: 0.02
+  output_voltage_absolute_v:
+    absolute_tolerance: 0.02
+
+# 数值验证容差：只说明两种数值设置结果接近，不是电源精度规格。
+numerical_convergence:
+  output_voltage_mean_v:
+    absolute_tolerance: 0.001
+  output_ripple_vpp:
+    absolute_tolerance: 0.0005
+    relative_tolerance: 0.02
+  system_efficiency_percent:
+    absolute_tolerance: 0.1
+  switching_transition_energy_j:
+    relative_tolerance: 0.05
+
+conservation:
+  volt_second_relative_residual: 0.02
+  charge_relative_residual: 0.02
+  energy_residual_ratio: 0.05
+  node_current_residual_ratio: 0.02
+
+monte_carlo:
+  require_valid_waveform: true
+  require_steady_state: true
+  # 工程性能限值复用第五阶段 performance_limits.yaml 与第七阶段 transient_limits.yaml
+  engineering_limits_source:
+    - configs/performance_limits.yaml
+    - configs/transient_limits.yaml
+
+metadata:
+  hardware_validation_available: false
+  note: >
+    数值容差与工程规格不是同一概念。输出电压 1 mV 的数值变化阈值
+    不代表真实硬件精度达到 1 mV。

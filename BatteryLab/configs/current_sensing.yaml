@@ -1,0 +1,51 @@
+version: "1.0"
+
+# 双向电流检测教学配置。放电电流为正，充电电流为负。
+# data_source = educational_assumption；INA240A2 规格来自 TI 官方数据手册，见
+# hardware/device_study/ina240_specifications.csv。
+source_type: educational_assumption
+
+shunt:
+  nominal_resistance_ohm: 0.01
+  tolerance_percent: 0.5
+  temperature_coefficient_ppm_per_c: 50.0
+  rated_power_w: 0.5
+  research_values_ohm: [0.001, 0.002, 0.005, 0.01, 0.02]
+
+amplifier:
+  part_number: INA240A2
+  gain_v_per_v: 50.0
+  gain_tolerance_percent: 0.2
+  input_offset_max_v: 0.000025
+  input_offset_drift_v_per_c: 0.00000005
+  common_mode_min_v: -4.0
+  common_mode_max_v: 80.0
+  supply_min_v: 2.7
+  supply_max_v: 5.5
+  bandwidth_hz: 400000.0
+  slew_rate_v_per_us: 2.0
+  reference_voltage_v: 1.65
+  output_low_v: 0.1
+  output_high_v: 4.9
+  cmrr_db_min: 120.0
+  cmrr_db_typ: 132.0
+  model_status: specification_reference_behavioral_model
+
+measurement:
+  minimum_current_a: -2.5
+  maximum_current_a: 2.5
+  adc_reference_voltage_v: 3.3
+
+output_filter:
+  resistance_ohm: 1000.0
+  capacitance_f: 0.0000001
+
+research_gain_values:
+  fixed_gain_50: 50.0
+  # 为获得相近 ADC 量程，按 Rshunt 变化重新选择增益（公平比较）
+  fair_range_gain_by_shunt:
+    0.001: 500.0
+    0.002: 250.0
+    0.005: 100.0
+    0.01: 50.0
+    0.02: 25.0

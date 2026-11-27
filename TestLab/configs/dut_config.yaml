@@ -1,0 +1,25 @@
+# 虚拟被测电源（DUT）模型参数
+#
+# 本文件只描述稳态数学行为模型，不对应任何完成实物验证的商业芯片。
+# 修改参数后无需改动 models/virtual_dut.py 核心算法。
+dut:
+  name: "Virtual Buck DC-DC Converter"
+
+  # 输入电压范围（V）
+  nominal_input_voltage: 12.0
+  min_input_voltage: 9.0
+  max_input_voltage: 16.0
+
+  # 输出特性
+  nominal_output_voltage: 5.0
+  max_output_current: 2.0
+  output_resistance: 0.02
+
+  # 预设转换效率：0.90 是模型参数，不是实测效率
+  nominal_efficiency: 0.90
+
+  # 保护策略：当前仅支持 shutdown（保护时输出归零）
+  protection_strategy: "shutdown"
+
+  # 数据来源标签：必须为 behavioral_model
+  data_source: "behavioral_model"

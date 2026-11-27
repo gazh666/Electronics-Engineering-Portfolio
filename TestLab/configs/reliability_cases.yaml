@@ -1,0 +1,41 @@
+# TestLab 可靠性验证基准用例（阶段八）
+#
+# 与普通用例使用同一套 TestRunner / PerformanceAnalyzer / 数据质量检查。
+# 期望结果在 configs/reliability_experiments.yaml 中预先固定，运行后不得修改。
+#
+# 限值说明：4.9-5.1 V、0.95-1.05 A、85-100% 均为教学项目自定义假设，
+# 不是厂商数据手册指标。
+#
+# RC-RELIABILITY-B 与 A 完全相同，只用于验证 F009 清理失败后后续任务被
+# 强制跳过并记录 SKIP。
+
+version: "1.0"
+specification_type: "reliability_verification"
+notes:
+  - "全部数据来自 PyVISA-sim 与 VirtualDUT 行为模型，属模拟实验。"
+  - "可靠性实验结论与业务测试 PASS/FAIL/ERROR 分开统计。"
+
+test_cases:
+  - id: RC-RELIABILITY
+    name: 可靠性验证基准工况
+    category: reliability
+    vin: 12.0
+    input_current_limit: 3.0
+    load_current: 1.0
+    expected_state: NORMAL
+    limits:
+      vout: { min: 4.9, max: 5.1 }
+      iout: { min: 0.95, max: 1.05 }
+      efficiency_percent: { min: 85.0, max: 100.0 }
+
+  - id: RC-RELIABILITY-B
+    name: 可靠性验证基准工况（后续任务）
+    category: reliability
+    vin: 12.0
+    input_current_limit: 3.0
+    load_current: 1.0
+    expected_state: NORMAL
+    limits:
+      vout: { min: 4.9, max: 5.1 }
+      iout: { min: 0.95, max: 1.05 }
+      efficiency_percent: { min: 85.0, max: 100.0 }

@@ -1,0 +1,1064 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-27T16:11:42",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.8",
+    "schematic_parity": [],
+    "source": "bms_layout.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 Q2 的焊盘 4 [CHG_GATE]",
+                    "pos": {
+                        "x": 40.55,
+                        "y": 19.025
+                    },
+                    "uuid": "a0298801-f20f-4e2c-af54-4277613e1734"
+                },
+                {
+                    "description": "F.Cu 上 U1 的焊盘 31 [CHG_GATE]",
+                    "pos": {
+                        "x": 37.0,
+                        "y": 34.0125
+                    },
+                    "uuid": "ccbfe005-d199-4428-a487-6842c57e8646"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [CELL_1_POS] (F.Cu), 长度: 5.6550 mm",
+                    "pos": {
+                        "x": 25.825,
+                        "y": 36.345
+                    },
+                    "uuid": "ce5d9094-9426-48ff-a59f-505adb2597be"
+                },
+                {
+                    "description": "F.Cu 上 U1 的焊盘 5 [CELL_1_POS]",
+                    "pos": {
+                        "x": 36.0125,
+                        "y": 36.2
+                    },
+                    "uuid": "bb4456d3-2a1a-45e4-a880-70a20b888a3b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 U1 的焊盘 6 [CELL_1_POS]",
+                    "pos": {
+                        "x": 36.0125,
+                        "y": 36.6
+                    },
+                    "uuid": "16d9a49a-5bdb-49e3-951f-0107fab94734"
+                },
+                {
+                    "description": "F.Cu 上 U1 的焊盘 5 [CELL_1_POS]",
+                    "pos": {
+                        "x": 36.0125,
+                        "y": 36.2
+                    },
+                    "uuid": "bb4456d3-2a1a-45e4-a880-70a20b888a3b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 U1 的焊盘 7 [CELL_1_POS]",
+                    "pos": {
+                        "x": 36.0125,
+                        "y": 37.0
+                    },
+                    "uuid": "703de012-a52b-4034-9573-919814243850"
+                },
+                {
+                    "description": "F.Cu 上 U1 的焊盘 6 [CELL_1_POS]",
+                    "pos": {
+                        "x": 36.0125,
+                        "y": 36.6
+                    },
+                    "uuid": "16d9a49a-5bdb-49e3-951f-0107fab94734"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 U1 的焊盘 22 [REG1_3V3]",
+                    "pos": {
+                        "x": 39.9875,
+                        "y": 35.4
+                    },
+                    "uuid": "f3826a46-9032-4d09-81c5-060500498884"
+                },
+                {
+                    "description": "F.Cu 上 C105 的焊盘 1 [REG1_3V3]",
+                    "pos": {
+                        "x": 37.225,
+                        "y": 44.0
+                    },
+                    "uuid": "52721af7-955f-46f2-a0f0-64fab7f0cc67"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 U1 的焊盘 22 [REG1_3V3]",
+                    "pos": {
+                        "x": 39.9875,
+                        "y": 35.4
+                    },
+                    "uuid": "f3826a46-9032-4d09-81c5-060500498884"
+                },
+                {
+                    "description": "走线 [REG1_3V3] (F.Cu), 长度: 1.3598 mm",
+                    "pos": {
+                        "x": 57.175,
+                        "y": 32.6402
+                    },
+                    "uuid": "bce866c6-208b-4528-aa27-8d96db990022"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [CELL_2_NEG] (F.Cu), 长度: 6.0575 mm",
+                    "pos": {
+                        "x": 24.52,
+                        "y": 48.0
+                    },
+                    "uuid": "721ad814-ec5c-4ab0-bf3a-062e499e04fb"
+                },
+                {
+                    "description": "F.Cu 上 U1 的焊盘 4 [CELL_2_NEG]",
+                    "pos": {
+                        "x": 36.0125,
+                        "y": 35.8
+                    },
+                    "uuid": "385a19fe-bb15-45e6-a0f1-12a3ad08a8b1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 U1 的焊盘 4 [CELL_2_NEG]",
+                    "pos": {
+                        "x": 36.0125,
+                        "y": 35.8
+                    },
+                    "uuid": "385a19fe-bb15-45e6-a0f1-12a3ad08a8b1"
+                },
+                {
+                    "description": "F.Cu 上 U1 的焊盘 3 [CELL_2_NEG]",
+                    "pos": {
+                        "x": 36.0125,
+                        "y": 35.4
+                    },
+                    "uuid": "e20ccd47-ce94-4364-b11f-eb3c45cd6e94"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [CELL_2_POS] (F.Cu), 长度: 8.4853 mm",
+                    "pos": {
+                        "x": 19.48,
+                        "y": 54.0
+                    },
+                    "uuid": "98d14178-3f1f-467c-baf9-6d1a7357d112"
+                },
+                {
+                    "description": "F.Cu 上 U1 的焊盘 2 [CELL_2_POS]",
+                    "pos": {
+                        "x": 36.0125,
+                        "y": 35.0
+                    },
+                    "uuid": "21d35c09-2967-42bb-9be5-704146f5b4b6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 U1 的焊盘 11 [SENSE_P]",
+                    "pos": {
+                        "x": 37.4,
+                        "y": 37.9875
+                    },
+                    "uuid": "0a03c893-d1e6-4256-ba75-01186ec108e4"
+                },
+                {
+                    "description": "走线 [SENSE_P] (F.Cu), 长度: 0.3168 mm",
+                    "pos": {
+                        "x": 49.049,
+                        "y": 30.224
+                    },
+                    "uuid": "b842c56f-aaec-466c-a44f-d96dad9c3d7f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "过孔 [GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 37.4,
+                        "y": 36.6
+                    },
+                    "uuid": "4a7206f1-7fc7-4ae5-b84a-219c3985b390"
+                },
+                {
+                    "description": "F.Cu 上 U1 的焊盘 10 [GND]",
+                    "pos": {
+                        "x": 37.0,
+                        "y": 37.9875
+                    },
+                    "uuid": "17880e54-a5b1-4b94-948b-8b26fab9eac4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "过孔 [GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 38.6,
+                        "y": 35.4
+                    },
+                    "uuid": "16f5122a-1162-4030-920b-a0c38d1e0d6e"
+                },
+                {
+                    "description": "F.Cu 上 U1 的焊盘 21 [GND]",
+                    "pos": {
+                        "x": 39.9875,
+                        "y": 35.8
+                    },
+                    "uuid": "c50285d3-cabc-4d5e-af73-1bb0702307c4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "过孔 [GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 38.6,
+                        "y": 35.4
+                    },
+                    "uuid": "16f5122a-1162-4030-920b-a0c38d1e0d6e"
+                },
+                {
+                    "description": "F.Cu 上 U1 的焊盘 25 [GND]",
+                    "pos": {
+                        "x": 39.4,
+                        "y": 34.0125
+                    },
+                    "uuid": "a00993e0-7d16-4277-98d5-dc65467c1968"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 C105 的焊盘 2 [GND]",
+                    "pos": {
+                        "x": 38.775,
+                        "y": 44.0
+                    },
+                    "uuid": "628b3e51-f8de-4595-84d4-b3cb2b295d1f"
+                },
+                {
+                    "description": "过孔 [GND] (F.Cu - B.Cu)",
+                    "pos": {
+                        "x": 33.5397,
+                        "y": 44.7647
+                    },
+                    "uuid": "4ceec94b-2f48-466c-b7a3-b4c6ceb80ab0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [SENSE_N] (F.Cu), 长度: 0.4708 mm",
+                    "pos": {
+                        "x": 49.1579,
+                        "y": 40.8148
+                    },
+                    "uuid": "c689a864-c17c-4c00-9970-0819b5c4c489"
+                },
+                {
+                    "description": "F.Cu 上 U1 的焊盘 12 [SENSE_N]",
+                    "pos": {
+                        "x": 37.8,
+                        "y": 37.9875
+                    },
+                    "uuid": "9dea8fec-ff0c-430e-9c61-45db608b54d6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 U1 的焊盘 30 [DSG_GATE]",
+                    "pos": {
+                        "x": 37.4,
+                        "y": 34.0125
+                    },
+                    "uuid": "3936a9dc-6ec7-4d43-b206-e57565234eec"
+                },
+                {
+                    "description": "走线 [DSG_GATE] (F.Cu), 长度: 0.2000 mm",
+                    "pos": {
+                        "x": 26.55,
+                        "y": 19.025
+                    },
+                    "uuid": "56313c17-8d42-4503-89ce-12805198da20"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 U1 的焊盘 13 [NTC_INPUT]",
+                    "pos": {
+                        "x": 38.2,
+                        "y": 37.9875
+                    },
+                    "uuid": "f0577c16-f99b-45f9-86e0-ac0900f981e5"
+                },
+                {
+                    "description": "走线 [NTC_INPUT] (F.Cu), 长度: 8.4853 mm",
+                    "pos": {
+                        "x": 50.825,
+                        "y": 50.0
+                    },
+                    "uuid": "02fb6d99-0457-4e91-b15d-e9a1ce384005"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [REG18] (F.Cu), 长度: 1.1100 mm",
+                    "pos": {
+                        "x": 42.3901,
+                        "y": 43.2151
+                    },
+                    "uuid": "b721ba85-930c-40cc-b079-0e8703fa87ac"
+                },
+                {
+                    "description": "F.Cu 上 U1 的焊盘 15 [REG18]",
+                    "pos": {
+                        "x": 39.0,
+                        "y": 37.9875
+                    },
+                    "uuid": "ea6256a8-fa63-4e3c-bd54-d4ea3d73690a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [I2C_SCL] (F.Cu), 长度: 15.6695 mm",
+                    "pos": {
+                        "x": 69.905,
+                        "y": 39.08
+                    },
+                    "uuid": "1681d637-616a-4db5-96f4-28d8b6d5f7f0"
+                },
+                {
+                    "description": "F.Cu 上 U1 的焊盘 17 [I2C_SCL]",
+                    "pos": {
+                        "x": 39.9875,
+                        "y": 37.4
+                    },
+                    "uuid": "2ebe361b-62f4-4241-9c0a-5f00647d40e1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "走线 [I2C_SDA] (F.Cu), 长度: 10.7763 mm",
+                    "pos": {
+                        "x": 66.445,
+                        "y": 41.62
+                    },
+                    "uuid": "67ecc067-9c35-4d5a-8090-96c810d28709"
+                },
+                {
+                    "description": "F.Cu 上 U1 的焊盘 18 [I2C_SDA]",
+                    "pos": {
+                        "x": 39.9875,
+                        "y": 37.0
+                    },
+                    "uuid": "853d0db4-fe7d-4cb9-b880-639e46e4d5d1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 U1 的焊盘 8 [CELL_0_POS]",
+                    "pos": {
+                        "x": 36.0125,
+                        "y": 37.4
+                    },
+                    "uuid": "1702bea4-ffd8-40e3-99b7-64073dbd238d"
+                },
+                {
+                    "description": "走线 [CELL_0_POS] (F.Cu), 长度: 5.0400 mm",
+                    "pos": {
+                        "x": 25.48,
+                        "y": 30.0
+                    },
+                    "uuid": "db3804c3-2343-4465-8138-5fd146052aac"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 U1 的焊盘 9 [CELL_0_NEG]",
+                    "pos": {
+                        "x": 36.6,
+                        "y": 37.9875
+                    },
+                    "uuid": "a1e857ce-7645-4a34-9c27-88384f3a3882"
+                },
+                {
+                    "description": "走线 [CELL_0_NEG] (In1.Cu), 长度: 18.8386 mm",
+                    "pos": {
+                        "x": 24.9504,
+                        "y": 31.6014
+                    },
+                    "uuid": "1230cd75-f29d-4d03-9352-e8552f2e0412"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 R108 的焊盘 2 [BAT_AFE]",
+                    "pos": {
+                        "x": 31.825,
+                        "y": 26.0
+                    },
+                    "uuid": "4fffafb5-a44c-45c2-b477-66d44f8c4c28"
+                },
+                {
+                    "description": "F.Cu 上 U1 的焊盘 1 [BAT_AFE]",
+                    "pos": {
+                        "x": 36.0125,
+                        "y": 34.6
+                    },
+                    "uuid": "a3259d2a-a102-43e1-a662-c0575919e091"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 U1 的焊盘 24 [REGIN]",
+                    "pos": {
+                        "x": 39.9875,
+                        "y": 34.6
+                    },
+                    "uuid": "ded911d1-142a-494c-a259-1311b957e485"
+                },
+                {
+                    "description": "F.Cu 上 U1 的焊盘 23 [REGIN]",
+                    "pos": {
+                        "x": 39.9875,
+                        "y": 35.0
+                    },
+                    "uuid": "b02892d4-fc80-44ed-9c20-381f49620a13"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "F.Cu 上 U1 的焊盘 32 [CP1_NODE]",
+                    "pos": {
+                        "x": 36.6,
+                        "y": 34.0125
+                    },
+                    "uuid": "51e303fb-f9ec-47a0-8d19-03e32402e42c"
+                },
+                {
+                    "description": "F.Cu 上 TP4 的焊盘 1 [CP1_NODE]",
+                    "pos": {
+                        "x": 76.0,
+                        "y": 54.0
+                    },
+                    "uuid": "f2101a03-b92b-45ae-96ae-f5cb199dc5a7"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "当前配置中不包含封装库 'Package_SON'",
+            "items": [
+                {
+                    "description": "封装 Q2",
+                    "pos": {
+                        "x": 39.0,
+                        "y": 20.0
+                    },
+                    "uuid": "27b46771-e0d5-481c-bf1a-a15a7962a470"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R103",
+                    "pos": {
+                        "x": 17.0,
+                        "y": 42.0
+                    },
+                    "uuid": "27fbdc5d-5a73-44c9-a8bc-0fe3ebc6d476"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'TestPoint'",
+            "items": [
+                {
+                    "description": "封装 TP3",
+                    "pos": {
+                        "x": 76.0,
+                        "y": 48.0
+                    },
+                    "uuid": "2f2b5f6d-c5ff-4e55-b016-0c6e3b2e159f"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "封装 C103",
+                    "pos": {
+                        "x": 25.0,
+                        "y": 48.0
+                    },
+                    "uuid": "36903dd2-d9ff-458d-adc1-29314f7857f6"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R104",
+                    "pos": {
+                        "x": 17.0,
+                        "y": 48.0
+                    },
+                    "uuid": "383450c7-fd37-462f-9deb-bdeae3bbd508"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'TestPoint'",
+            "items": [
+                {
+                    "description": "封装 TP1",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 13.0
+                    },
+                    "uuid": "465a958d-f67e-4289-aacb-c6640a5e25b6"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Connector_PinHeader_2.54mm'",
+            "items": [
+                {
+                    "description": "封装 J1",
+                    "pos": {
+                        "x": 9.0,
+                        "y": 12.0
+                    },
+                    "uuid": "4a5a50eb-e8e6-417e-a3ce-84c9fce2b6be"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'TestPoint'",
+            "items": [
+                {
+                    "description": "封装 TP2",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 21.0
+                    },
+                    "uuid": "58e3318c-69d0-47c4-9f16-ed06cd5d36dd"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R113",
+                    "pos": {
+                        "x": 48.0,
+                        "y": 30.0
+                    },
+                    "uuid": "68a45faa-5557-4e76-9c54-459d64015fb5"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Package_SON'",
+            "items": [
+                {
+                    "description": "封装 Q1",
+                    "pos": {
+                        "x": 25.0,
+                        "y": 20.0
+                    },
+                    "uuid": "69239857-98d7-47e5-aaf4-595b8be83f33"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Connector_PinHeader_2.54mm'",
+            "items": [
+                {
+                    "description": "封装 J4",
+                    "pos": {
+                        "x": 84.0,
+                        "y": 50.0
+                    },
+                    "uuid": "6a467f89-902f-4b0d-9c3f-5a3b2b799de7"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R112",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 44.0
+                    },
+                    "uuid": "714fdd27-001a-4119-a02a-a867f992dff1"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Connector_PinHeader_2.54mm'",
+            "items": [
+                {
+                    "description": "封装 J2",
+                    "pos": {
+                        "x": 50.0,
+                        "y": 13.0
+                    },
+                    "uuid": "77e5dc6f-ed65-4780-818e-a22f89834c8e"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Connector_PinHeader_2.54mm'",
+            "items": [
+                {
+                    "description": "封装 J3",
+                    "pos": {
+                        "x": 84.0,
+                        "y": 34.0
+                    },
+                    "uuid": "7a4df4f1-6dc9-4e64-a8be-093dee937584"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R106",
+                    "pos": {
+                        "x": 25.0,
+                        "y": 42.0
+                    },
+                    "uuid": "8c6a6302-b5ad-4aee-a56d-659bde0b4f12"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R102",
+                    "pos": {
+                        "x": 17.0,
+                        "y": 36.0
+                    },
+                    "uuid": "90306e21-f4c1-40d1-84a9-f59a532b4d28"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R101",
+                    "pos": {
+                        "x": 17.0,
+                        "y": 30.0
+                    },
+                    "uuid": "912ecb1e-d633-4d7a-83bd-e86e3047b0b5"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R108",
+                    "pos": {
+                        "x": 31.0,
+                        "y": 26.0
+                    },
+                    "uuid": "a02aa386-8ddb-450f-861a-28336853f5b4"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Package_DFN_QFN'",
+            "items": [
+                {
+                    "description": "封装 U1",
+                    "pos": {
+                        "x": 38.0,
+                        "y": 36.0
+                    },
+                    "uuid": "a16a5260-ac2f-47b8-87a6-b695fa789aaa"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "封装 C101",
+                    "pos": {
+                        "x": 25.0,
+                        "y": 30.0
+                    },
+                    "uuid": "a4ede5d0-a773-4f07-8e12-eb07be3e41e8"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "封装 C102",
+                    "pos": {
+                        "x": 25.0,
+                        "y": 36.0
+                    },
+                    "uuid": "a6bc08f7-bfe6-4e00-bb33-b40b3f0c8577"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "封装 C104",
+                    "pos": {
+                        "x": 32.0,
+                        "y": 44.0
+                    },
+                    "uuid": "c0d20612-759e-40a3-bac5-4910d59fae53"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 RS1",
+                    "pos": {
+                        "x": 58.0,
+                        "y": 13.0
+                    },
+                    "uuid": "c48b0090-ecbf-4200-b3e6-1cf8b7bf9ddd"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R109",
+                    "pos": {
+                        "x": 58.0,
+                        "y": 28.0
+                    },
+                    "uuid": "cbef2e8b-fd6c-495d-a4df-dafde3422633"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'TestPoint'",
+            "items": [
+                {
+                    "description": "封装 TP4",
+                    "pos": {
+                        "x": 76.0,
+                        "y": 54.0
+                    },
+                    "uuid": "d6880b2b-e83a-430a-8d04-db824f27a952"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R110",
+                    "pos": {
+                        "x": 58.0,
+                        "y": 34.0
+                    },
+                    "uuid": "d7d60cef-1c09-450a-9cd1-c3956608dc6c"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R105",
+                    "pos": {
+                        "x": 17.0,
+                        "y": 54.0
+                    },
+                    "uuid": "d9a537fa-482d-4fd7-9b59-02d92e25ad53"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R107",
+                    "pos": {
+                        "x": 25.0,
+                        "y": 54.0
+                    },
+                    "uuid": "db44ebf8-f510-4c05-94e2-f71a30f66743"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "封装 R114",
+                    "pos": {
+                        "x": 48.0,
+                        "y": 42.0
+                    },
+                    "uuid": "e739a710-a36c-4032-8557-5753f4905852"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "当前配置中不包含封装库 'Capacitor_SMD'",
+            "items": [
+                {
+                    "description": "封装 C105",
+                    "pos": {
+                        "x": 38.0,
+                        "y": 44.0
+                    },
+                    "uuid": "f5113e1f-4baf-4a16-a317-c26c5559e28f"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        }
+    ]
+}

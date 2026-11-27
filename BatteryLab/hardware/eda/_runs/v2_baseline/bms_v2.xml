@@ -1,0 +1,1129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>BatteryLab\hardware\eda\BatteryLab_BMS_V2\BatteryLab_BMS_V2.kicad_sch</source>
+    <date>2026-11-27T15:58:23</date>
+    <tool>Eeschema 10.0.8</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>BatteryLab 3S BMS (BQ76922) — Engineering Draft</title>
+        <company>Engineering Prototype Design — Not Hardware Validated</company>
+        <rev>1</rev>
+        <date/>
+        <source>BatteryLab_BMS_V2.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C101">
+      <value>0.22uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>42d50a22-ebad-43ab-88f9-78ac34254824</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C102">
+      <value>0.22uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f51cb653-1ff2-4e6f-8c3f-52ab0648a06f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C103">
+      <value>0.22uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>86265080-526b-4ff7-b907-56975f631a55</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C104">
+      <value>2.2uF</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>06a6e528-0138-4fa9-be80-d900704f2017</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C105">
+      <value>2.2uF</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>743ef12d-b890-44c2-87a9-860301d2a357</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J1">
+      <value>3S CELL</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>30041fa3-3d57-4cf8-baa7-09b9b528a338</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J2">
+      <value>PACK</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5efb0070-0e7c-422f-8aae-31ea6afd0941</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J3">
+      <value>I2C</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fc068fb5-95a8-40ba-b945-5de157565b15</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J4">
+      <value>NTC</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1d4e61e3-1873-44cb-aec5-45e1d3855027</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q1">
+      <value>CSD18540Q5B</value>
+      <footprint>Package_SON:Texas_S-PVSON-N8</footprint>
+      <fields>
+        <field name="Footprint">Package_SON:Texas_S-PVSON-N8</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="BatteryLab" part="NMOS_SON5x6" description="N-channel MOSFET, SON 5x6 (pinout assumed; verify datasheet)"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2abe0084-884b-4b55-9f63-2658c2e8a0f8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q2">
+      <value>CSD18540Q5B</value>
+      <footprint>Package_SON:Texas_S-PVSON-N8</footprint>
+      <fields>
+        <field name="Footprint">Package_SON:Texas_S-PVSON-N8</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="BatteryLab" part="NMOS_SON5x6" description="N-channel MOSFET, SON 5x6 (pinout assumed; verify datasheet)"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d9d0ef15-7ecb-4571-a053-b02960a04157</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R101">
+      <value>47R</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>eb18700f-ac9e-41ba-ad5b-1c86c2ac8646</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R102">
+      <value>47R</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>763cc468-b09b-4330-822d-745ae0d02034</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R103">
+      <value>47R</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>84d35683-d92f-49b0-8dd3-cf2e2d544649</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R104">
+      <value>47R</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ec568d06-44fb-46c7-bd90-867f219071b3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R105">
+      <value>47R</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>31ee9a56-3a12-4c14-84f3-60946f73c1b4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R106">
+      <value>0R</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>85524b26-20fa-489f-b9cc-b251721e5771</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R107">
+      <value>0R</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>db8ab1da-7fed-4976-90e7-965bc7336869</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R108">
+      <value>100R</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3a508857-450b-4634-bfdc-ead3a823ccb2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R109">
+      <value>2.2k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>99315383-3d1f-4f29-bf3b-4a797c903853</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R110">
+      <value>2.2k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d5eb16c1-e306-40fe-8d58-a276565c6fd5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R112">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>dd6bd42e-4a03-41d7-884e-467bfbe464dc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R113">
+      <value>100R</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>545a9e9a-b73c-41be-8631-8c156c7a9b20</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R114">
+      <value>100R</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b40f4302-79d4-450a-83e9-88196bb0c1a5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="RS1">
+      <value>0.01R</value>
+      <footprint>Resistor_SMD:R_2010_5025Metric</footprint>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_2010_5025Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d271a322-1046-492e-be49-e3553ea246e2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP1">
+      <value>SENSE_P</value>
+      <footprint>TestPoint:TestPoint_Pad_1.5x1.5mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_Pad_1.5x1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0403233b-8d94-4a71-acae-b826548c2083</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP2">
+      <value>SENSE_N</value>
+      <footprint>TestPoint:TestPoint_Pad_1.5x1.5mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_Pad_1.5x1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b6cc4e84-09aa-433e-82a5-109d18d8bca8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP3">
+      <value>REG1_3V3</value>
+      <footprint>TestPoint:TestPoint_Pad_1.5x1.5mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_Pad_1.5x1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8a8f7793-0a3a-412e-a45f-59c91f76baa3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP4">
+      <value>CP1_NODE</value>
+      <footprint>TestPoint:TestPoint_Pad_1.5x1.5mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_Pad_1.5x1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8f5371e7-689b-45cd-8212-2888253d7ae9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U1">
+      <value>BQ76922</value>
+      <footprint>Package_DFN_QFN:Texas_RSN_WQFN-32-1EP_4x4mm_P0.4mm_EP2.8x2.8mm</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/bq76922.pdf</datasheet>
+      <fields>
+        <field name="Footprint">Package_DFN_QFN:Texas_RSN_WQFN-32-1EP_4x4mm_P0.4mm_EP2.8x2.8mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/bq76922.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="BatteryLab" part="BQ76922" description="3S-5S Battery Monitor / Protector, RSN 32-pin WQFN"/>
+      <property name="Sheetname" value="BatteryLab_BMS_V2"/>
+      <property name="Sheetfile" value="BatteryLab_BMS_V2.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c6a30ce9-17a1-48c1-809a-4ac422a3a3be</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="PAD"/>
+            <pin num="17"/>
+            <pin num="18"/>
+            <pin num="19"/>
+            <pin num="20"/>
+            <pin num="21"/>
+            <pin num="22"/>
+            <pin num="23"/>
+            <pin num="24"/>
+            <pin num="25"/>
+            <pin num="26"/>
+            <pin num="27"/>
+            <pin num="28"/>
+            <pin num="29"/>
+            <pin num="30"/>
+            <pin num="31"/>
+            <pin num="32"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="BatteryLab" part="BQ76922">
+      <description>3S-5S Battery Monitor / Protector, RSN 32-pin WQFN</description>
+      <docs>https://www.ti.com/lit/ds/symlink/bq76922.pdf</docs>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">BQ76922</field>
+        <field name="Footprint">Package_DFN_QFN:Texas_RSN_WQFN-32-1EP_4x4mm_P0.4mm_EP2.8x2.8mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/bq76922.pdf</field>
+        <field name="Description">3S-5S Battery Monitor / Protector, RSN 32-pin WQFN</field>
+      </fields>
+      <pins>
+        <pin num="1" name="BAT" type="passive"/>
+        <pin num="2" name="VC5" type="passive"/>
+        <pin num="3" name="VC4A" type="passive"/>
+        <pin num="4" name="VC4B" type="passive"/>
+        <pin num="5" name="VC3A" type="passive"/>
+        <pin num="6" name="VC3B" type="passive"/>
+        <pin num="7" name="VC2" type="passive"/>
+        <pin num="8" name="VC1" type="passive"/>
+        <pin num="9" name="VC0" type="passive"/>
+        <pin num="10" name="VSS" type="passive"/>
+        <pin num="11" name="SRP" type="passive"/>
+        <pin num="12" name="SRN" type="passive"/>
+        <pin num="13" name="TS1" type="passive"/>
+        <pin num="14" name="TS2" type="passive"/>
+        <pin num="15" name="REG18" type="passive"/>
+        <pin num="16" name="ALERT" type="passive"/>
+        <pin num="17" name="SCL" type="passive"/>
+        <pin num="18" name="SDA" type="passive"/>
+        <pin num="19" name="CFETOFF" type="passive"/>
+        <pin num="20" name="DFETOFF" type="passive"/>
+        <pin num="21" name="RST_SHUT" type="passive"/>
+        <pin num="22" name="REG1" type="passive"/>
+        <pin num="23" name="REGIN" type="passive"/>
+        <pin num="24" name="BREG" type="passive"/>
+        <pin num="25" name="FUSE" type="passive"/>
+        <pin num="26" name="PDSG" type="passive"/>
+        <pin num="27" name="PCHG" type="passive"/>
+        <pin num="28" name="LD" type="passive"/>
+        <pin num="29" name="PACK" type="passive"/>
+        <pin num="30" name="DSG" type="passive"/>
+        <pin num="31" name="CHG" type="passive"/>
+        <pin num="32" name="CP1" type="passive"/>
+        <pin num="PAD" name="Thermal_Pad" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="BatteryLab" part="NMOS_SON5x6">
+      <description>N-channel MOSFET, SON 5x6 (pinout assumed; verify datasheet)</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">NMOS</field>
+        <field name="Footprint">Package_SON:Texas_S-PVSON-N8</field>
+        <field name="Datasheet"/>
+        <field name="Description">N-channel MOSFET, SON 5x6 (pinout assumed; verify datasheet)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="S" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="S" type="passive"/>
+        <pin num="4" name="G" type="passive"/>
+        <pin num="5" name="D" type="passive"/>
+        <pin num="6" name="D" type="passive"/>
+        <pin num="7" name="D" type="passive"/>
+        <pin num="8" name="D" type="passive"/>
+        <pin num="9" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="TestPoint">
+      <description>test point</description>
+      <footprints>
+        <fp>Pin*</fp>
+        <fp>Test*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">TP</field>
+        <field name="Value">TestPoint</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">test point</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x02">
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x04">
+      <description>Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x04</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="BatteryLab">
+      <uri>${KIPRJMOD}/../libraries/BatteryLab.kicad_sym</uri>
+    </library>
+    <library logical="Connector">
+      <uri>${KICAD10_SYMBOL_DIR}/Connector.kicad_sym</uri>
+    </library>
+    <library logical="Connector_Generic">
+      <uri>${KICAD10_SYMBOL_DIR}/Connector_Generic.kicad_sym</uri>
+    </library>
+    <library logical="Device">
+      <uri>${KICAD10_SYMBOL_DIR}/Device.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="ALERT" class="Default">
+      <node ref="U1" pin="16" pinfunction="ALERT_16" pintype="passive"/>
+    </net>
+    <net code="2" name="BAT_AFE" class="Default">
+      <node ref="R108" pin="2" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="BAT_1" pintype="passive"/>
+    </net>
+    <net code="3" name="BAT_POS" class="Default">
+      <node ref="J1" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="Q1" pin="5" pinfunction="D_5" pintype="passive"/>
+      <node ref="Q1" pin="6" pinfunction="D_6" pintype="passive"/>
+      <node ref="Q1" pin="7" pinfunction="D_7" pintype="passive"/>
+      <node ref="Q1" pin="8" pinfunction="D_8" pintype="passive"/>
+      <node ref="Q1" pin="9" pinfunction="D_9" pintype="passive"/>
+      <node ref="R105" pin="1" pintype="passive"/>
+      <node ref="R108" pin="1" pintype="passive"/>
+    </net>
+    <net code="4" name="C0P" class="Default">
+      <node ref="J1" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="R102" pin="1" pintype="passive"/>
+    </net>
+    <net code="5" name="C1P" class="Default">
+      <node ref="J1" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="R103" pin="1" pintype="passive"/>
+      <node ref="R104" pin="1" pintype="passive"/>
+    </net>
+    <net code="6" name="CELL_0_NEG" class="Default">
+      <node ref="C101" pin="1" pintype="passive"/>
+      <node ref="R101" pin="2" pintype="passive"/>
+      <node ref="R107" pin="1" pintype="passive"/>
+      <node ref="U1" pin="9" pinfunction="VC0_9" pintype="passive"/>
+    </net>
+    <net code="7" name="CELL_0_POS" class="Default">
+      <node ref="C101" pin="2" pintype="passive"/>
+      <node ref="C102" pin="1" pintype="passive"/>
+      <node ref="R102" pin="2" pintype="passive"/>
+      <node ref="U1" pin="8" pinfunction="VC1_8" pintype="passive"/>
+    </net>
+    <net code="8" name="CELL_1_POS" class="Default">
+      <node ref="C102" pin="2" pintype="passive"/>
+      <node ref="R103" pin="2" pintype="passive"/>
+      <node ref="R106" pin="1" pintype="passive"/>
+      <node ref="R106" pin="2" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="VC3A_5" pintype="passive"/>
+      <node ref="U1" pin="6" pinfunction="VC3B_6" pintype="passive"/>
+      <node ref="U1" pin="7" pinfunction="VC2_7" pintype="passive"/>
+    </net>
+    <net code="9" name="CELL_2_NEG" class="Default">
+      <node ref="C103" pin="1" pintype="passive"/>
+      <node ref="R104" pin="2" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="VC4A_3" pintype="passive"/>
+      <node ref="U1" pin="4" pinfunction="VC4B_4" pintype="passive"/>
+    </net>
+    <net code="10" name="CELL_2_POS" class="Default">
+      <node ref="C103" pin="2" pintype="passive"/>
+      <node ref="R105" pin="2" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="VC5_2" pintype="passive"/>
+    </net>
+    <net code="11" name="CFETOFF_CTRL" class="Default">
+      <node ref="U1" pin="19" pinfunction="CFETOFF_19" pintype="passive"/>
+    </net>
+    <net code="12" name="CHG_GATE" class="Default">
+      <node ref="Q2" pin="4" pinfunction="G_4" pintype="passive"/>
+      <node ref="U1" pin="31" pinfunction="CHG_31" pintype="passive"/>
+    </net>
+    <net code="13" name="CP1_NODE" class="Default">
+      <node ref="TP4" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="32" pinfunction="CP1_32" pintype="passive"/>
+    </net>
+    <net code="14" name="DFETOFF_CTRL" class="Default">
+      <node ref="U1" pin="20" pinfunction="DFETOFF_20" pintype="passive"/>
+    </net>
+    <net code="15" name="DSG_GATE" class="Default">
+      <node ref="Q1" pin="4" pinfunction="G_4" pintype="passive"/>
+      <node ref="U1" pin="30" pinfunction="DSG_30" pintype="passive"/>
+    </net>
+    <net code="16" name="GND" class="Default">
+      <node ref="C104" pin="2" pintype="passive"/>
+      <node ref="C105" pin="2" pintype="passive"/>
+      <node ref="J1" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J3" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J4" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="R101" pin="1" pintype="passive"/>
+      <node ref="R107" pin="2" pintype="passive"/>
+      <node ref="R113" pin="1" pintype="passive"/>
+      <node ref="RS1" pin="1" pintype="passive"/>
+      <node ref="U1" pin="10" pinfunction="VSS_10" pintype="passive"/>
+      <node ref="U1" pin="21" pinfunction="RST_SHUT_21" pintype="passive"/>
+      <node ref="U1" pin="25" pinfunction="FUSE_25" pintype="passive"/>
+      <node ref="U1" pin="PAD" pinfunction="Thermal_Pad_PAD" pintype="passive"/>
+    </net>
+    <net code="17" name="I2C_SCL" class="Default">
+      <node ref="J3" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="R109" pin="2" pintype="passive"/>
+      <node ref="U1" pin="17" pinfunction="SCL_17" pintype="passive"/>
+    </net>
+    <net code="18" name="I2C_SDA" class="Default">
+      <node ref="J3" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="R110" pin="2" pintype="passive"/>
+      <node ref="U1" pin="18" pinfunction="SDA_18" pintype="passive"/>
+    </net>
+    <net code="19" name="LD_SENSE" class="Default">
+      <node ref="U1" pin="28" pinfunction="LD_28" pintype="passive"/>
+    </net>
+    <net code="20" name="MID_NODE" class="Default">
+      <node ref="Q1" pin="1" pinfunction="S_1" pintype="passive"/>
+      <node ref="Q1" pin="2" pinfunction="S_2" pintype="passive"/>
+      <node ref="Q1" pin="3" pinfunction="S_3" pintype="passive"/>
+      <node ref="Q2" pin="5" pinfunction="D_5" pintype="passive"/>
+      <node ref="Q2" pin="6" pinfunction="D_6" pintype="passive"/>
+      <node ref="Q2" pin="7" pinfunction="D_7" pintype="passive"/>
+      <node ref="Q2" pin="8" pinfunction="D_8" pintype="passive"/>
+      <node ref="Q2" pin="9" pinfunction="D_9" pintype="passive"/>
+    </net>
+    <net code="21" name="NTC_INPUT" class="Default">
+      <node ref="J4" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="R112" pin="2" pintype="passive"/>
+      <node ref="U1" pin="13" pinfunction="TS1_13" pintype="passive"/>
+    </net>
+    <net code="22" name="PACK_NEG" class="Default">
+      <node ref="J2" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="R114" pin="1" pintype="passive"/>
+      <node ref="RS1" pin="2" pintype="passive"/>
+    </net>
+    <net code="23" name="PACK_POS" class="Default">
+      <node ref="J2" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="Q2" pin="1" pinfunction="S_1" pintype="passive"/>
+      <node ref="Q2" pin="2" pinfunction="S_2" pintype="passive"/>
+      <node ref="Q2" pin="3" pinfunction="S_3" pintype="passive"/>
+    </net>
+    <net code="24" name="PACK_SENSE" class="Default">
+      <node ref="U1" pin="29" pinfunction="PACK_29" pintype="passive"/>
+    </net>
+    <net code="25" name="REG1_3V3" class="Default">
+      <node ref="C105" pin="1" pintype="passive"/>
+      <node ref="J3" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="R109" pin="1" pintype="passive"/>
+      <node ref="R110" pin="1" pintype="passive"/>
+      <node ref="TP3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="22" pinfunction="REG1_22" pintype="passive"/>
+    </net>
+    <net code="26" name="REG18" class="Default">
+      <node ref="C104" pin="1" pintype="passive"/>
+      <node ref="R112" pin="1" pintype="passive"/>
+      <node ref="U1" pin="15" pinfunction="REG18_15" pintype="passive"/>
+    </net>
+    <net code="27" name="REGIN" class="Default">
+      <node ref="U1" pin="23" pinfunction="REGIN_23" pintype="passive"/>
+      <node ref="U1" pin="24" pinfunction="BREG_24" pintype="passive"/>
+    </net>
+    <net code="28" name="SENSE_N" class="Default">
+      <node ref="R114" pin="2" pintype="passive"/>
+      <node ref="TP2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="12" pinfunction="SRN_12" pintype="passive"/>
+    </net>
+    <net code="29" name="SENSE_P" class="Default">
+      <node ref="R113" pin="2" pintype="passive"/>
+      <node ref="TP1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="11" pinfunction="SRP_11" pintype="passive"/>
+    </net>
+    <net code="30" name="unconnected-(U1-PCHG-Pad27)" class="Default">
+      <node ref="U1" pin="27" pinfunction="PCHG_27" pintype="passive+no_connect"/>
+    </net>
+    <net code="31" name="unconnected-(U1-PDSG-Pad26)" class="Default">
+      <node ref="U1" pin="26" pinfunction="PDSG_26" pintype="passive+no_connect"/>
+    </net>
+    <net code="32" name="unconnected-(U1-TS2-Pad14)" class="Default">
+      <node ref="U1" pin="14" pinfunction="TS2_14" pintype="passive+no_connect"/>
+    </net>
+  </nets>
+</export>

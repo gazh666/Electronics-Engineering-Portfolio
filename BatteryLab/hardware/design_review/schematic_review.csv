@@ -1,0 +1,24 @@
+item,requirement,evidence,status,note
+BQ76922 引脚编号与名称,32 引脚 + 热焊盘逐一对照官方引脚表,hardware/eda/requirements/bms_pin_mapping.csv（33 行，verified 全为 true）,PASS,来源 SLUSE86A p.3-4
+3S 电芯通道映射,cell1=VC1/VC0, cell2=VC2/VC1, cell3=VC5/VC4A,hardware/eda/requirements/bms_pin_mapping.csv 第 2-9 行,PASS,Table 8-3 要求 cell 1/2/5 必须接真实电芯
+未用 VC 通道,VC3A/VC3B 短接到相邻 VC（本设计到 VC2）,,PASS_DESIGN_INTENT,SLUSE86A Table 8-3 允许；实际连线未生成
+VC0 到 VSS,VC0 经 R/C 接 VSS,requirements/bms_design.yaml cell_input_filter,ACCEPTED,硬件未验证
+单体输入 RC,47 Ω + 0.22 µF 落在 20-100 Ω / 0.1-1 µF 推荐区间,hardware/afe/circuit_architecture.md；design_calculations.json cell_filter,PASS,一阶 RC 截止 7696 Hz
+分流电阻 Kelvin,SRP/SRN 从焊盘内侧独立走线,requirements/critical_net_rules.csv SENSE_P/SENSE_N,MANUAL_REVIEW,PCB 未生成，无法验证实际走线
+分流电阻 TC,建议 ≤ 50 ppm/°C,component_selection/shunt_comparison.csv,FAIL,WSL2010 为 75 ppm/°C，已知偏离
+MOSFET 驱动,CHG/DSG 高侧驱动参考点与官方一致,,MANUAL_REVIEW,缺少 EVM 实际栅极网络核对
+MOSFET 额定,CSD18540Q5B 60 V > 12.75 V 组端,component_selection/mosfet_comparison.csv,PASS,降额 21.25%
+均衡方案,选择芯片内部均衡而非外部 100 Ω 教学支路,requirements/balancing_design_review.csv,PASS_DESIGN_INTENT,外部电阻参与均衡的功耗已单列
+均衡电阻功率,47 Ω 在内部电阻最小时约 200.6 mW,design_calculations.json balancing,CONDITIONAL,必须使用 1206 0.25 W 以上并复核温升
+NTC 接口,TS1 输入上限 VREG18+0.3 V,requirements/interface_definition.csv J4,MANUAL_REVIEW,上拉必须到 REG18，不能到 REG1
+I2C 接口,400 kHz，上拉到 REG1 3.3 V,requirements/interface_definition.csv J3,PASS_DESIGN_INTENT,总线电容未实测
+REG18 用法,仅内部使用，不外供负载,requirements/bms_design.yaml,MANUAL_REVIEW,NTC 偏置使用 REG18 需按 TI 参考设计复核
+保护阈值,沿用第五阶段教学值,configs/protection_config.yaml,NOT_VERIFIED,未写入 BQ76922 OTP/寄存器
+BQ24610 引脚,24 引脚 + 热焊盘对照官方引脚表,requirements/charger_pin_mapping.csv（25 行）,PASS,来源 SLUS892D p.4
+BQ24610 充电电压,12.075 V（R2=475k, R1=100k）,design_calculations.json charger_voltage_feedback,PASS,单体 4.025 V < 4.25 V 过压
+BQ24610 充电电流,1.006 A（ISET1 分压）,design_calculations.json charger_current_settings,PASS,公式 V_ISET1/(20×R_SR)
+BQ24610 输入限流,1.500 A（ACSET 分压）,同上,PASS,公式 V_ACSET/(20×R_AC)
+BQ24610 开关频率,600 kHz（SLUS892D p.1）,requirements/charger_design.yaml,PASS,未沿用第六阶段 100 kHz
+BQ24610 反馈基准,2.1 V（SLUS892D p.17）,design_calculations.json,PASS,未凭空填入 2.5 V 或 1.2 V
+ERC 报告,真实 KiCad ERC,,BLOCKED,本机无 KiCad
+层次/网络标签,需要真实原理图,,BLOCKED,本机无 KiCad GUI

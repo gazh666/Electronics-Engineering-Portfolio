@@ -1,0 +1,71 @@
+version: "1.0"
+
+source_type: public_experimental_data
+
+# 第七阶段数据独立性声明（承接第三阶段 configs/dataset_split.yaml）
+#
+# 重要事实：
+#   - dst_50 为第三阶段训练集；dst_80 为训练内部开发段。
+#   - fuds_50 / fuds_80 在第三阶段已用于 ECM 阶数选择与参数复核，
+#     因此**不能再称为完全未见的独立测试集**，本阶段只作历史对照。
+#   - us06_50 / us06_80 / bjdst_50 / bjdst_80 未参与第三阶段调参，
+#     作为第七阶段独立测试工况。
+
+development:
+  datasets: [dst_50]
+  role: training
+  preferred_profile: DST
+
+development_validation:
+  datasets: [dst_80]
+  role: development
+  preferred_profile: separate_DST_segment
+  usage: 用于确定静置阈值、采样间隔与校正频率（仅此集合）。
+
+independent_test:
+  datasets: [us06_50, us06_80, bjdst_50, bjdst_80]
+  role: extra_validation
+  preferred_profiles: [US06, BJDST]
+  usage: >
+    参数冻结后运行一次；不得根据这些结果回调本阶段任何阈值或权重。
+
+historical_comparison_only:
+  datasets: [fuds_50, fuds_80]
+  role: independent_validation
+  note: >
+    已在第三阶段参与模型选择，仅作历史对照，不声明为未参与调参的独立测试。
+
+reference_soc:
+  method: recorded_capacity_balance
+  description: >
+    SOC0 = 1 - qd_start / Q_measured，qd 来自实验文件自身记录的累计放电容量，
+    Q_measured 为 SP2 实测容量。动态段参考轨迹由原始电流积分得到。
+  type: experimental_soc_reference
+  warning: >
+    这是实验数据推导的 SOC 参考轨迹，不是直接测量的真实 SOC。
+    若被测算法与参考轨迹使用同一电流、容量与初始状态，一致性只能证明积分实现一致。
+
+capacity_source:
+  value_ah: 2.0280827046460144
+  type: identified_model_capacity
+  model_id: calce_sp2_25c_inr18650_20r_first_order_v1
+
+temperature:
+  available_temperatures_c: [25]
+  temperature_extension_available: false
+  status: NOT_VERIFIED
+  reason: 已获取 CALCE 公开数据仅覆盖 25℃ 标称环境温度。
+
+rules:
+  freeze_parameters_before_test: true
+  allow_random_row_split: false
+  allow_test_parameter_tuning: false
+  allow_future_measurements: false
+  allow_reference_state_from_simulation: false
+
+evaluation:
+  reference_soc_min: 0.0
+  reference_soc_max: 1.0
+  mask_out_of_range_reference: true
+  report_coverage: true
+  common_valid_interval: true

@@ -1,0 +1,95 @@
+version: "1.0"
+description: 第三阶段辨识流程参数。所有阈值均记录来源与理由，便于复现。
+
+data_quality:
+  rest_current_tolerance_a: 0.01
+  minimum_discharge_current_a: 0.20
+  minimum_charge_current_a: 0.20
+  minimum_complete_discharge_s: 600
+  maximum_sampling_gap_s: 30
+  duplicate_time_tolerance_s: 1.0e-9
+
+capacity:
+  integration_method: zero_order_hold
+  lower_voltage_v: 2.5
+  upper_voltage_v: 4.2
+  compare_recorded_counter: true
+  note: >
+    容量用原始时间轴分段积分 ∫I dt / 3600；不跨工步缺口积分。文件自带容量计数器
+    在工步切换时会重置，因此不使用全文件最大值，而是取完整放电工步的增量。
+
+reference_soc:
+  method: coulomb_counting
+  coulombic_efficiency: 1.0
+  note: >
+    SOC 参考值由电流积分得到，是参考估计而非实测 SOC。SOC 越界必须报告，不得裁剪后隐藏。
+
+ocv:
+  low_current_max_abs_a: 0.20
+  soc_grid_points: 201
+  interpolation: piecewise_linear
+  comparison_interpolation: pchip
+  anchor_direction_capacity: branch_integral
+  note: >
+    低电流端电压仍含欧姆压降与极化。充放电平均只能在一定假设下减小方向相关误差，
+    不等于绝对平衡 OCV。
+
+incremental_ocv:
+  minimum_rest_s: 1800
+  end_window_s: 600
+  maximum_end_drift_v_per_h: 0.002
+  note: >
+    静置末端 600 s 电压漂移超过 2 mV/h 判定 RELAXATION_INCOMPLETE。
+
+pulse_detection:
+  rest_current_tolerance_a: 0.01
+  minimum_current_step_a: 0.20
+  minimum_pulse_s: 5.0
+  stability_window_s: 2.0
+  before_window_s: 2.0
+  after_window_s: 2.0
+  note: >
+    采样间隔约 1 s 时，阶跃后 1 s 电压已包含部分极化，因此 R0 称为
+    “指定时间窗口下的表观内阻”，不宣称瞬时纯欧姆内阻。
+
+relaxation:
+  minimum_rest_s: 1800
+  fit_min_points: 100
+  tau1_bounds_s: [5.0, 300.0]
+  tau2_bounds_s: [100.0, 5000.0]
+  maximum_relative_rmse: 0.02
+  note: >
+    静置段采样约 10 s，快速时间常数小于 5 s 不可辨识；慢时间常数需要静置长度
+    大于约 3 倍 tau2 才能可靠识别。
+
+dynamic_identification:
+  model_orders: [0, 1, 2]
+  initial_guesses: 5
+  random_seed: 20261126
+  maximum_function_evaluations: 200
+  refinement_function_evaluations: 300
+  initial_polarization_v: 0.0
+  initial_polarization_note: >
+    动态工况开始前文件中有 7200 s 静置，初始极化按 0 V 处理，并在结果中记录该假设。
+  loss: linear
+  comparison_loss: soft_l1
+  soc_penalty_v: 0.5
+  note: >
+    优化器 success=True 只表示算法停止原因正常，不代表参数唯一可靠。
+
+budget:
+  maximum_initializations_per_model: 8
+  maximum_function_evaluations: 300
+  maximum_wall_time_minutes: 30
+  profiles:
+    smoke:
+      initializations_per_model: 1
+    standard:
+      initializations_per_model: 5
+    extended:
+      enabled: false
+
+frozen_model:
+  directory: data/identified
+  model_id: calce_sp2_25c_inr18650_20r
+  note: 独立验证只读取冻结参数，不允许在验证脚本中隐式调参。

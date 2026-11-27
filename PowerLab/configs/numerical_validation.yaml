@@ -1,0 +1,60 @@
+# 第八阶段：数值验证计划与预算（初始计划，执行时按真实耗时调整）
+version: "1.0"
+
+timestep_convergence:
+  # 最大时间步长（秒），从粗到细
+  maximum_steps_s:
+    - 0.0000002
+    - 0.0000001
+    - 0.00000005
+    - 0.000000025
+    - 0.0000000125
+  minimum_consecutive_stable_pairs: 2
+  # 指标级容差：allowed = max(absolute, relative * |fine|)
+  metric_tolerances:
+    output_voltage_mean_v:
+      absolute_tolerance: 0.001
+      relative_tolerance: 0.0
+    output_voltage_ripple_vpp:
+      absolute_tolerance: 0.0005
+      relative_tolerance: 0.02
+    inductor_current_ripple_a:
+      absolute_tolerance: 0.0
+      relative_tolerance: 0.01
+    inductor_current_peak_a:
+      absolute_tolerance: 0.005
+      relative_tolerance: 0.0
+    efficiency_system_percent:
+      absolute_tolerance: 0.1
+      relative_tolerance: 0.0
+    total_loss_w:
+      absolute_tolerance: 0.01
+      relative_tolerance: 0.02
+    power_residual_ratio:
+      absolute_tolerance: 0.005
+      relative_tolerance: 0.0
+
+solver_comparison:
+  integration_methods:
+    - trap
+    - gear
+  relative_tolerances:
+    - 0.001
+    - 0.0001
+    - 0.00001
+  absolute_current_tolerances_a:
+    - 0.000000000001
+    - 0.0000000000001
+  voltage_tolerances_v:
+    - 0.000001
+    - 0.0000001
+
+execution:
+  default_mode: serial
+  maximum_unique_spice_runs: 120
+  maximum_wall_time_minutes: 60
+  maximum_case_wall_time_seconds: 300
+  checkpoint_every_cases: 1
+
+metadata:
+  specification_type: project_assumption

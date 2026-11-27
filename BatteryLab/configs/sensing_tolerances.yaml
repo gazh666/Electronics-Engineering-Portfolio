@@ -1,0 +1,39 @@
+version: "1.0"
+
+# Task 28 器件容差实验配置。
+# 默认为独立均匀分布的教学容差假设，不代表真实生产批次统计分布。
+# 每项都标记证据等级：
+#   teaching_assumption / datasheet_max / datasheet_typical / production_statistics
+source_type: educational_assumption
+distribution: uniform_independent
+
+random_seed: 42
+sample_count: 1000
+
+voltage_sensing:
+  resistor_tolerance_percent: 0.1
+  opamp_input_offset_max_v: 0.0001
+  evidence: teaching_assumption
+  alternative_resistor_tolerances_percent: [0.0, 1.0, 0.1]
+
+current_sensing:
+  shunt_tolerance_percent: 0.5
+  amplifier_gain_tolerance_percent: 0.2
+  input_offset_max_v: 0.000025
+  gain_evidence: datasheet_max
+  offset_evidence: datasheet_max
+
+adc:
+  reference_tolerance_percent: 0.1
+  input_offset_max_v: 0.0005
+  evidence: teaching_assumption
+
+ntc:
+  r25_tolerance_percent: 1.0
+  beta_tolerance_percent: 1.0
+  pullup_tolerance_percent: 0.1
+  evidence: teaching_assumption
+
+corner_selection:
+  # 用于真实 SPICE 复验的有限角点（不把 1000 组数学样本说成 1000 次 SPICE）
+  samples_per_channel: 4

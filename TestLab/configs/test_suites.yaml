@@ -1,0 +1,62 @@
+# TestLab 测试方案（阶段七）
+#
+# 字段：
+#   id           方案编号
+#   name         方案名称
+#   cases        按执行顺序排列的用例编号（必须存在于 test_cases.yaml）
+#   stop_on_fail 任一下列用例 FAIL 后是否停止（默认 false，跑完整个方案）
+#   stop_on_error ERROR 后是否停止（默认 true，避免在异常环境继续执行）
+#
+# 方案只引用用例编号，不复制用例参数，避免同一阈值出现两份。
+
+version: "1.0"
+specification_type: "test_suite_definition"
+
+test_suites:
+  - id: SUITE-SMOKE
+    name: 冒烟测试
+    cases:
+      - TC001
+      - TC003
+    stop_on_fail: false
+    stop_on_error: true
+
+  - id: SUITE-PROTECTION
+    name: 保护功能测试
+    cases:
+      - TC007
+      - TC008
+      - TC009
+      - TC010
+    stop_on_fail: true
+    stop_on_error: true
+
+  - id: SUITE-REGRESSION
+    name: 完整回归测试
+    cases:
+      - TC001
+      - TC002
+      - TC003
+      - TC004
+      - TC005
+      - TC006
+      - TC007
+      - TC008
+      - TC009
+      - TC010
+      - TC011
+      - TC012
+    stop_on_fail: false
+    stop_on_error: true
+
+  # 阶段八验收使用的普通回归方案（不加载任何故障场景）。
+  - id: SUITE005
+    name: 阶段八普通回归（无故障注入）
+    cases:
+      - TC001
+      - TC002
+      - TC003
+      - TC011
+      - TC012
+    stop_on_fail: false
+    stop_on_error: true

@@ -1,0 +1,21 @@
+parameter,min,typ,max,unit,conditions,document_version,section,page,design_impact,source_type
+增益（INA240A2）,,50,,V/V,A2 版本,SBOS662C (2016-07; rev 2021-12),7.5 Electrical Characteristics,5,本设计跨导 50*0.01=0.5 V/A,datasheet_specification
+共模输入范围,-4,,80,V,VIN+=-4-80 V; VSENSE=0; TA=-40-125℃,SBOS662C,7.5,5,3S 组端 12.75 V 远在范围内,datasheet_specification
+共模抑制比（DC）,120,132,,dB,VIN+=-4-80 V; VSENSE=0; TA=-40-125℃,SBOS662C,7.5,5,共模误差远小于电阻失配,datasheet_specification
+共模抑制比（50 kHz）,,93,,dB,f=50 kHz,SBOS662C,7.5,5,高频 PWM 干扰抑制,datasheet_specification
+输入失调电压,-25,5,25,µV,VSENSE=0; 输入折算,SBOS662C,7.5,5,10 mΩ 时折算 2.5 mA,datasheet_specification
+输入失调温漂,-250,50,250,nV/℃,VSENSE=0; TA=-40-125℃,SBOS662C,7.5,5,全温区零点漂移,datasheet_specification
+电源抑制比,-10,1,10,µV/V,VS=2.7-5.5 V; VSENSE=0,SBOS662C,7.5,5,供电波动影响,datasheet_specification
+增益误差,-0.20,0.05,0.20,%,GND+50 mV ≤ VOUT ≤ VS-200 mV,SBOS662C,7.5,5,两点校准可显著降低,datasheet_specification
+增益误差温漂,-2.5,0.5,2.5,ppm/℃,TA=-40-125℃,SBOS662C,7.5,5,全温区增益漂移,datasheet_specification
+非线性误差,,0.01,,%,GND+10 mV ≤ VOUT ≤ VS-200 mV,SBOS662C,7.5,5,电流线性度好于分流电阻容差,datasheet_specification
+参考分压精度,,0.02,0.1,%,VOUT=|VREF1-VREF2|/2; VSENSE=0,SBOS662C,7.5,5,1.65 V 零点精度,datasheet_specification
+参考电压抑制比（A2）,,2,,µV/V,输入折算,SBOS662C,7.5,5,REF 引脚噪声抑制,datasheet_specification
+带宽,,400,,kHz,-3 dB; 所有增益,SBOS662C,7.5,5,电流环带宽,datasheet_specification
+压摆率,,2,,V/µs,-,SBOS662C,7.5,5,大信号阶跃响应,datasheet_specification
+输入电压噪声密度,,40,,nV/√Hz,输入折算,SBOS662C,7.5,5,10 mΩ 时 4 mA/√Hz 量级,datasheet_specification
+输出摆幅到 VS,VS-0.2,VS-0.05,,V,RL=10 kΩ; TA=-40-125℃,SBOS662C,7.5,5,3.4 V 输出仍可,datasheet_specification
+静态电流,1.8,2.4,2.6,mA,VSENSE=0; 全温区最大 2.6 mA,SBOS662C,7.5,5,系统静态功耗,datasheet_specification
+供电电压,2.7,,5.5,V,TA=-40-125℃,SBOS662C,7.5,5,5 V 单电源,datasheet_specification
+工作温度范围,-40,,125,℃,-,SBOS662C,7.5,5,车载/储能温度,datasheet_specification
+最大容性负载,,,1,nF,无持续振荡,SBOS662C,7.5,5,输出 RC 滤波电容需考虑,datasheet_specification

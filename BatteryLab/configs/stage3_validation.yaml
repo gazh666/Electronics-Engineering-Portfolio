@@ -1,0 +1,57 @@
+version: "1.0"
+description: >
+  第三阶段工程验收标准。以下限值在运行最终独立 FUDS 验证之前登记，
+  属于本项目教学工程目标，不是行业强制标准。结果未达到时保留 FAIL。
+
+preregistered_at: "2026-11-26"
+preregistered_before_final_validation: true
+
+independent_validation:
+  dataset: calce_inr18650_20r_sp2_25c_fuds
+  temperature_c: 25
+  rmse_v: 0.030
+  mae_v: 0.025
+  maximum_absolute_error_v: 0.100
+  note: >
+    电压 RMSE ≤ 30 mV、MAE ≤ 25 mV、最大绝对误差 ≤ 100 mV。
+    限值一旦登记不得因为结果不理想而上调。
+
+spice_cross_validation:
+  model: second_order_rc
+  fixed_ocv: true
+  maximum_voltage_difference_v: 0.001
+  exclusion_window_s: 0.15
+  note: >
+    同参数、同输入、同初始状态下的模型实现一致性目标 1 mV，
+    不代表真实电池预测误差。
+
+math_checks:
+  capacity_integration_relative_error: 1.0e-9
+  soc_sign_consistency: exact
+  ocv_interpolation_error_v: 1.0e-12
+  rc_state_recovery_relative_error: 1.0e-6
+
+parameter_quality:
+  boundary_relative_tolerance: 0.01
+  weakly_identifiable_condition_number: 1.0e6
+  multi_start_relative_spread: 0.20
+  note: >
+    参数触及边界容差 1%；Jacobian 条件数大于 1e6 或多初值相对离散度大于 20%
+    标记 WEAKLY_IDENTIFIABLE。
+
+model_selection:
+  prefer_lower_order_if_rmse_within_percent: 10
+  note: >
+    若一阶 RC 的独立验证 RMSE 与二阶 RC 相差不超过 10%，且二阶参数弱可辨识，
+    优先推荐一阶 RC。
+
+temperature:
+  available_temperatures_c: [25]
+  target_temperatures_c: [0, 25, 45]
+  status: NOT_VERIFIED
+  note: 缺少 0℃ 与 45℃ 真实实验数据，跨温度与分温度辨识标记 NOT_VERIFIED。
+
+data_leakage:
+  allow_using_validation_for_parameter_update: false
+  allow_using_validation_for_model_order: false
+  note: 模型阶数只用训练数据与训练内部开发段（DST 50%/80%）确定。

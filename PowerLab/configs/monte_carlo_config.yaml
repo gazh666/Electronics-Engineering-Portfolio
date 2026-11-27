@@ -1,0 +1,46 @@
+# 第八阶段：Monte Carlo 采样配置
+version: "1.0"
+
+sampling:
+  method: independent_random
+  random_seed: 42
+  distribution_source: educational_assumption
+  numpy_rng: "PCG64 (numpy.random.default_rng)"
+  parameter_names:
+    - inductance_h
+    - capacitance_f
+    - inductor_dcr_ohm
+    - capacitor_esr_ohm
+    - mosfet_kp_multiplier
+    - diode_series_resistance_ohm
+
+profiles:
+  smoke:
+    sample_count: 5
+  standard:
+    sample_count: 30
+  extended:
+    sample_count: 100
+    require_explicit_confirmation: true
+
+analysis:
+  confidence_level: 0.95
+  percentiles:
+    - 5
+    - 25
+    - 50
+    - 75
+    - 95
+  metrics:
+    - output_voltage_mean_v
+    - output_voltage_ripple_vpp
+    - inductor_current_ripple_a
+    - inductor_current_peak_a
+    - efficiency_system_percent
+    - total_loss_w
+
+execution:
+  reuse_valid_cache: true
+  preserve_failed_samples: true
+  continue_on_case_failure: true
+  checkpoint_every_cases: 1

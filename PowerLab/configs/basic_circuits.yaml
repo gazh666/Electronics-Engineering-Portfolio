@@ -1,0 +1,73 @@
+# PowerLab 第二阶段：基础电路仿真配置
+# 所有数值均为 SI 单位；修改后必须通过 circuits.validators 校验。
+version: "1.0"
+simulation_temperature_c: 25.0
+
+voltage_divider:
+  vin_v: 12.0
+  r1_ohm: 1000.0
+  r2_ohm: 1000.0
+  dc_sweep:
+    start_v: 0.0
+    stop_v: 12.0
+    step_v: 0.5
+
+rc:
+  input_v: 5.0
+  resistance_ohm: 1000.0
+  capacitance_f: 0.000001
+  rise_time_s: 0.000001
+  transient:
+    step_s: 0.00001
+    end_s: 0.012
+  ac:
+    start_hz: 1.0
+    stop_hz: 100000.0
+    points_per_decade: 50
+    variation: dec
+
+rl:
+  input_v: 5.0
+  resistance_ohm: 10.0
+  inductance_h: 0.01
+  rise_time_s: 0.000001
+  transient:
+    step_s: 0.00001
+    end_s: 0.006
+
+rlc:
+  input_v: 5.0
+  inductance_h: 0.01
+  capacitance_f: 0.000001
+  rise_time_s: 0.000001
+  damping_resistances_ohm:
+    - 10.0
+    - 200.0
+    - 400.0
+  transient:
+    step_s: 0.0000005
+    end_s: 0.02
+  ac:
+    start_hz: 10.0
+    stop_hz: 100000.0
+    points_per_decade: 200
+    variation: dec
+
+diode:
+  saturation_current_a: 0.000000001
+  ideality_factor: 1.8
+  series_resistance_ohm: 0.5
+  temperature_c: 25.0
+  dc_sweep:
+    start_v: -1.0
+    stop_v: 0.8
+    step_v: 0.01
+
+rectifier:
+  input_peak_v: 10.0
+  frequency_hz: 50.0
+  source_resistance_ohm: 1.0
+  load_resistance_ohm: 1000.0
+  transient:
+    step_s: 0.00002
+    end_s: 0.1

@@ -1,0 +1,18 @@
+name: kaifa_battery
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - pybamm==26.11.0.0
+      - numpy==2.4.6
+      - scipy==1.17.1
+      - pandas==3.1.1
+      - matplotlib==3.11.2
+      - openpyxl==3.1.5
+      - PyYAML==6.0.4
+      - requests==2.34.2
+      - PySpice==1.5
+      - pypdf==7.1.1
+      - pytest==9.2.0

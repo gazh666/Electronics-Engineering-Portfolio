@@ -1,0 +1,35 @@
+# PowerLab 第四阶段：非理想 Buck 验收判据
+# 说明：容差为工程教学验证假设，不是商业产品规格。
+version: "1.0"
+
+integration:
+  # 额定负载下实际输出必须落在的合理工作区间（不强制等于 5 V）
+  output_voltage_min_v: 3.5
+  output_voltage_max_v: 5.5
+  # 稳态判定要求
+  require_steady_state: true
+  minimum_complete_cycles: 10
+
+power:
+  # 功率级与系统效率的合理上界（超过则触发数据质量审查，不截断）
+  efficiency_warning_above_percent: 100.5
+  # 输入平均功率低于该值时效率不可定义
+  minimum_input_power_w: 1.0e-3
+  # 能量平衡相对残差告警阈值
+  energy_balance_relative_residual_warning: 0.15
+
+losses:
+  # DCR / ESR 损耗必须非负；允许的数值积分下限
+  minimum_nonnegative_loss_w: 0.0
+
+device:
+  # 截止状态漏电流相对导通电流的最大比例
+  off_state_current_ratio_max: 1.0e-3
+  # 目标工作点有效导通电阻的合理区间
+  rds_on_min_ohm: 0.001
+  rds_on_max_ohm: 0.5
+  # 二极管正向压降合理区间（教学模型，非肖特基实测）
+  diode_forward_drop_min_v: 0.2
+  diode_forward_drop_max_v: 1.5
+  # 反向漏电流上限
+  diode_reverse_current_max_a: 1.0e-3
